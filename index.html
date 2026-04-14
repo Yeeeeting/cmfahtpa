@@ -311,9 +311,9 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 .side-rail{
   position:fixed;right:1.5rem;top:50%;transform:translateY(-50%);
   z-index:40;display:flex;flex-direction:column;gap:.3rem;
-  padding:1.25rem 1rem;background:rgba(26,43,60,.96);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.08);border-radius:3px;
-  box-shadow:0 10px 40px rgba(26,43,60,.28), 0 2px 8px rgba(26,43,60,.2);
+  padding:1.25rem 1rem;background:rgba(212,165,116,.96);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.15);border-radius:3px;
+  box-shadow:0 10px 40px rgba(140,95,50,.28), 0 2px 8px rgba(140,95,50,.2);
   transition:opacity .3s;opacity:0;pointer-events:none;
 }
 .side-rail.visible{opacity:1;pointer-events:auto}
@@ -324,30 +324,30 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 }
 .rail-item{
   display:flex;align-items:center;gap:.7rem;cursor:pointer;
-  padding:.45rem .35rem;color:rgba(250,247,242,.55);
+  padding:.45rem .35rem;color:#ffffff;
   transition:color .2s, background .2s;
   font-size:.78rem;font-weight:500;text-decoration:none;
   border-radius:2px;
 }
-.rail-item:hover{color:#faf7f2;background:rgba(255,255,255,.06)}
-.rail-item.active{color:#fff;font-weight:600;background:rgba(176,48,48,.22)}
+.rail-item:hover{color:#faf7f2;background:rgba(255,255,255,.12)}
+.rail-item.active{color:#1a2b3c;font-weight:700;background:rgba(255,238,200,.55);box-shadow:inset 0 0 0 1px rgba(26,43,60,.12)}
 .rail-dot{
   width:7px;height:7px;border-radius:50%;
-  background:rgba(250,247,242,.35);
+  background:rgba(255,255,255,.7);
   flex-shrink:0;transition:all .25s;
   position:relative;
 }
 .rail-item:hover .rail-dot{background:#faf7f2}
 .rail-item.active .rail-dot{
-  background:#d4a574;
-  box-shadow:0 0 0 4px rgba(212,165,116,.22);
+  background:#1a2b3c;
+  box-shadow:0 0 0 4px rgba(26,43,60,.18);
 }
 .rail-num{
   font-family:'Fraunces','Noto Sans TC',serif;font-style:italic;font-weight:700;
-  font-size:.7rem;color:rgba(250,247,242,.3);min-width:1.2em;
+  font-size:.7rem;color:rgba(255,255,255,.75);min-width:1.2em;
 }
-.rail-item:hover .rail-num{color:rgba(250,247,242,.7)}
-.rail-item.active .rail-num{color:#d4a574}
+.rail-item:hover .rail-num{color:#faf7f2}
+.rail-item.active .rail-num{color:#1a2b3c}
 .rail-label{flex:1;white-space:nowrap}
 
 /* Top thin progress bar */
