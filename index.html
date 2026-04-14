@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="奇美醫療財團法人奇美醫院臨床醫事人員培訓計畫 112-114 年度問卷趨勢分析,內部參考用。">
 <title>CHI MEI MEDICAL CENTER · 臨床醫事人員培訓計畫 | 112–114 三年度趨勢分析</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +77,7 @@ body{
   font-size:clamp(2rem,4.5vw,3.6rem);
   line-height:1.15;letter-spacing:-.02em;margin-bottom:.8rem;
 }
-.hero-title span{color:#d4a574;font-style:italic;font-family:'Fraunces','Noto Sans TC',serif;font-weight:800}
+.hero-title span{color:#d4a574;font-family:'Fraunces','Noto Sans TC',serif;font-weight:800}
 .hero-sub{font-size:1.1rem;color:#c9c2b3;max-width:720px;line-height:1.55}
 .hero-meta{
   text-align:right;border-left:1px solid rgba(250,247,242,.2);padding-left:2rem;
@@ -110,7 +112,7 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 }
 .section-num{
   font-family:'Fraunces','Noto Sans TC',serif;font-weight:800;font-size:2.2rem;color:var(--red);
-  font-style:italic;line-height:1;
+  line-height:1;
 }
 .section-title{
   font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;font-size:1.9rem;
@@ -165,7 +167,7 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 .insight.critical{background:var(--red-bg);border-color:var(--red-soft)}
 .insight.good{background:var(--green-bg);border-color:var(--green-soft)}
 .insight .num-big{
-  font-family:'Fraunces','Noto Sans TC',serif;font-weight:800;font-style:italic;
+  font-family:'Fraunces','Noto Sans TC',serif;font-weight:800;
   position:absolute;top:.5rem;left:.75rem;font-size:2.2rem;color:var(--line-strong);line-height:1;
 }
 .insight.critical .num-big{color:var(--red-soft)}
@@ -220,7 +222,7 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 .q-table .trend.up{color:var(--green)}
 .q-table .trend.dn{color:var(--red)}
 .q-table .trend.fl{color:var(--muted)}
-.q-table .na{color:var(--line-strong);font-style:italic}
+.q-table .na{color:var(--line-strong);}
 .q-table .diff-neg{color:var(--red);font-weight:600}
 .q-table .diff-pos{color:var(--green);font-weight:600}
 .q-table tr.reworded td:first-child::after{content:"⚑";color:var(--amber);font-size:.75rem;margin-left:.3em}
@@ -267,6 +269,39 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 .bar-wrap .mid{position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--ink)}
 .tornado-row .nums-mini{font-family:'Fraunces','Noto Sans TC',serif;font-size:.78rem;font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
 
+
+/* Comparison notice box */
+.compare-notice{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:#eaf3ee;border-left:4px solid var(--green);
+  padding:1rem 1.25rem;margin-bottom:1.5rem;border-radius:0 2px 2px 0;
+}
+.compare-notice-self{background:#fdf6e8;border-left-color:#d4a574}
+.compare-notice-icon{
+  font-family:'Fraunces','Noto Sans TC',serif;font-size:1.5rem;font-weight:700;
+  color:#a66f1c;flex-shrink:0;line-height:1;margin-top:.1em;
+}
+.compare-notice-title{
+  font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;
+  color:var(--ink);font-size:.95rem;margin-bottom:.35rem;
+}
+.compare-notice-title strong{color:#a66f1c}
+.compare-notice-body{font-size:.85rem;color:var(--ink-soft);line-height:1.65}
+.compare-notice-body strong{color:var(--ink);font-weight:600}
+.inline-link{
+  display:inline;cursor:pointer;color:var(--red);
+  border-bottom:1px dashed var(--red);font-weight:500;
+  text-decoration:none;
+}
+.inline-link:hover{background:var(--red-bg)}
+
+/* Mini label inside tornado row */
+.nums-mini .mini-label{
+  display:inline-block;font-size:.62rem;color:var(--muted);
+  letter-spacing:.1em;margin-right:.35em;
+  font-family:'Noto Sans TC',sans-serif;font-weight:500;
+}
+
 /* Persistent lag small multiples */
 .sm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
 .sm{background:var(--paper);border:1px solid var(--line);padding:1.1rem}
@@ -300,7 +335,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 
 /* Utility */
 .muted{color:var(--muted)}
-.em{font-style:italic;font-family:'Fraunces','Noto Sans TC',serif}
+.em{font-family:'Fraunces','Noto Sans TC',serif}
 .tag{display:inline-block;padding:.15rem .55rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
 .tag.red{background:var(--red-bg);color:var(--red)}
 .tag.green{background:var(--green-bg);color:var(--green)}
@@ -343,7 +378,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   box-shadow:0 0 0 4px rgba(26,43,60,.18);
 }
 .rail-num{
-  font-family:'Fraunces','Noto Sans TC',serif;font-style:italic;font-weight:700;
+  font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;
   font-size:.7rem;color:rgba(255,255,255,.75);min-width:1.2em;
 }
 .rail-item:hover .rail-num{color:#faf7f2}
@@ -358,6 +393,68 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 .top-progress-fill{
   height:100%;background:linear-gradient(90deg,#1a2b3c 0%,#b03030 100%);
   width:0%;transition:width .1s;
+}
+
+
+/* Recommendations block */
+.rec-block{margin-top:4rem;padding:2.5rem 2rem;background:linear-gradient(180deg,#f3ede3 0%,#eae2d2 100%);border-left:4px solid var(--ink);position:relative}
+.rec-block::before{content:"";position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle at top right,rgba(212,165,116,.15) 0%,transparent 70%);pointer-events:none}
+.rec-header{margin-bottom:2rem;position:relative;z-index:1}
+.rec-eyebrow{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.5rem}
+.rec-title{font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;font-size:1.6rem;margin-bottom:.5rem;letter-spacing:-.01em}
+.rec-sub{color:var(--ink-soft);font-size:.9rem;max-width:680px;line-height:1.65}
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;position:relative;z-index:1}
+.rec-card{background:var(--paper);padding:1.5rem;position:relative;border-top:3px solid transparent;transition:transform .2s,box-shadow .2s}
+.rec-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,43,60,.08)}
+.rec-card.p1{border-top-color:var(--red)}
+.rec-card.p2{border-top-color:#d4a574}
+.rec-card.p3{border-top-color:var(--muted)}
+.rec-badge{display:inline-block;font-family:'Fraunces','Noto Sans TC',serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;padding:.25rem .6rem;margin-bottom:.75rem;border-radius:2px}
+.rec-card.p1 .rec-badge{background:var(--red-bg);color:var(--red)}
+.rec-card.p2 .rec-badge{background:#faefd7;color:#a66f1c}
+.rec-card.p3 .rec-badge{background:var(--bg-alt);color:var(--muted)}
+.rec-card h4{font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;font-size:1rem;margin-bottom:.5rem;line-height:1.4}
+.rec-card p{font-size:.85rem;color:var(--ink-soft);line-height:1.65}
+
+/* Mobile TOC button */
+.mobile-toc-btn{
+  display:none;
+  position:fixed;bottom:1.25rem;right:1.25rem;z-index:100;
+  width:52px;height:52px;border-radius:50%;border:none;
+  background:#1a2b3c;color:#fff;cursor:pointer;
+  box-shadow:0 8px 24px rgba(26,43,60,.35);
+  align-items:center;justify-content:center;
+  font-size:1.3rem;
+  transition:transform .2s;
+}
+.mobile-toc-btn:hover{transform:scale(1.08)}
+.mobile-toc-btn:active{transform:scale(.95)}
+.mobile-toc-btn svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.mobile-toc-panel{
+  display:none;
+  position:fixed;inset:0;z-index:99;
+  background:rgba(26,43,60,.88);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+  padding:2rem;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.mobile-toc-panel.open{opacity:1;pointer-events:auto}
+.mobile-toc-inner{
+  background:#d4a574;padding:1.5rem 1rem;border-radius:4px;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+  max-width:320px;width:100%;
+}
+.mobile-toc-inner .rail-item{color:#fff;padding:.7rem .5rem;font-size:.95rem}
+.mobile-toc-inner .rail-item:hover{background:rgba(255,255,255,.1)}
+.mobile-toc-inner .rail-item.active{color:#1a2b3c;background:rgba(255,238,200,.55);font-weight:700}
+.mobile-toc-inner .rail-num{font-size:.75rem;color:rgba(255,255,255,.75)}
+.mobile-toc-inner .rail-item.active .rail-num{color:#1a2b3c}
+.mobile-toc-inner .rail-dot{background:rgba(255,255,255,.7)}
+.mobile-toc-inner .rail-item.active .rail-dot{background:#1a2b3c}
+
+@media (max-width:1100px){
+  .mobile-toc-btn{display:flex}
 }
 
 @media (max-width:1100px){
@@ -395,21 +492,37 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 
 <div class="top-progress"><div class="top-progress-fill" id="top-progress-fill"></div></div>
 
+
+<button class="mobile-toc-btn" id="mobile-toc-btn" aria-label="目錄" type="button">
+  <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
+</button>
+<div class="mobile-toc-panel" id="mobile-toc-panel">
+  <div class="mobile-toc-inner">
+    <div role="button" tabindex="0" class="rail-item" data-scroll="summary" data-mobile><span class="rail-num">01</span><span class="rail-dot"></span><span class="rail-label">執行摘要</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="teacher" data-mobile><span class="rail-num">02</span><span class="rail-dot"></span><span class="rail-label">教師端</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="trainee" data-mobile><span class="rail-num">03</span><span class="rail-dot"></span><span class="rail-label">受訓人員端</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="decline" data-mobile><span class="rail-num">04</span><span class="rail-dot"></span><span class="rail-label">114 vs 113 題目變化</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="persist" data-mobile><span class="rail-num">05</span><span class="rail-dot"></span><span class="rail-label">三年連續低於全國</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="response" data-mobile><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">填答人數分析</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="method" data-mobile><span class="rail-num">07</span><span class="rail-dot"></span><span class="rail-label">分析方法</span></div>
+  </div>
+</div>
+
 <aside class="side-rail" id="side-rail" aria-label="章節進度">
   <div role="button" tabindex="0" class="rail-item" data-scroll="summary"><span class="rail-num">01</span><span class="rail-dot"></span><span class="rail-label">執行摘要</span></div>
   <div role="button" tabindex="0" class="rail-item" data-scroll="teacher"><span class="rail-num">02</span><span class="rail-dot"></span><span class="rail-label">教師端</span></div>
   <div role="button" tabindex="0" class="rail-item" data-scroll="trainee"><span class="rail-num">03</span><span class="rail-dot"></span><span class="rail-label">受訓人員端</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="decline"><span class="rail-num">04</span><span class="rail-dot"></span><span class="rail-label">衰退紅單</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="persist"><span class="rail-num">05</span><span class="rail-dot"></span><span class="rail-label">結構性落後</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="response"><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">填答人數</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="method"><span class="rail-num">07</span><span class="rail-dot"></span><span class="rail-label">方法論</span></div>
+  <div role="button" tabindex="0" class="rail-item" data-scroll="decline"><span class="rail-num">04</span><span class="rail-dot"></span><span class="rail-label">114 vs 113 題目變化</span></div>
+  <div role="button" tabindex="0" class="rail-item" data-scroll="persist"><span class="rail-num">05</span><span class="rail-dot"></span><span class="rail-label">三年連續低於全國</span></div>
+  <div role="button" tabindex="0" class="rail-item" data-scroll="response"><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">填答人數分析</span></div>
+  <div role="button" tabindex="0" class="rail-item" data-scroll="method"><span class="rail-num">07</span><span class="rail-dot"></span><span class="rail-label">分析方法</span></div>
 </aside>
 
 <header class="hero">
   <div class="hero-grid">
     <div>
       <div class="hero-eyebrow">奇美醫療財團法人奇美醫院 · CHI MEI MEDICAL CENTER</div>
-      <h1 class="hero-title fade-in">臨床醫事人員培訓計畫<br><span>三年度趨勢解讀</span></h1>
+      <h1 class="hero-title fade-in">臨床醫事人員培訓計畫<br><span>年度趨勢分析</span></h1>
       <p class="hero-sub fade-in">112 / 113 / 114 年度<strong style="color:#d4a574;font-weight:600">指標 1 · 受訓人員計畫執行調查</strong>與<strong style="color:#d4a574;font-weight:600">指標 2 · 教師計畫執行調查</strong>三年趨勢解讀。教師端 113 年滿意度為三年最高,114 年回到較接近 112 年水準;受訓人員端與全國差距逐年擴大。本頁提供逐題對照、衰退紅單與結構性問題定位。</p>
     </div>
     <div class="hero-meta">
@@ -431,7 +544,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   <div class="section-head">
     <div class="section-num">01</div>
     <div>
-      <div class="section-kicker">Executive Summary</div>
+      <div class="section-kicker">三年軌跡總覽</div>
       <h2 class="section-title">執行摘要 <span class="em muted">— 三年軌跡總覽</span></h2>
     </div>
   </div>
@@ -513,7 +626,48 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     <div class="insight good">
       <div class="num-big">7</div>
       <h3>受訓人員自我能力評量呈上升趨勢</h3>
-      <p>「團隊溝通」「病人溝通」「臨床實務」「學校銜接臨床」四項自我評量三年上升(+2 至 +3 分),滿意度卻退步。訓練成效指標呈正向,但<strong>但組織環境支持相關題目滿意度呈下降</strong>。</p>
+      <p>「團隊溝通」「病人溝通」「臨床實務」「學校銜接臨床」四項自我評量三年上升(+2 至 +3 分),滿意度卻退步。訓練成效指標呈正向,但<strong>組織環境支持相關題目滿意度呈下降</strong>。</p>
+    </div>
+  </div>
+
+  <!-- Recommendations block -->
+  <div class="rec-block">
+    <div class="rec-header">
+      <div class="rec-eyebrow">ACTION</div>
+      <h3 class="rec-title">建議行動 <span class="em muted">— 依三年趨勢數據歸納</span></h3>
+      <p class="rec-sub">以下六項建議依優先序 P1–P3 分類,P1 為指標降幅最大或與未來發展最相關者,建議優先檢討;P2 為需後續回溯與比對;P3 為系統性改善項目。</p>
+    </div>
+    <div class="rec-grid">
+      <div class="rec-card p1">
+        <div class="rec-badge">P1</div>
+        <h4>受訓人員留任與未來投入教職意願</h4>
+        <p>深入訪談為何「未來樂意擔任臨床教師」三年降 12.84 分、差距擴大至 -12.47;檢討導師制度與臨床教師職涯誘因規劃。</p>
+      </div>
+      <div class="rec-card p1">
+        <div class="rec-badge">P1</div>
+        <h4>工作負荷與排班</h4>
+        <p>受訓「工作時間負荷」差距惡化至 -9.42(全國改善、本院未同步);檢視科部排班、訓練時間安排,及交班/值班結構。</p>
+      </div>
+      <div class="rec-card p2">
+        <div class="rec-badge">P2</div>
+        <h4>教師獎勵與教學貢獻回饋</h4>
+        <p>「教學津貼合理」113 年大幅改善 (+5.73) 但 114 年回退 (-3.63);回溯 113 年有效作為,檢討為何未延續至 114。</p>
+      </div>
+      <div class="rec-card p2">
+        <div class="rec-badge">P2</div>
+        <h4>師資培育課程與資源</h4>
+        <p>多項師培相關指標 114 年較 113 年回落 5-10 分;檢視課程品質、補助機制,以及教學貢獻於考核中的比重分配。</p>
+      </div>
+      <div class="rec-card p3">
+        <div class="rec-badge">P3</div>
+        <h4>學習紀錄系統</h4>
+        <p>受訓「記載學習紀錄幫助反思」三年連續低於全國;檢視系統介面友善度、填寫時間負擔,以及教師引導配套。</p>
+      </div>
+      <div class="rec-card p3">
+        <div class="rec-badge">P3</div>
+        <h4>權益反映管道溝通</h4>
+        <p>受訓「醫院提供權益反映管道」114 年差距驟降至 -5.56;強化管道曝光度、具體化申訴流程與回應時效。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -525,6 +679,14 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     <div>
       <div class="section-kicker">指標 2 · 教師計畫執行調查</div>
       <h2 class="section-title">教師端 · 逐題趨勢 <span class="em muted">— 33 題</span></h2>
+    </div>
+  </div>
+
+  <div class="compare-notice">
+    <div class="compare-notice-icon" style="color:var(--green)">ℹ</div>
+    <div>
+      <div class="compare-notice-title">本章節比較對象:<strong style="color:var(--green)">本院</strong> vs <strong style="color:var(--green)">全國</strong>(三年度)</div>
+      <div class="compare-notice-body">三年趨勢圖顯示本院與全國各年度滿意度;差距條形圖為 114 年本院與全國之差距。如需本院自身前後年比較,請參考章節 <span role="button" tabindex="0" class="inline-link" data-scroll="decline">04 本院前後年變化</span>。</div>
     </div>
   </div>
 
@@ -549,14 +711,14 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   <div class="sort-hint" id="teacher-sort-hint">📐 排序影響下方「114 差距條形圖」與「逐題數據表」。依構面分組為預設檢視,其他兩種依分析目的排序。</div>
 
   <div class="chart-block">
-    <h3>教師 · 本院滿意度 三年趨勢</h3>
+    <h3>教師 · 本院 vs 全國 三年滿意度趨勢</h3>
     <div class="sub" id="teacher-trend-sub">依構面平均呈現各面向走勢;虛線為該年度全國平均。可切換「每題明細」看個別題目。</div>
     <div class="chart-wrap xtall"><canvas id="chart-teacher-trend"></canvas></div>
   </div>
 
   <div class="chart-block">
-    <h3>教師 · 114 年差距(本院 − 全國) · 逐題排序</h3>
-    <div class="sub">水平條形:向右綠色=優於全國,向左紅色=落後於全國</div>
+    <h3>教師 · 114 年 本院 vs 全國 差距 · 逐題排序</h3>
+    <div class="sub">比較對象:<strong>本院 114 年</strong> vs <strong>全國 114 年</strong>。向右綠色=本院高於全國,向左紅色=本院低於全國。</div>
     <div class="chart-wrap xtall"><canvas id="chart-teacher-diff"></canvas></div>
   </div>
 
@@ -586,6 +748,14 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     </div>
   </div>
 
+  <div class="compare-notice">
+    <div class="compare-notice-icon" style="color:var(--green)">ℹ</div>
+    <div>
+      <div class="compare-notice-title">本章節比較對象:<strong style="color:var(--green)">本院</strong> vs <strong style="color:var(--green)">全國</strong>(三年度)</div>
+      <div class="compare-notice-body">三年趨勢圖顯示本院與全國各年度滿意度;差距條形圖為 114 年本院與全國之差距。如需本院自身前後年比較,請參考章節 <span role="button" tabindex="0" class="inline-link" data-scroll="decline">04 本院前後年變化</span>。</div>
+    </div>
+  </div>
+
   <div class="controls">
     <div class="toggle-group" id="trainee-viewmode">
       <button data-mode="section" class="active">構面平均</button>
@@ -607,14 +777,14 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   <div class="sort-hint" id="trainee-sort-hint">📐 排序影響下方「114 差距條形圖」與「逐題數據表」。依構面分組為預設檢視,其他兩種依分析目的排序。</div>
 
   <div class="chart-block">
-    <h3>受訓人員 · 本院滿意度 三年趨勢</h3>
+    <h3>受訓人員 · 本院 vs 全國 三年滿意度趨勢</h3>
     <div class="sub" id="trainee-trend-sub">依構面平均呈現各面向走勢;虛線為該年度全國平均。可切換「每題明細」看個別題目。</div>
     <div class="chart-wrap xtall"><canvas id="chart-trainee-trend"></canvas></div>
   </div>
 
   <div class="chart-block">
-    <h3>受訓人員 · 114 年差距(本院 − 全國) · 逐題排序</h3>
-    <div class="sub">向右綠色=優於全國,向左紅色=落後於全國</div>
+    <h3>受訓人員 · 114 年 本院 vs 全國 差距 · 逐題排序</h3>
+    <div class="sub">比較對象:<strong>本院 114 年</strong> vs <strong>全國 114 年</strong>。向右綠色=本院高於全國,向左紅色=本院低於全國。</div>
     <div class="chart-wrap xtall"><canvas id="chart-trainee-diff"></canvas></div>
   </div>
 
@@ -639,8 +809,16 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   <div class="section-head">
     <div class="section-num">04</div>
     <div>
-      <div class="section-kicker">114 vs 113 變化</div>
-      <h2 class="section-title">114 vs 113 題目變化 <span class="em muted">— 依變化幅度排序</span></h2>
+      <div class="section-kicker">本院自身前後年比較</div>
+      <h2 class="section-title">114 年 vs 113 年 題目變化 <span class="em muted">— 本院自身一年內變化</span></h2>
+    </div>
+  </div>
+
+  <div class="compare-notice compare-notice-self">
+    <div class="compare-notice-icon">ℹ</div>
+    <div>
+      <div class="compare-notice-title">本章節比較對象:<strong>本院 113 年</strong> vs <strong>本院 114 年</strong></div>
+      <div class="compare-notice-body">此處呈現本院<strong>自身前後年</strong>的分數變化,<strong>非與全國差距比較</strong>。紅色表示本院 114 年分數較 113 年下降、綠色表示上升,依變化幅度大到小排序。如需本院與全國差距比較,請參考章節 <span role="button" tabindex="0" class="inline-link" data-scroll="teacher">02 教師端</span> 與 <span role="button" tabindex="0" class="inline-link" data-scroll="trainee">03 受訓人員端</span> 中的「114 年差距條形圖」。</div>
     </div>
   </div>
 
@@ -651,7 +829,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
       <button data-f="trainee">受訓人員</button>
       <button data-f="bad" style="color:var(--red)">僅下降</button>
     </div>
-    <div class="muted" style="font-size:.85rem">顯示所有題目之 113→114 變化;紅色=下降、綠色=上升,依幅度排序。</div>
+    <div class="muted" style="font-size:.85rem">紅色=本院 114 低於本院 113、綠色=本院 114 高於本院 113。</div>
   </div>
 
   <div class="tornado" id="decline-list"></div>
@@ -667,9 +845,13 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     </div>
   </div>
 
-  <p class="prose" style="max-width:720px;margin-bottom:2rem">
-    這些題目三年間本院滿意度皆低於全國平均。<strong>「三年惡化」</strong>標示者為差距持續擴大(114 年差距比 112 年更大)。
-  </p>
+  <div class="compare-notice">
+    <div class="compare-notice-icon" style="color:var(--green)">ℹ</div>
+    <div>
+      <div class="compare-notice-title">本章節比較對象:<strong style="color:var(--green)">本院</strong> vs <strong style="color:var(--green)">全國</strong>(三年皆負差距)</div>
+      <div class="compare-notice-body">本章節列出三年間本院滿意度皆低於全國平均之題目。<strong>「三年惡化」</strong>標示者為差距持續擴大(114 年差距比 112 年更大)。每張小圖實線為本院、虛線為全國。</div>
+    </div>
+  </div>
 
   <div class="controls">
     <div class="toggle-group" id="persist-toggle">
@@ -688,7 +870,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   <div class="section-head">
     <div class="section-num">06</div>
     <div>
-      <div class="section-kicker">Sample</div>
+      <div class="section-kicker">問卷樣本</div>
       <h2 class="section-title">填答人數分析</h2>
     </div>
   </div>
@@ -719,7 +901,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     <div class="section-head" style="border-color:var(--ink-soft)">
       <div class="section-num">07</div>
       <div>
-        <div class="section-kicker">Methodology</div>
+        <div class="section-kicker">分析方法</div>
         <h2 class="section-title">分析方法與資料校驗</h2>
       </div>
     </div>
@@ -756,7 +938,14 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 <footer>
   <div class="sig">奇美醫療財團法人奇美醫院 · CHI MEI MEDICAL CENTER</div>
   <div style="font-size:.85rem;color:#c9c2b3;margin-bottom:.3rem">臨床醫事人員培訓計畫 · 指標 1 受訓人員計畫執行調查 + 指標 2 教師計畫執行調查</div>
-  <div>112 – 114 年度趨勢分析 · 依衛生福利部公告問卷結果</div>
+  <div style="font-size:.85rem;color:#c9c2b3;margin-bottom:1rem">112 – 114 年度趨勢分析 · 依衛生福利部公告問卷結果</div>
+  <div style="display:inline-flex;gap:1.5rem;font-size:.75rem;color:#8b8678;border-top:1px solid rgba(250,247,242,.12);padding-top:1rem;margin-top:.5rem;flex-wrap:wrap;justify-content:center">
+    <span>資料更新:2026-04-14</span>
+    <span>·</span>
+    <span>內部參考用,未公開索引</span>
+    <span>·</span>
+    <span>Version 1.0</span>
+  </div>
 </footer>
 
 <script>
@@ -810,6 +999,46 @@ railItems.forEach(item=>{
   });
 });
 
+
+
+// Mobile TOC behavior
+const mobileBtn = document.getElementById('mobile-toc-btn');
+const mobilePanel = document.getElementById('mobile-toc-panel');
+if(mobileBtn && mobilePanel){
+  mobileBtn.addEventListener('click', ()=>{
+    mobilePanel.classList.toggle('open');
+  });
+  // Close on backdrop click
+  mobilePanel.addEventListener('click', (e)=>{
+    if(e.target === mobilePanel) mobilePanel.classList.remove('open');
+  });
+  // Handle mobile TOC item clicks (scroll + close)
+  mobilePanel.querySelectorAll('[data-scroll]').forEach(item=>{
+    item.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const id = item.getAttribute('data-scroll');
+      const el = document.getElementById(id);
+      if(el){
+        const offset = 20;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({top, behavior:'smooth'});
+      }
+      mobilePanel.classList.remove('open');
+    });
+  });
+  // Sync active state with desktop rail
+  const mobileItems = mobilePanel.querySelectorAll('.rail-item');
+  const origUpdateProgress = window.updateProgress;
+  // Hook into scroll to update mobile items
+  window.addEventListener('scroll', ()=>{
+    setTimeout(()=>{
+      const desktopActive = document.querySelector('.side-rail .rail-item.active');
+      if(!desktopActive) return;
+      const idx = Array.from(document.querySelectorAll('.side-rail .rail-item')).indexOf(desktopActive);
+      mobileItems.forEach((item,i)=>item.classList.toggle('active', i===idx));
+    }, 10);
+  }, {passive:true});
+}
 
 // Nav scroll (avoid iframe external-link warning)
 document.querySelectorAll('[data-scroll]').forEach(a=>{
@@ -886,8 +1115,38 @@ buildSectionFilter('trainee-section-filter', DATA.trainee);
 
 function sortRecords(records, sortBy){
   const r=[...records];
-  if(sortBy==='diff114'){r.sort((a,b)=>(a.d114??999)-(b.d114??999));}
-  else if(sortBy==='change'){r.sort((a,b)=>((a.h114??0)-(a.h113??0))-((b.h114??0)-(b.h113??0)));}
+  // Fixed section ordering based on display priority
+  const SECTION_SORT_ORDER = {
+    '醫院執行計畫':1,'師資培育':2,'教學時間':3,'受訓人員訓練成效':4,'對本計畫看法':5,
+    '工作滿意度':1,'醫院資源':2,'臨床教師':3,'訓練時間':4,'訓練過程':5,'自我評量':6
+  };
+  if(sortBy==='section'){
+    r.sort((a,b)=>{
+      const sa = SECTION_SORT_ORDER[a.section] ?? 99;
+      const sb = SECTION_SORT_ORDER[b.section] ?? 99;
+      if(sa !== sb) return sa - sb;
+      // within same section: keep original qnum-like order by question text
+      return (a.qnum ?? 0) - (b.qnum ?? 0);
+    });
+  } else if(sortBy==='diff114'){
+    // Items without d114 pushed to end
+    r.sort((a,b)=>{
+      if(a.d114==null && b.d114==null) return 0;
+      if(a.d114==null) return 1;
+      if(b.d114==null) return -1;
+      return a.d114 - b.d114;
+    });
+  } else if(sortBy==='change'){
+    // Compute 113→114 change, items with missing data pushed to end
+    const chg = r => (r.h113==null||r.h114==null) ? null : (r.h114 - r.h113);
+    r.sort((a,b)=>{
+      const ca = chg(a), cb = chg(b);
+      if(ca==null && cb==null) return 0;
+      if(ca==null) return 1;
+      if(cb==null) return -1;
+      return ca - cb; // most negative first
+    });
+  }
   return r;
 }
 
@@ -1018,7 +1277,7 @@ function buildDetailChart(canvasId, records, role){
           bodyColor:'#faf7f2',
           titleFont:{family:"'Fraunces','Noto Sans TC'",size:14,weight:'bold'},
           bodyFont:{family:"'Fraunces','Noto Sans TC'",size:12},
-          footerFont:{family:"'Fraunces','Noto Sans TC'",size:11,style:'italic'},
+          footerFont:{family:"'Fraunces','Noto Sans TC'",size:11},
           padding:{top:12,bottom:12,left:14,right:14},
           boxPadding:6,
           caretPadding:10,
@@ -1124,18 +1383,8 @@ function rebuildDiffChart(role){
   if(sf) records = records.filter(r=>r.section===sf);
   // For diff chart, filter to those with non-null d114
   records = records.filter(r=>r.d114!=null);
-  // Apply sort - the buildDiffChart does its own sorting but let's respect user's choice
-  if(sortBy==='change'){
-    records = [...records].sort((a,b)=>((a.h114??0)-(a.h113??0))-((b.h114??0)-(b.h113??0)));
-  } else if(sortBy==='section'){
-    records = [...records].sort((a,b)=>{
-      if(a.section!==b.section) return a.section.localeCompare(b.section);
-      return (a.d114??999)-(b.d114??999);
-    });
-  } else {
-    // diff114
-    records = [...records].sort((a,b)=>(a.d114??999)-(b.d114??999));
-  }
+  // Use shared sort logic
+  records = sortRecords(records, sortBy);
   diffCharts[role] = buildDiffChartInstance(canvasId, records);
 }
 
@@ -1274,7 +1523,7 @@ function renderDeclineRow(x, i, maxAbs){
       <div class="qt"><span class="${rc}">${x.roleLabel}</span><span class="sec">${x.section}</span>${x.question}</div>
       <div class="delta ${x.delta<0?'neg':'pos'}">${x.delta>=0?'+':''}${x.delta.toFixed(1)}</div>
       ${barHtml}
-      <div class="nums-mini">${x.h113.toFixed(1)} → ${x.h114.toFixed(1)}</div>
+      <div class="nums-mini"><span class="mini-label">本院</span>${x.h113.toFixed(1)} → ${x.h114.toFixed(1)}</div>
     </div>`;
 }
 
