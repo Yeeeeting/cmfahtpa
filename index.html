@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -177,6 +176,52 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 .insight p{font-size:.9rem;color:var(--ink-soft);line-height:1.65;padding-left:1rem}
 .insight .nums{font-family:'Fraunces','Noto Sans TC',serif;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 
+
+/* Featured insights layout */
+
+.featured-label .featured-cta{
+  margin-left:auto;
+  cursor:pointer;
+  font-size:.78rem;font-weight:500;color:var(--red);
+  padding:.35rem .75rem;border:1px solid var(--red);
+  background:var(--paper);
+  transition:all .2s;
+  border-radius:2px;letter-spacing:.02em;
+  font-family:'Fraunces','Noto Sans TC',serif;
+}
+.featured-label .featured-cta:hover{background:var(--red);color:#fff}
+
+.featured-label{
+  display:flex;align-items:center;gap:.6rem;
+  font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;
+  font-size:1rem;color:var(--red);
+  margin:1.5rem 0 1rem 0;letter-spacing:.02em;
+}
+.featured-label .dot{
+  width:10px;height:10px;background:var(--red);border-radius:50%;
+  box-shadow:0 0 0 4px var(--red-bg);
+}
+.featured-insights{
+  margin-bottom:2rem;
+}
+.featured-insights .insight{
+  box-shadow:0 2px 8px rgba(176,48,48,.04);
+  border-width:1px;
+}
+details.more-insights{
+  margin-top:1rem;border-top:1px dashed var(--line-strong);padding-top:1.25rem;
+}
+details.more-insights summary{
+  cursor:pointer;font-family:'Fraunces','Noto Sans TC',serif;
+  font-size:.9rem;color:var(--ink-soft);
+  padding:.5rem 0;font-weight:500;list-style:none;
+  display:inline-flex;align-items:center;gap:.4rem;user-select:none;
+}
+details.more-insights summary::-webkit-details-marker{display:none}
+details.more-insights summary:hover{color:var(--ink)}
+details.more-insights summary .caret{transition:transform .2s;display:inline-block}
+details.more-insights[open] summary .caret{transform:rotate(180deg)}
+
 /* Controls */
 .controls{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center}
 .toggle-group{display:inline-flex;background:var(--bg-alt);padding:3px;border:1px solid var(--line)}
@@ -193,6 +238,35 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
   background:var(--paper);color:var(--ink);font-size:.9rem;cursor:pointer;
 }
 
+
+
+
+/* Table inline legend */
+
+.legend-item .col-label{
+  display:inline-block;background:var(--bg);border:1px solid var(--line-strong);
+  padding:.05rem .4rem;font-family:'Fraunces','Noto Sans TC',serif;
+  font-size:.75rem;color:var(--ink);font-weight:500;margin-right:.3em;
+  border-radius:2px;flex-shrink:0;
+}
+
+.table-legend{
+  display:flex;flex-direction:column;gap:.4rem;
+  background:var(--bg-alt);border-left:3px solid var(--amber);
+  padding:.7rem 1rem;margin-bottom:1rem;
+  font-size:.8rem;line-height:1.5;color:var(--ink-soft);
+}
+.legend-item{display:flex;gap:.6rem;align-items:baseline}
+.legend-item .flag-mark{color:var(--amber);font-weight:700;font-size:.95rem;flex-shrink:0;min-width:1em;text-align:center}
+.legend-item .na-mark{color:var(--line-strong);font-weight:500;flex-shrink:0;min-width:1em;text-align:center}
+
+.sort-bar{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.25rem;padding-bottom:1rem;
+  border-bottom:1px dashed var(--line);
+  font-size:.9rem;
+}
+.sort-bar .select-group label{color:var(--ink-soft);font-weight:500}
 
 .sort-hint{
   font-size:.78rem;color:var(--muted);padding:.5rem .75rem;background:var(--bg-alt);
@@ -222,11 +296,25 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 .q-table .trend{text-align:center;font-weight:600;white-space:nowrap}
 .q-table .trend.up{color:var(--green)}
 .q-table .trend.dn{color:var(--red)}
+.q-table .trend .trend-num{
+  font-family:'Fraunces','Noto Sans TC',serif;
+  font-weight:700;font-size:.95em;margin-left:.2em;
+}
+.q-table .trend.dn .trend-num{color:var(--red)}
+.q-table .trend.up .trend-num{color:var(--green)}
 .q-table .trend.fl{color:var(--muted)}
 .q-table .na{color:var(--line-strong);}
 .q-table .diff-neg{color:var(--red);font-weight:600}
 .q-table .diff-pos{color:var(--green);font-weight:600}
 .q-table tr.reworded td:first-child::after{content:"⚑";color:var(--amber);font-size:.75rem;margin-left:.3em}
+
+
+.compact-tag{
+  display:inline-block;padding:.15rem .5rem;font-size:.7rem;font-weight:700;
+  letter-spacing:.05em;border-radius:2px;white-space:nowrap;
+}
+.compact-tag-diff{background:var(--red-bg);color:var(--red)}
+.compact-tag-drop{background:#fdf6e8;color:#a66f1c}
 
 /* Decline "red list" - horizontal bars */
 .tornado{background:var(--paper);border:1px solid var(--line);padding:2rem}
@@ -331,6 +419,14 @@ section{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem}
 .method-card .mini-val{font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
 
 /* Footer */
+
+.appendix-section{
+  margin-top:3rem;padding-top:2rem;
+  border-top:1px dashed var(--line-strong);
+}
+.appendix-head{border-color:var(--line-strong);border-bottom-style:dashed}
+.appendix-head .section-num{font-size:1.4rem}
+
 footer{background:var(--ink);color:#c9c2b3;padding:2.5rem 2rem;text-align:center;font-size:.85rem}
 footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:1rem;margin-bottom:.3rem}
 
@@ -343,13 +439,122 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 .tag.amber{background:var(--amber-bg);color:var(--amber)}
 
 
+
+/* One-page summary */
+.summary-fab{
+  position:fixed;top:1rem;right:1rem;z-index:50;
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.55rem 1rem;background:#1a2b3c;color:#fff;border:none;
+  cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:500;
+  box-shadow:0 4px 14px rgba(26,43,60,.25);
+  border-radius:3px;transition:background .2s, transform .15s;
+}
+.summary-fab:hover{background:#2a3b4c}
+.summary-fab:active{transform:scale(.97)}
+.summary-fab svg{stroke:#d4a574}
+
+.summary-modal{
+  display:none;position:fixed;inset:0;z-index:200;
+  align-items:flex-start;justify-content:center;
+  padding:2rem;overflow-y:auto;
+}
+.summary-modal.open{display:flex}
+.summary-modal-backdrop{
+  position:absolute;inset:0;background:rgba(26,43,60,.72);backdrop-filter:blur(6px);
+}
+.summary-modal-inner{
+  position:relative;background:var(--paper);
+  max-width:820px;width:100%;margin:0 auto;
+  box-shadow:0 20px 80px rgba(0,0,0,.3);
+  border-radius:4px;overflow:hidden;
+}
+.summary-toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1.25rem;background:var(--ink);color:#fff;
+  border-bottom:3px solid var(--red);flex-wrap:wrap;gap:.5rem;
+}
+.summary-toolbar-title{
+  font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;font-size:1rem;
+  letter-spacing:.02em;
+}
+.summary-toolbar-actions{display:flex;gap:.4rem;flex-wrap:wrap}
+.summary-btn{
+  background:rgba(255,255,255,.12);color:#fff;border:none;
+  padding:.4rem .85rem;font-family:inherit;font-size:.8rem;cursor:pointer;
+  border-radius:2px;transition:background .2s;
+}
+.summary-btn:hover{background:rgba(255,255,255,.22)}
+.summary-btn-close{background:rgba(176,48,48,.7)}
+.summary-btn-close:hover{background:var(--red)}
+.summary-content{
+  padding:3rem 4rem;font-family:'Noto Sans TC',sans-serif;
+  font-size:.92rem;line-height:1.75;color:var(--ink);
+  background:#fff;
+  min-height:60vh;
+}
+.summary-content h1{
+  font-family:'Fraunces','Noto Sans TC',serif;font-size:1.5rem;font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:.6rem;margin-bottom:.35rem;
+}
+.summary-content .meta{font-size:.78rem;color:var(--muted);margin-bottom:1.5rem}
+.summary-content h2{
+  font-family:'Fraunces','Noto Sans TC',serif;font-size:1.1rem;font-weight:700;
+  margin-top:1.75rem;margin-bottom:.6rem;
+  color:var(--red);
+  padding-bottom:.2rem;border-bottom:1px solid var(--line);
+}
+.summary-content .summary-row{
+  display:grid;grid-template-columns:6em 1fr;gap:.5rem;
+  padding:.3rem 0;border-bottom:1px dotted var(--line);
+  font-size:.88rem;
+}
+.summary-content .summary-row:last-child{border-bottom:none}
+.summary-content .summary-row .label{color:var(--muted);font-weight:500}
+.summary-content .summary-row .val{font-family:'Fraunces','Noto Sans TC',serif;font-variant-numeric:tabular-nums}
+.summary-content ol, .summary-content ul{
+  padding-left:1.5em;margin-top:.5rem;
+}
+.summary-content li{margin-bottom:.5em;font-size:.88rem}
+.summary-content li strong{color:var(--ink);font-weight:700}
+.summary-content .p-tag{
+  display:inline-block;padding:.1rem .5rem;font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;border-radius:2px;margin-right:.4em;
+  font-family:'Fraunces','Noto Sans TC',serif;
+}
+.summary-content .p-tag.p1{background:#fce8e6;color:#b03030}
+.summary-content .p-tag.p2{background:#faefd7;color:#a66f1c}
+.summary-content .p-tag.p3{background:#ececec;color:#6b6b6b}
+.summary-content .footer-note{
+  margin-top:2.5rem;padding-top:1rem;border-top:1px dashed var(--line);
+  font-size:.72rem;color:var(--muted);
+}
+
+/* Print styles — whole page prints just the summary */
+@media print{
+  body > *{display:none !important}
+  .summary-modal.open{display:block !important;position:static !important;padding:0 !important;background:#fff !important}
+  .summary-modal-backdrop{display:none !important}
+  .summary-modal-inner{box-shadow:none !important;max-width:100% !important;margin:0 !important;border-radius:0 !important}
+  .summary-toolbar{display:none !important}
+  .summary-content{padding:2cm 2cm !important}
+  .summary-content h2{page-break-after:avoid}
+  .summary-content li{page-break-inside:avoid}
+}
+
+@media (max-width:768px){
+  .summary-fab span{display:none}
+  .summary-fab{padding:.5rem .6rem;top:.75rem;right:.75rem}
+  .summary-modal{padding:.75rem}
+  .summary-content{padding:1.5rem 1.25rem}
+}
+
 /* Side progress rail */
 .side-rail{
   position:fixed;right:1.5rem;top:50%;transform:translateY(-50%);
   z-index:40;display:flex;flex-direction:column;gap:.3rem;
-  padding:1.25rem 1rem;background:rgba(212,165,116,.25);backdrop-filter:blur(6px);
-  border:1px solid rgba(26,43,60,.15);border-radius:3px;
-  box-shadow:0 10px 40px rgba(140,95,50,.08), 0 2px 8px rgba(140,95,50,.06);
+  padding:1.25rem 1rem;background:rgba(212,165,116,.96);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.15);border-radius:3px;
+  box-shadow:0 10px 40px rgba(140,95,50,.28), 0 2px 8px rgba(140,95,50,.2);
   transition:opacity .3s;opacity:0;pointer-events:none;
 }
 .side-rail.visible{opacity:1;pointer-events:auto}
@@ -360,29 +565,29 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 }
 .rail-item{
   display:flex;align-items:center;gap:.7rem;cursor:pointer;
-  padding:.45rem .35rem;color:#1a2b3c;
+  padding:.45rem .35rem;color:#ffffff;
   transition:color .2s, background .2s;
   font-size:.78rem;font-weight:500;text-decoration:none;
   border-radius:2px;
 }
-.rail-item:hover{color:#0d1a2a;background:rgba(26,43,60,.1)}
-.rail-item.active{color:#0d1a2a;font-weight:700;background:rgba(255,238,200,.4);box-shadow:inset 0 0 0 1px rgba(26,43,60,.15)}
+.rail-item:hover{color:#faf7f2;background:rgba(255,255,255,.12)}
+.rail-item.active{color:#1a2b3c;font-weight:700;background:rgba(255,238,200,.55);box-shadow:inset 0 0 0 1px rgba(26,43,60,.12)}
 .rail-dot{
   width:7px;height:7px;border-radius:50%;
-  background:rgba(26,43,60,.5);
+  background:rgba(255,255,255,.7);
   flex-shrink:0;transition:all .25s;
   position:relative;
 }
-.rail-item:hover .rail-dot{background:#1a2b3c}
+.rail-item:hover .rail-dot{background:#faf7f2}
 .rail-item.active .rail-dot{
   background:#1a2b3c;
   box-shadow:0 0 0 4px rgba(26,43,60,.18);
 }
 .rail-num{
   font-family:'Fraunces','Noto Sans TC',serif;font-weight:700;
-  font-size:.7rem;color:rgba(26,43,60,.7);min-width:1.2em;
+  font-size:.7rem;color:rgba(255,255,255,.75);min-width:1.2em;
 }
-.rail-item:hover .rail-num{color:#1a2b3c}
+.rail-item:hover .rail-num{color:#faf7f2}
 .rail-item.active .rail-num{color:#1a2b3c}
 .rail-label{flex:1;white-space:nowrap}
 
@@ -435,23 +640,23 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 .mobile-toc-panel{
   display:none;
   position:fixed;inset:0;z-index:99;
-  background:rgba(26,43,60,.45);backdrop-filter:blur(6px);
+  background:rgba(26,43,60,.88);backdrop-filter:blur(4px);
   align-items:center;justify-content:center;
   padding:2rem;
   opacity:0;pointer-events:none;transition:opacity .25s;
 }
 .mobile-toc-panel.open{opacity:1;pointer-events:auto}
 .mobile-toc-inner{
-  background:rgba(212,165,116,.25);backdrop-filter:blur(6px);padding:1.5rem 1rem;border-radius:4px;
-  box-shadow:0 20px 60px rgba(0,0,0,.15);
+  background:#d4a574;padding:1.5rem 1rem;border-radius:4px;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
   max-width:320px;width:100%;
 }
-.mobile-toc-inner .rail-item{color:#1a2b3c;padding:.7rem .5rem;font-size:.95rem}
-.mobile-toc-inner .rail-item:hover{background:rgba(26,43,60,.1)}
-.mobile-toc-inner .rail-item.active{color:#0d1a2a;background:rgba(255,238,200,.4);font-weight:700}
-.mobile-toc-inner .rail-num{font-size:.75rem;color:rgba(26,43,60,.7)}
+.mobile-toc-inner .rail-item{color:#fff;padding:.7rem .5rem;font-size:.95rem}
+.mobile-toc-inner .rail-item:hover{background:rgba(255,255,255,.1)}
+.mobile-toc-inner .rail-item.active{color:#1a2b3c;background:rgba(255,238,200,.55);font-weight:700}
+.mobile-toc-inner .rail-num{font-size:.75rem;color:rgba(255,255,255,.75)}
 .mobile-toc-inner .rail-item.active .rail-num{color:#1a2b3c}
-.mobile-toc-inner .rail-dot{background:rgba(26,43,60,.5)}
+.mobile-toc-inner .rail-dot{background:rgba(255,255,255,.7)}
 .mobile-toc-inner .rail-item.active .rail-dot{background:#1a2b3c}
 
 @media (max-width:1100px){
@@ -497,26 +702,47 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 <button class="mobile-toc-btn" id="mobile-toc-btn" aria-label="目錄" type="button">
   <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
 </button>
+
+<!-- Executive one-page summary modal -->
+<button class="summary-fab" id="summary-fab" aria-label="一頁摘要" type="button" title="產生一頁文字摘要">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+  <span>一頁摘要</span>
+</button>
+
+<div class="summary-modal" id="summary-modal" aria-hidden="true">
+  <div class="summary-modal-backdrop" id="summary-modal-backdrop"></div>
+  <div class="summary-modal-inner">
+    <div class="summary-toolbar">
+      <div class="summary-toolbar-title">一頁文字摘要</div>
+      <div class="summary-toolbar-actions">
+        <button class="summary-btn" id="summary-copy">📋 複製全文</button>
+        <button class="summary-btn" id="summary-print">🖨 列印</button>
+        <button class="summary-btn summary-btn-close" id="summary-close">✕ 關閉</button>
+      </div>
+    </div>
+    <div class="summary-content" id="summary-content"></div>
+  </div>
+</div>
+
 <div class="mobile-toc-panel" id="mobile-toc-panel">
   <div class="mobile-toc-inner">
     <div role="button" tabindex="0" class="rail-item" data-scroll="summary" data-mobile><span class="rail-num">01</span><span class="rail-dot"></span><span class="rail-label">執行摘要</span></div>
-    <div role="button" tabindex="0" class="rail-item" data-scroll="teacher" data-mobile><span class="rail-num">02</span><span class="rail-dot"></span><span class="rail-label">教師端</span></div>
-    <div role="button" tabindex="0" class="rail-item" data-scroll="trainee" data-mobile><span class="rail-num">03</span><span class="rail-dot"></span><span class="rail-label">受訓人員端</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="trainee" data-mobile><span class="rail-num">02</span><span class="rail-dot"></span><span class="rail-label">受訓人員端</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="teacher" data-mobile><span class="rail-num">03</span><span class="rail-dot"></span><span class="rail-label">教師端</span></div>
     <div role="button" tabindex="0" class="rail-item" data-scroll="decline" data-mobile><span class="rail-num">04</span><span class="rail-dot"></span><span class="rail-label">114 vs 113 題目變化</span></div>
     <div role="button" tabindex="0" class="rail-item" data-scroll="persist" data-mobile><span class="rail-num">05</span><span class="rail-dot"></span><span class="rail-label">三年連續低於全國</span></div>
-    <div role="button" tabindex="0" class="rail-item" data-scroll="response" data-mobile><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">填答人數分析</span></div>
-    <div role="button" tabindex="0" class="rail-item" data-scroll="method" data-mobile><span class="rail-num">07</span><span class="rail-dot"></span><span class="rail-label">分析方法</span></div>
+    
+    <div role="button" tabindex="0" class="rail-item" data-scroll="method" data-mobile><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">分析方法</span></div>
   </div>
 </div>
 
 <aside class="side-rail" id="side-rail" aria-label="章節進度">
   <div role="button" tabindex="0" class="rail-item" data-scroll="summary"><span class="rail-num">01</span><span class="rail-dot"></span><span class="rail-label">執行摘要</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="teacher"><span class="rail-num">02</span><span class="rail-dot"></span><span class="rail-label">教師端</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="trainee"><span class="rail-num">03</span><span class="rail-dot"></span><span class="rail-label">受訓人員端</span></div>
+  <div role="button" tabindex="0" class="rail-item" data-scroll="trainee"><span class="rail-num">02</span><span class="rail-dot"></span><span class="rail-label">受訓人員端</span></div>
+  <div role="button" tabindex="0" class="rail-item" data-scroll="teacher"><span class="rail-num">03</span><span class="rail-dot"></span><span class="rail-label">教師端</span></div>
   <div role="button" tabindex="0" class="rail-item" data-scroll="decline"><span class="rail-num">04</span><span class="rail-dot"></span><span class="rail-label">114 vs 113 題目變化</span></div>
   <div role="button" tabindex="0" class="rail-item" data-scroll="persist"><span class="rail-num">05</span><span class="rail-dot"></span><span class="rail-label">三年連續低於全國</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="response"><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">填答人數分析</span></div>
-  <div role="button" tabindex="0" class="rail-item" data-scroll="method"><span class="rail-num">07</span><span class="rail-dot"></span><span class="rail-label">分析方法</span></div>
+    <div role="button" tabindex="0" class="rail-item" data-scroll="method"><span class="rail-num">06</span><span class="rail-dot"></span><span class="rail-label">分析方法</span></div>
 </aside>
 
 <header class="hero">
@@ -533,9 +759,10 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     </div>
   </div>
   <div class="hero-stats">
-    <div class="h-stat fade-in"><div class="hv"><span id="h-teacher-below">—</span><span class="small">/31</span></div><div class="hl">114 年 · 教師端低於全國題數(55%)</div></div>
-    <div class="h-stat fade-in"><div class="hv"><span id="h-trainee-below">—</span><span class="small">/33</span></div><div class="hl">114 年 · 受訓人員端低於全國題數(85%)</div></div>
-    <div class="h-stat fade-in"><div class="hv">−12.84<span class="small">分</span></div><div class="hl">受訓人員「未來樂意擔任臨床教師」三年降幅</div></div>
+    <div class="h-stat fade-in"><div class="hv"><span id="h-trainee-below">—</span><span class="small" id="h-trainee-total">/33</span></div><div class="hl" id="h-trainee-hero-label">—</div></div>
+    <div class="h-stat fade-in"><div class="hv"><span id="h-teacher-below">—</span><span class="small" id="h-teacher-total">/31</span></div><div class="hl" id="h-teacher-hero-label">—</div></div>
+    <div class="h-stat fade-in"><div class="hv"><span id="h-drop-value">—</span><span class="small">分</span></div><div class="hl" id="h-drop-label">—</div>
+  </div>
   </div>
 </header>
 
@@ -550,86 +777,20 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     </div>
   </div>
 
-  <div class="kpi-grid">
-    <div class="kpi teacher">
-      <div class="k-label">教師 · 112 年</div>
-      <div class="k-num">23<span class="small muted">/33</span></div>
-      <div class="k-desc">低於全國題數 (70%)</div>
-    </div>
-    <div class="kpi teacher">
-      <div class="k-label">教師 · 113 年</div>
-      <div class="k-num" style="color:var(--green)">2<span class="small muted">/33</span></div>
-      <div class="k-desc">低於全國題數 (6%)</div>
-      <div class="k-trend good">▲ 三年最高</div>
-    </div>
-    <div class="kpi teacher">
-      <div class="k-label">教師 · 114 年</div>
-      <div class="k-num" style="color:var(--red)">17<span class="small muted">/31</span></div>
-      <div class="k-desc">低於全國題數 (55%)</div>
-      <div class="k-trend bad">▼ 回落</div>
-    </div>
-    <div class="kpi trainee">
-      <div class="k-label">受訓人員 · 112 年</div>
-      <div class="k-num">27<span class="small muted">/36</span></div>
-      <div class="k-desc">低於全國題數 (75%)</div>
-    </div>
-    <div class="kpi trainee">
-      <div class="k-label">受訓人員 · 113 年</div>
-      <div class="k-num">25<span class="small muted">/35</span></div>
-      <div class="k-desc">低於全國題數 (71%)</div>
-    </div>
-    <div class="kpi trainee">
-      <div class="k-label">受訓人員 · 114 年</div>
-      <div class="k-num" style="color:var(--red)">28<span class="small muted">/33</span></div>
-      <div class="k-desc">低於全國題數 (85%)</div>
-      <div class="k-trend bad">▼ 三年最低</div>
-    </div>
+  <div class="kpi-grid" id="kpi-grid">
+    <!-- 由 populateFromConfig() 動態填入 -->
   </div>
 
   <div class="chart-block">
-    <h3>低於全國題數比例 · 三年走勢</h3>
-    <div class="sub">教師端 113 年為三年最高後回落;受訓人員端差距逐年擴大</div>
+    <h3>低於全國題數 · 三年走勢</h3>
+    <div class="sub">教師端 113 年為三年最低後回升;受訓人員端維持在高檔。懸停可看該年度總題數。</div>
     <div class="chart-wrap" style="height:340px"><canvas id="chart-overview"></canvas></div>
   </div>
 
   <h3 class="serif" style="font-size:1.3rem;margin-top:2.5rem;margin-bottom:1rem;font-weight:700">核心洞察(逐題數據已校驗)</h3>
-  <div class="insights">
-    <div class="insight">
-      <div class="num-big">1</div>
-      <h3>113 年教師高點未能延續</h3>
-      <p>113 年 33 項中僅 <span class="nums">2</span> 項低於全國;114 年回落至 <span class="nums">17</span> 項低於全國。需內部回溯 113 年有效作為為何未能延續。</p>
+  <div class="insights" id="insights-container">
+    <!-- 由 populateFromConfig() 動態填入 -->
     </div>
-    <div class="insight critical">
-      <div class="num-big">2</div>
-      <h3>受訓人員 114 年低於全國比例為三年最高</h3>
-      <p>114 年 <span class="nums">85%</span> 題目低於全國(28/33),其中 6 項低於 ≥5 分;比例為 75%→71%→<span class="nums">85%</span>。</p>
-    </div>
-    <div class="insight">
-      <div class="num-big">3</div>
-      <h3>「獎勵/肯定」構面兩端皆持續低於全國</h3>
-      <p>教師「教學津貼合理」差距 <span class="nums">-2.08→+5.73→-3.63</span>;受訓人員「表現優良獲肯定」差距 <span class="nums">-4.38→-4.88→-6.14</span>(連三年擴大)。</p>
-    </div>
-    <div class="insight critical">
-      <div class="num-big">4</div>
-      <h3>工作與教學負荷指標三年表現</h3>
-      <p>受訓人員「工作時間負荷」差距 <span class="nums">-5.19→-5.61→-9.42</span>;教師「被分派教學時間合理」 <span class="nums">-1.93→+2.24→-5.62</span>。</p>
-    </div>
-    <div class="insight critical">
-      <div class="num-big">5</div>
-      <h3>受訓人員「未來擔任臨床教師」三年降幅最大</h3>
-      <p>本院滿意度 <span class="nums">68.77→63.42→55.93</span>(三年 <span class="nums">-12.84</span> 分);差距 <span class="nums">-3.74→-6.04→-12.47</span>,為所有題目中三年降幅最大者,與未來師資來源規劃相關。</p>
-    </div>
-    <div class="insight">
-      <div class="num-big">6</div>
-      <h3>師資培育相關題目 114 年較 113 年回落</h3>
-      <p>「師培對教學有幫助」 <span class="nums">89.17→93.07→87.60</span>、「師培資源補助」 <span class="nums">85.83→90.67→83.83</span>、「教學貢獻反映升遷」 <span class="nums">78.89→86.13→76.82</span>。</p>
-    </div>
-    <div class="insight good">
-      <div class="num-big">7</div>
-      <h3>受訓人員自我能力評量呈上升趨勢</h3>
-      <p>「團隊溝通」「病人溝通」「臨床實務」「學校銜接臨床」四項自我評量三年上升(+2 至 +3 分),滿意度卻退步。訓練成效指標呈正向,但<strong>組織環境支持相關題目滿意度呈下降</strong>。</p>
-    </div>
-  </div>
 
   <!-- Recommendations block -->
   <div class="rec-block">
@@ -638,111 +799,16 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
       <h3 class="rec-title">建議行動 <span class="em muted">— 依三年趨勢數據歸納</span></h3>
       <p class="rec-sub">以下六項建議依優先序 P1–P3 分類,P1 為指標降幅最大或與未來發展最相關者,建議優先檢討;P2 為需後續回溯與比對;P3 為系統性改善項目。</p>
     </div>
-    <div class="rec-grid">
-      <div class="rec-card p1">
-        <div class="rec-badge">P1</div>
-        <h4>受訓人員留任與未來投入教職意願</h4>
-        <p>深入訪談為何「未來樂意擔任臨床教師」三年降 12.84 分、差距擴大至 -12.47;檢討導師制度與臨床教師職涯誘因規劃。</p>
-      </div>
-      <div class="rec-card p1">
-        <div class="rec-badge">P1</div>
-        <h4>工作負荷與排班</h4>
-        <p>受訓「工作時間負荷」差距惡化至 -9.42(全國改善、本院未同步);檢視科部排班、訓練時間安排,及交班/值班結構。</p>
-      </div>
-      <div class="rec-card p2">
-        <div class="rec-badge">P2</div>
-        <h4>教師獎勵與教學貢獻回饋</h4>
-        <p>「教學津貼合理」113 年大幅改善 (+5.73) 但 114 年回退 (-3.63);回溯 113 年有效作為,檢討為何未延續至 114。</p>
-      </div>
-      <div class="rec-card p2">
-        <div class="rec-badge">P2</div>
-        <h4>師資培育課程與資源</h4>
-        <p>多項師培相關指標 114 年較 113 年回落 5-10 分;檢視課程品質、補助機制,以及教學貢獻於考核中的比重分配。</p>
-      </div>
-      <div class="rec-card p3">
-        <div class="rec-badge">P3</div>
-        <h4>學習紀錄系統</h4>
-        <p>受訓「記載學習紀錄幫助反思」三年連續低於全國;檢視系統介面友善度、填寫時間負擔,以及教師引導配套。</p>
-      </div>
-      <div class="rec-card p3">
-        <div class="rec-badge">P3</div>
-        <h4>權益反映管道溝通</h4>
-        <p>受訓「醫院提供權益反映管道」114 年差距驟降至 -5.56;強化管道曝光度、具體化申訴流程與回應時效。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Teacher Analysis -->
-<section id="teacher">
-  <div class="section-head">
-    <div class="section-num">02</div>
-    <div>
-      <div class="section-kicker">指標 2 · 教師計畫執行調查</div>
-      <h2 class="section-title">教師端 · 逐題趨勢 <span class="em muted">— 33 題</span></h2>
-    </div>
-  </div>
-
-  <div class="compare-notice">
-    <div class="compare-notice-icon" style="color:var(--green)">ℹ</div>
-    <div>
-      <div class="compare-notice-title">本章節比較對象:<strong style="color:var(--green)">本院</strong> vs <strong style="color:var(--green)">全國</strong>(三年度)</div>
-      <div class="compare-notice-body">三年趨勢圖顯示本院與全國各年度滿意度;差距條形圖為 114 年本院與全國之差距。如需本院自身前後年比較,請參考章節 <span role="button" tabindex="0" class="inline-link" data-scroll="decline">04 本院前後年變化</span>。</div>
-    </div>
-  </div>
-
-  <div class="controls">
-    <div class="toggle-group" id="teacher-viewmode">
-      <button data-mode="section" class="active">構面平均</button>
-      <button data-mode="detail">每題明細</button>
-    </div>
-    <div class="select-group">
-      <label>構面篩選:</label>
-      <select id="teacher-section-filter"><option value="">全部構面</option></select>
-    </div>
-    <div class="select-group">
-      <label title="排序會同時影響下方「114 差距條形圖」與「逐題數據表」的呈現順序">題目排序:</label>
-      <select id="teacher-sort">
-        <option value="section">依構面分組(預設)</option>
-        <option value="diff114">差距最低→最高(找出 114 年落後題)</option>
-        <option value="change">113→114 降幅最大→升幅最大(找出近期變化題)</option>
-      </select>
-    </div>
-  </div>
-  <div class="sort-hint" id="teacher-sort-hint">📐 排序影響下方「114 差距條形圖」與「逐題數據表」。依構面分組為預設檢視,其他兩種依分析目的排序。</div>
-
-  <div class="chart-block">
-    <h3>教師 · 本院 vs 全國 三年滿意度趨勢</h3>
-    <div class="sub" id="teacher-trend-sub">依構面平均呈現各面向走勢;虛線為該年度全國平均。可切換「每題明細」看個別題目。</div>
-    <div class="chart-wrap xtall"><canvas id="chart-teacher-trend"></canvas></div>
-  </div>
-
-  <div class="chart-block">
-    <h3>教師 · 114 年 本院 vs 全國 差距 · 逐題排序</h3>
-    <div class="sub">比較對象:<strong>本院 114 年</strong> vs <strong>全國 114 年</strong>。向右綠色=本院高於全國,向左紅色=本院低於全國。</div>
-    <div class="chart-wrap xtall"><canvas id="chart-teacher-diff"></canvas></div>
-  </div>
-
-  <div class="chart-block">
-    <h3>教師 · 逐題三年詳細數據</h3>
-    <div style="max-height:600px;overflow-y:auto">
-      <table class="q-table" id="teacher-table">
-        <thead><tr>
-          <th style="width:8em">構面</th><th>題目</th>
-          <th class="num-cell">112</th><th class="num-cell">113</th><th class="num-cell">114</th>
-          <th class="num-cell">差距 112</th><th class="num-cell">差距 113</th><th class="num-cell">差距 114</th>
-          <th>趨勢</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
+    <div class="rec-grid" id="rec-grid">
+      <!-- 由 populateFromConfig() 動態填入 -->
+        </div>
   </div>
 </section>
 
 <!-- Trainee Analysis -->
 <section id="trainee">
   <div class="section-head">
-    <div class="section-num">03</div>
+    <div class="section-num">02</div>
     <div>
       <div class="section-kicker">指標 1 · 受訓人員計畫執行調查</div>
       <h2 class="section-title">受訓人員端 · 逐題趨勢 <span class="em muted">— 36 題</span></h2>
@@ -766,37 +832,129 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
       <label>構面篩選:</label>
       <select id="trainee-section-filter"><option value="">全部構面</option></select>
     </div>
-    <div class="select-group">
-      <label title="排序會同時影響下方「114 差距條形圖」與「逐題數據表」的呈現順序">題目排序:</label>
-      <select id="trainee-sort">
-        <option value="section">依構面分組(預設)</option>
-        <option value="diff114">差距最低→最高(找出 114 年落後題)</option>
-        <option value="change">113→114 降幅最大→升幅最大(找出近期變化題)</option>
-      </select>
-    </div>
   </div>
-  <div class="sort-hint" id="trainee-sort-hint">📐 排序影響下方「114 差距條形圖」與「逐題數據表」。依構面分組為預設檢視,其他兩種依分析目的排序。</div>
 
   <div class="chart-block">
     <h3>受訓人員 · 本院 vs 全國 三年滿意度趨勢</h3>
-    <div class="sub" id="trainee-trend-sub">依構面平均呈現各面向走勢;虛線為該年度全國平均。可切換「每題明細」看個別題目。</div>
+    <div class="sub" id="trainee-trend-sub">每條彩色線=一個「構面」內所有題目的平均分數(例如「醫院執行計畫」構面下 13 題的平均);黑色虛線=全國所有題目平均。滑鼠停在點上可看該構面詳細。</div>
     <div class="chart-wrap xtall"><canvas id="chart-trainee-trend"></canvas></div>
   </div>
 
-  <div class="chart-block">
+  <div class="chart-block" style="padding-top:1rem">
+    <div class="sort-bar">
+      <div class="select-group">
+        <label>此圖與下方數據表排序:</label>
+        <select id="trainee-sort">
+          <option value="section">依構面分組(預設)</option>
+          <option value="diff114">差距最低→最高(找出 114 年落後題)</option>
+          <option value="change">113→114 降幅最大→升幅最大(找出近期變化題)</option>
+        </select>
+      </div>
+    </div>
     <h3>受訓人員 · 114 年 本院 vs 全國 差距 · 逐題排序</h3>
     <div class="sub">比較對象:<strong>本院 114 年</strong> vs <strong>全國 114 年</strong>。向右綠色=本院高於全國,向左紅色=本院低於全國。</div>
     <div class="chart-wrap xtall"><canvas id="chart-trainee-diff"></canvas></div>
   </div>
 
   <div class="chart-block">
-    <h3>受訓人員 · 逐題三年詳細數據</h3>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;flex-wrap:wrap;gap:.5rem">
+      <h3 style="margin:0">受訓人員 · 逐題三年詳細數據</h3>
+      <div class="toggle-group" id="trainee-table-toggle" style="margin:0">
+        <button data-mode="compact" class="active">重點摘要(Top 5)</button>
+        <button data-mode="full">看完整</button>
+      </div>
+    </div>
+    <div class="sub" id="trainee-table-subtitle" style="margin-bottom:.5rem">—</div>
+    <div class="table-legend">
+      <div class="legend-item"><span class="col-label">「112/113/114」</span>欄 = 本院該年度滿意度 (%);「本院−全國」欄 = 本院與全國之差距百分點(正值=高於全國、負值=低於全國)</div>
+      <div class="legend-item"><span class="flag-mark">⚑</span> 題目文字曾改版(如 112 年「在合理督導下」→ 113/114 年「在學習獨立工作過程」),已按題意合併為同一列,顯示最新年度題目文字</div>
+      <div class="legend-item"><span class="na-mark">—</span> 該年度問卷未列入此題(例:時數題 114 年起取消、外派訓練題僅 112 年有)</div>
+    </div>
     <div style="max-height:600px;overflow-y:auto">
       <table class="q-table" id="trainee-table">
         <thead><tr>
           <th style="width:8em">構面</th><th>題目</th>
           <th class="num-cell">112</th><th class="num-cell">113</th><th class="num-cell">114</th>
-          <th class="num-cell">差距 112</th><th class="num-cell">差距 113</th><th class="num-cell">差距 114</th>
+          <th class="num-cell">本院−全國<br>112</th><th class="num-cell">本院−全國<br>113</th><th class="num-cell">本院−全國<br>114</th>
+          <th>趨勢</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Teacher Analysis -->
+<section id="teacher">
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <div>
+      <div class="section-kicker">指標 2 · 教師計畫執行調查</div>
+      <h2 class="section-title">教師端 · 逐題趨勢 <span class="em muted">— 33 題</span></h2>
+    </div>
+  </div>
+
+  <div class="compare-notice">
+    <div class="compare-notice-icon" style="color:var(--green)">ℹ</div>
+    <div>
+      <div class="compare-notice-title">本章節比較對象:<strong style="color:var(--green)">本院</strong> vs <strong style="color:var(--green)">全國</strong>(三年度)</div>
+      <div class="compare-notice-body">三年趨勢圖顯示本院與全國各年度滿意度;差距條形圖為 114 年本院與全國之差距。如需本院自身前後年比較,請參考章節 <span role="button" tabindex="0" class="inline-link" data-scroll="decline">04 本院前後年變化</span>。</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="toggle-group" id="teacher-viewmode">
+      <button data-mode="section" class="active">構面平均</button>
+      <button data-mode="detail">每題明細</button>
+    </div>
+    <div class="select-group">
+      <label>構面篩選:</label>
+      <select id="teacher-section-filter"><option value="">全部構面</option></select>
+    </div>
+  </div>
+
+  <div class="chart-block">
+    <h3>教師 · 本院 vs 全國 三年滿意度趨勢</h3>
+    <div class="sub" id="teacher-trend-sub">每條彩色線=一個「構面」內所有題目的平均分數(例如「醫院執行計畫」構面下 13 題的平均);黑色虛線=全國所有題目平均。滑鼠停在點上可看該構面詳細。</div>
+    <div class="chart-wrap xtall"><canvas id="chart-teacher-trend"></canvas></div>
+  </div>
+
+  <div class="chart-block" style="padding-top:1rem">
+    <div class="sort-bar">
+      <div class="select-group">
+        <label>此圖與下方數據表排序:</label>
+        <select id="teacher-sort">
+          <option value="section">依構面分組(預設)</option>
+          <option value="diff114">差距最低→最高(找出 114 年落後題)</option>
+          <option value="change">113→114 降幅最大→升幅最大(找出近期變化題)</option>
+        </select>
+      </div>
+    </div>
+    <h3>教師 · 114 年 本院 vs 全國 差距 · 逐題排序</h3>
+    <div class="sub">比較對象:<strong>本院 114 年</strong> vs <strong>全國 114 年</strong>。向右綠色=本院高於全國,向左紅色=本院低於全國。</div>
+    <div class="chart-wrap xtall"><canvas id="chart-teacher-diff"></canvas></div>
+  </div>
+
+  <div class="chart-block">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;flex-wrap:wrap;gap:.5rem">
+      <h3 style="margin:0">教師 · 逐題三年詳細數據</h3>
+      <div class="toggle-group" id="teacher-table-toggle" style="margin:0">
+        <button data-mode="compact" class="active">重點摘要(Top 5)</button>
+        <button data-mode="full">看完整</button>
+      </div>
+    </div>
+    <div class="sub" id="teacher-table-subtitle" style="margin-bottom:.5rem">—</div>
+    <div class="table-legend">
+      <div class="legend-item"><span class="col-label">「112/113/114」</span>欄 = 本院該年度滿意度 (%);「本院−全國」欄 = 本院與全國之差距百分點(正值=高於全國、負值=低於全國)</div>
+      <div class="legend-item"><span class="flag-mark">⚑</span> 題目文字曾改版(如 112 年「在合理督導下」→ 113/114 年「在學習獨立工作過程」),已按題意合併為同一列,顯示最新年度題目文字</div>
+      <div class="legend-item"><span class="na-mark">—</span> 該年度問卷未列入此題(例:時數題 114 年起取消、外派訓練題僅 112 年有)</div>
+    </div>
+    <div style="max-height:600px;overflow-y:auto">
+      <table class="q-table" id="teacher-table">
+        <thead><tr>
+          <th style="width:8em">構面</th><th>題目</th>
+          <th class="num-cell">112</th><th class="num-cell">113</th><th class="num-cell">114</th>
+          <th class="num-cell">本院−全國<br>112</th><th class="num-cell">本院−全國<br>113</th><th class="num-cell">本院−全國<br>114</th>
           <th>趨勢</th>
         </tr></thead>
         <tbody></tbody>
@@ -867,40 +1025,13 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
 </section>
 
 <!-- Response Counts -->
-<section id="response">
-  <div class="section-head">
-    <div class="section-num">06</div>
-    <div>
-      <div class="section-kicker">問卷樣本</div>
-      <h2 class="section-title">填答人數分析</h2>
-    </div>
-  </div>
 
-  <div class="rc-grid">
-    <div class="rc-chart">
-      <h3>本院填答人數 · 三年</h3>
-      <div class="chart-wrap" style="height:280px"><canvas id="chart-rc-hospital"></canvas></div>
-      <p class="muted" style="font-size:.8rem;margin-top:.75rem">本院樣本三年間穩定維持在 360–375 教師、285–298 受訓人員之間,反映填答率穩定。</p>
-    </div>
-    <div class="rc-chart">
-      <h3>全國填答人數 · 三年</h3>
-      <div class="chart-wrap" style="height:280px"><canvas id="chart-rc-national"></canvas></div>
-      <p class="muted" style="font-size:.8rem;margin-top:.75rem">全國教師 114 年較 113 年增加約 4%、受訓人員增加約 8%,基準擴大但比較方法一致。</p>
-    </div>
-  </div>
-
-  <div class="chart-block" style="margin-top:1.5rem">
-    <h3>本院 / 全國填答比例</h3>
-    <div class="chart-wrap" style="height:260px"><canvas id="chart-rc-ratio"></canvas></div>
-    <p class="muted" style="font-size:.8rem;margin-top:.5rem">奇美約占全國填答人數 2%,屬於大型教學醫院。樣本統計力充足,各題目差距數值應視為穩定訊號。</p>
-  </div>
-</section>
 
 <!-- Method -->
 <div class="method" id="method">
   <div class="method-inner">
     <div class="section-head" style="border-color:var(--ink-soft)">
-      <div class="section-num">07</div>
+      <div class="section-num">06</div>
       <div>
         <div class="section-kicker">分析方法</div>
         <h2 class="section-title">分析方法與資料校驗</h2>
@@ -936,24 +1067,49 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
   </div>
 </div>
 
+
+<!-- 附錄:填答人數(併入方法論區塊下方) -->
+<div class="appendix-section">
+  <div class="section-head appendix-head">
+    <div class="section-num" style="color:var(--muted)">附錄</div>
+    <div>
+      <div class="section-kicker">問卷樣本</div>
+      <h2 class="section-title" style="font-size:1.5rem">填答人數分析</h2>
+    </div>
+  </div>
+
+  <div class="rc-grid">
+    <div class="rc-chart">
+      <h3>本院填答人數 · 三年</h3>
+      <div class="chart-wrap" style="height:280px"><canvas id="chart-rc-hospital"></canvas></div>
+      <p class="muted" style="font-size:.8rem;margin-top:.75rem">本院樣本三年間穩定,反映填答率穩定。</p>
+    </div>
+    <div class="rc-chart">
+      <h3>全國填答人數 · 三年</h3>
+      <div class="chart-wrap" style="height:280px"><canvas id="chart-rc-national"></canvas></div>
+      <p class="muted" style="font-size:.8rem;margin-top:.75rem">全國填答基數逐年擴大,但比較方法一致。</p>
+    </div>
+  </div>
+
+  <div class="chart-block" style="margin-top:1.5rem">
+    <h3>本院 / 全國填答比例</h3>
+    <div class="chart-wrap" style="height:260px"><canvas id="chart-rc-ratio"></canvas></div>
+    <p class="muted" style="font-size:.8rem;margin-top:.5rem">奇美約占全國填答人數 2%,屬於大型教學醫院。樣本統計力充足,各題目差距數值應視為穩定訊號。</p>
+  </div>
+</div>
+
 <footer>
   <div class="sig">奇美醫療財團法人奇美醫院 · CHI MEI MEDICAL CENTER</div>
   <div style="font-size:.85rem;color:#c9c2b3;margin-bottom:.3rem">臨床醫事人員培訓計畫 · 指標 1 受訓人員計畫執行調查 + 指標 2 教師計畫執行調查</div>
   <div style="font-size:.85rem;color:#c9c2b3;margin-bottom:1rem">112 – 114 年度趨勢分析 · 依衛生福利部公告問卷結果</div>
-  <div style="display:inline-flex;gap:1.5rem;font-size:.75rem;color:#8b8678;border-top:1px solid rgba(250,247,242,.12);padding-top:1rem;margin-top:.5rem;flex-wrap:wrap;justify-content:center">
-    <span>資料更新:2026-04-14</span>
-    <span>·</span>
-    <span>內部參考用,未公開索引</span>
-    <span>·</span>
-    <span>Version 1.0</span>
-  </div>
+  <div id="footer-meta" style="display:inline-flex;gap:1.5rem;font-size:.75rem;color:#8b8678;border-top:1px solid rgba(250,247,242,.12);padding-top:1rem;margin-top:.5rem;flex-wrap:wrap;justify-content:center"></div>
 </footer>
 
 <script>
 
 
 // === Side rail: section tracking + scroll progress ===
-const SECTIONS = ['summary','teacher','trainee','decline','persist','response','method'];
+const SECTIONS = ['summary','teacher','trainee','decline','persist','method'];
 const railItems = document.querySelectorAll('.side-rail .rail-item');
 const topFill = document.getElementById('top-progress-fill');
 const sideRail = document.getElementById('side-rail');
@@ -1057,6 +1213,370 @@ document.querySelectorAll('[data-scroll]').forEach(a=>{
 
 const DATA = {"teacher": [{"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，具備核心能力的訓練成效為", "reworded": true, "h112": 88.04, "h113": 93.15, "h114": 93.63, "n112": 95.68, "n113": 95.09, "n114": 96.33, "d112": -7.64, "d113": -1.95, "d114": -2.7}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，訓練課程的執行情況良好", "reworded": false, "h112": 81.94, "h113": 89.87, "h114": 87.87, "n112": 89.48, "n113": 89.35, "n114": 90.29, "d112": -7.54, "d113": 0.52, "d114": -2.42}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，記載學習紀錄成效良好(如學習檢核表、學習手冊、學習護照、學習歷程檔案等)", "reworded": false, "h112": 83.33, "h113": 90.13, "h114": 88.41, "n112": 89.75, "n113": 89.38, "n114": 90.29, "d112": -6.41, "d113": 0.75, "d114": -1.88}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，專業知識有提升", "reworded": false, "h112": 90.0, "h113": 93.6, "h114": 91.91, "n112": 92.94, "n113": 92.51, "n114": 93.34, "d112": -2.94, "d113": 1.09, "d114": -1.42}, {"section": "受訓人員訓練成效", "question": "如果我是病人，會樂意讓我所指導的受訓人員照護或服務", "reworded": false, "h112": 88.89, "h113": 92.53, "h114": 89.76, "n112": 90.92, "n113": 90.33, "n114": 91.08, "d112": -2.03, "d113": 2.2, "d114": -1.33}, {"section": "受訓人員訓練成效", "question": "我認為我所指導的受訓人員，接受2年期訓練計畫後，確實具備訓練計畫中相關之臨床業務的能力", "reworded": false, "h112": 88.7, "h113": 93.46, "h114": 90.45, "n112": 91.47, "n113": 91.21, "n114": 91.21, "d112": -2.77, "d113": 2.25, "d114": -0.77}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，臨床實務能力有提升", "reworded": false, "h112": 90.0, "h113": 93.07, "h114": 93.26, "n112": 93.16, "n113": 92.73, "n114": 93.63, "d112": -3.16, "d113": 0.34, "d114": -0.36}, {"section": "受訓人員訓練成效", "question": "承上，跨領域團隊合作照護訓練有助於了解各類別醫療專業，學習全人照護的理念及素養", "reworded": false, "h112": 90.28, "h113": 93.33, "h114": 91.91, "n112": 90.92, "n113": 91.53, "n114": 91.91, "d112": -0.64, "d113": 1.81, "d114": 0.0}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，有正確、良好的臨床專業態度", "reworded": false, "h112": 89.72, "h113": 93.6, "h114": 92.72, "n112": 92.12, "n113": 91.9, "n114": 92.45, "d112": -2.4, "d113": 1.7, "d114": 0.27}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，參與跨領域團隊合作照護訓練之機會足夠", "reworded": false, "h112": 89.72, "h113": 92.53, "h114": 92.18, "n112": 88.77, "n113": 88.78, "n114": 89.63, "d112": 0.95, "d113": 3.75, "d114": 2.55}, {"section": "對本計畫看法", "question": "我未來樂意繼續擔任教師", "reworded": true, "h112": 87.5, "h113": 88.8, "h114": 85.44, "n112": 89.26, "n113": 88.51, "n114": 88.75, "d112": -1.76, "d113": 0.29, "d114": -3.3}, {"section": "對本計畫看法", "question": "整體而言，我對醫院執行訓練計畫的評分(最好5分~最差1分)", "reworded": false, "h112": 84.17, "h113": 91.47, "h114": 87.6, "n112": 86.59, "n113": 86.75, "n114": 87.58, "d112": -2.42, "d113": 4.72, "d114": 0.02}, {"section": "對本計畫看法", "question": "整體而言，我支持衛生福利部未來能持續推廣與執行本計畫", "reworded": false, "h112": 84.72, "h113": 90.67, "h114": 87.6, "n112": 86.22, "n113": 86.05, "n114": 85.97, "d112": -1.5, "d113": 4.62, "d114": 1.63}, {"section": "師資培育", "question": "參與師資培育課程對我的教學有幫助", "reworded": false, "h112": 89.17, "h113": 93.07, "h114": 87.6, "n112": 91.01, "n113": 90.68, "n114": 90.54, "d112": -1.84, "d113": 2.39, "d114": -2.94}, {"section": "師資培育", "question": "我常有機會參與師資培育課程", "reworded": false, "h112": 86.67, "h113": 91.73, "h114": 88.41, "n112": 90.09, "n113": 90.01, "n114": 90.04, "d112": -3.43, "d113": 1.72, "d114": -1.63}, {"section": "師資培育", "question": "醫院能補助或提供我參與師資培育課程之資源(如公假、報名費、交通費等)", "reworded": false, "h112": 85.83, "h113": 90.67, "h114": 83.83, "n112": 82.55, "n113": 82.56, "n114": 82.86, "d112": 3.29, "d113": 8.1, "d114": 0.97}, {"section": "師資培育", "question": "醫院師資培育相關計畫完整、健全", "reworded": false, "h112": 90.56, "h113": 93.6, "h114": 91.11, "n112": 89.17, "n113": 89.31, "n114": 89.28, "d112": 1.38, "d113": 4.29, "d114": 1.82}, {"section": "教學時間", "question": "我被分派承擔的教學時間合理", "reworded": false, "h112": 80.56, "h113": 84.8, "h114": 77.9, "n112": 82.49, "n113": 82.56, "n114": 83.52, "d112": -1.93, "d113": 2.24, "d114": -5.62}, {"section": "教學時間", "question": "平均每週指導受訓人員的時間(單位：小時)", "reworded": false, "h112": 14.34, "h113": 14.78, "h114": null, "n112": 11.5, "n113": 11.38, "n114": null, "d112": 2.84, "d113": 3.4, "d114": null}, {"section": "教學時間", "question": "我平均每週上班總時數    (單位：小時)", "reworded": false, "h112": 40.27, "h113": 40.48, "h114": null, "n112": 40.52, "n113": 40.54, "n114": null, "d112": -0.25, "d113": -0.06, "d114": null}, {"section": "醫院執行計畫", "question": "醫院能將我的教學貢獻與成效反映於升遷或績效考核結果上", "reworded": false, "h112": 78.89, "h113": 86.13, "h114": 76.82, "n112": 81.41, "n113": 81.61, "n114": 82.07, "d112": -2.52, "d113": 4.53, "d114": -5.25}, {"section": "醫院執行計畫", "question": "我認為醫院支付予我的教學津貼或提供的獎勵措施是合理的", "reworded": false, "h112": 72.78, "h113": 78.93, "h114": 69.81, "n112": 74.86, "n113": 73.21, "n114": 73.45, "d112": -2.08, "d113": 5.73, "d114": -3.63}, {"section": "醫院執行計畫", "question": "我對於訓練課程的相關意見有適切的反映管道", "reworded": false, "h112": 89.72, "h113": 92.8, "h114": 88.14, "n112": 90.4, "n113": 90.29, "n114": 90.07, "d112": -0.67, "d113": 2.51, "d114": -1.93}, {"section": "醫院執行計畫", "question": "醫院制訂的教師教學評估機制適當", "reworded": false, "h112": 86.39, "h113": 93.87, "h114": 86.79, "n112": 87.92, "n113": 88.21, "n114": 88.04, "d112": -1.53, "d113": 5.66, "d114": -1.25}, {"section": "醫院執行計畫", "question": "我能在訓練過程適時回饋受訓人員", "reworded": false, "h112": 95.28, "h113": 96.8, "h114": 95.15, "n112": 95.82, "n113": 95.69, "n114": 95.5, "d112": -0.54, "d113": 1.11, "d114": -0.35}, {"section": "醫院執行計畫", "question": "醫院能充分協助本單位安排聯合訓練相關事宜(有必要時)", "reworded": true, "h112": 91.11, "h113": 93.33, "h114": 89.76, "n112": 89.41, "n113": 89.97, "n114": 89.93, "d112": 1.7, "d113": 3.37, "d114": -0.18}, {"section": "醫院執行計畫", "question": "我認為學習歷程檔案或學習護照利多於弊，可繼續使用", "reworded": false, "h112": 83.06, "h113": 87.47, "h114": 84.37, "n112": 84.38, "n113": 83.75, "n114": 83.71, "d112": -1.32, "d113": 3.72, "d114": 0.66}, {"section": "醫院執行計畫", "question": "我能運用適當的評估方法評量受訓人員", "reworded": false, "h112": 93.89, "h113": 95.2, "h114": 94.07, "n112": 93.15, "n113": 92.99, "n114": 93.13, "d112": 0.74, "d113": 2.21, "d114": 0.94}, {"section": "醫院執行計畫", "question": "我能依據受訓人員學前評估的結果，安排訓練課程", "reworded": false, "h112": 91.67, "h113": 94.13, "h114": 93.53, "n112": 92.58, "n113": 92.08, "n114": 92.18, "d112": -0.91, "d113": 2.05, "d114": 1.35}, {"section": "醫院執行計畫", "question": "醫院能充分整合或協助各醫事職類執行跨領域團隊合作照護訓練活動", "reworded": false, "h112": 93.89, "h113": 94.67, "h114": 91.91, "n112": 90.89, "n113": 90.77, "n114": 90.26, "d112": 3.0, "d113": 3.9, "d114": 1.65}, {"section": "醫院執行計畫", "question": "醫院具充分教學交流平台，提供各醫事職類易於經驗分享", "reworded": true, "h112": 93.06, "h113": 94.13, "h114": 91.91, "n112": 90.74, "n113": 90.21, "n114": 90.13, "d112": 2.32, "d113": 3.93, "d114": 1.78}, {"section": "醫院執行計畫", "question": "醫院提供的教學設備與資源(包括軟硬體)都能滿足我的教學所需", "reworded": false, "h112": 94.72, "h113": 95.2, "h114": 93.8, "n112": 91.89, "n113": 91.8, "n114": 91.65, "d112": 2.83, "d113": 3.4, "d114": 2.15}, {"section": "醫院執行計畫", "question": "我能得知自己的教學表現評估結果", "reworded": false, "h112": 91.67, "h113": 94.67, "h114": 94.34, "n112": 91.16, "n113": 90.99, "n114": 91.04, "d112": 0.51, "d113": 3.67, "d114": 3.3}], "trainee": [{"section": "對本計畫看法", "question": "未來如果有機會，我樂意擔任臨床教師指導學弟/妹", "reworded": false, "h112": 68.77, "h113": 63.42, "h114": 55.93, "n112": 72.51, "n113": 69.46, "n114": 68.4, "d112": -3.74, "d113": -6.04, "d114": -12.47}, {"section": "對本計畫看法", "question": "整體而言，我支持衛生福利部持續推廣與執行本計畫", "reworded": false, "h112": 72.63, "h113": 78.52, "h114": 76.95, "n112": 79.39, "n113": 81.13, "n114": 81.97, "d112": -6.76, "d113": -2.61, "d114": -5.02}, {"section": "對本計畫看法", "question": "整體而言，我對我的訓練醫院的評分(最好5分~最差1分)", "reworded": false, "h112": 84.56, "h113": 82.21, "h114": 80.0, "n112": 82.91, "n113": 83.15, "n114": 84.53, "d112": 1.65, "d113": -0.93, "d114": -4.53}, {"section": "對本計畫看法", "question": "我會推薦學弟/妹畢業後到教學醫院接受此訓練", "reworded": false, "h112": 92.28, "h113": 92.28, "h114": 87.46, "n112": 87.56, "n113": 88.53, "n114": 89.2, "d112": 4.72, "d113": 3.75, "d114": -1.74}, {"section": "工作滿意度", "question": "工作時間內的負荷", "reworded": false, "h112": 59.65, "h113": 61.74, "h114": 61.02, "n112": 64.83, "n113": 67.36, "n114": 70.44, "d112": -5.19, "d113": -5.61, "d114": -9.42}, {"section": "工作滿意度", "question": "當表現優良時，獲得的肯定或獎勵", "reworded": false, "h112": 79.65, "h113": 82.21, "h114": 82.37, "n112": 84.03, "n113": 87.09, "n114": 88.51, "d112": -4.38, "d113": -4.88, "d114": -6.14}, {"section": "工作滿意度", "question": "醫院提供的整體訓練規劃，讓我從中獲得成就感", "reworded": true, "h112": 78.95, "h113": 82.89, "h114": 84.07, "n112": 83.68, "n113": 86.65, "n114": 87.71, "d112": -4.73, "d113": -3.76, "d114": -3.65}, {"section": "工作滿意度", "question": "主管對待我的方式", "reworded": false, "h112": 87.02, "h113": 82.55, "h114": 87.46, "n112": 87.63, "n113": 88.93, "n114": 89.86, "d112": -0.61, "d113": -6.38, "d114": -2.4}, {"section": "工作滿意度", "question": "在學習獨立工作過程，獲得合宜的督導或協助", "reworded": true, "h112": 94.74, "h113": 91.95, "h114": 90.85, "n112": 94.55, "n113": 92.33, "n114": 92.92, "d112": 0.18, "d113": -0.38, "d114": -2.07}, {"section": "工作滿意度", "question": "部門同事間的相處、協助與支持", "reworded": false, "h112": 85.61, "h113": 88.26, "h114": 89.49, "n112": 90.33, "n113": 90.68, "n114": 91.27, "d112": -4.72, "d113": -2.42, "d114": -1.78}, {"section": "工作滿意度", "question": "工作所需的設施與環境條件", "reworded": false, "h112": 81.05, "h113": 83.56, "h114": 83.39, "n112": 80.2, "n113": 81.88, "n114": 83.28, "d112": 0.85, "d113": 1.68, "d114": 0.11}, {"section": "臨床教師", "question": "整體而言，我服務部門之教師對教學的投入程度", "reworded": false, "h112": 91.93, "h113": 92.62, "h114": 92.54, "n112": 93.6, "n113": 93.6, "n114": 94.19, "d112": -1.67, "d113": -0.98, "d114": -1.65}, {"section": "臨床教師", "question": "臨床教師依據我學前評估的結果安排訓練課程", "reworded": false, "h112": 91.23, "h113": 92.95, "h114": 91.86, "n112": 93.05, "n113": 92.73, "n114": 93.3, "d112": -1.82, "d113": 0.23, "d114": -1.44}, {"section": "臨床教師", "question": "臨床教師對我的關心與輔導", "reworded": false, "h112": 92.63, "h113": 92.28, "h114": 92.88, "n112": 93.69, "n113": 93.51, "n114": 94.05, "d112": -1.06, "d113": -1.23, "d114": -1.17}, {"section": "臨床教師", "question": "臨床教師教學技能", "reworded": false, "h112": 94.39, "h113": 95.64, "h114": 93.9, "n112": 95.08, "n113": 94.67, "n114": 95.02, "d112": -0.69, "d113": 0.97, "d114": -1.12}, {"section": "臨床教師", "question": "臨床教師對我評量結果的回饋", "reworded": false, "h112": 94.04, "h113": 92.95, "h114": 93.22, "n112": 94.1, "n113": 93.68, "n114": 94.32, "d112": -0.06, "d113": -0.73, "d114": -1.1}, {"section": "臨床教師", "question": "臨床教師對我評量的頻率", "reworded": false, "h112": 96.49, "h113": 100.0, "h114": 99.66, "n112": 96.08, "n113": 96.66, "n114": 96.13, "d112": 0.41, "d113": 3.34, "d114": 3.54}, {"section": "自我評量", "question": "整體訓練計畫銜接學校教育與臨床工作的成效", "reworded": false, "h112": 81.75, "h113": 80.2, "h114": 85.08, "n112": 86.69, "n113": 87.14, "n114": 88.48, "d112": -4.93, "d113": -6.94, "d114": -3.39}, {"section": "自我評量", "question": "我與團隊成員互動溝通的能力", "reworded": false, "h112": 85.61, "h113": 85.23, "h114": 87.8, "n112": 89.51, "n113": 88.91, "n114": 90.52, "d112": -3.9, "d113": -3.67, "d114": -2.72}, {"section": "自我評量", "question": "我與病人或病人家屬互動溝通的能力", "reworded": false, "h112": 84.21, "h113": 84.9, "h114": 87.12, "n112": 88.2, "n113": 88.29, "n114": 89.69, "d112": -3.99, "d113": -3.39, "d114": -2.57}, {"section": "自我評量", "question": "臨床實務能力提升", "reworded": false, "h112": 85.61, "h113": 85.91, "h114": 88.81, "n112": 89.48, "n113": 89.52, "n114": 91.11, "d112": -3.87, "d113": -3.61, "d114": -2.3}, {"section": "自我評量", "question": "接受2年期訓練計畫後，我認為我已具備訓練計畫中相關之臨床業務的能力", "reworded": false, "h112": 82.83, "h113": 80.67, "h114": 89.55, "n112": 86.9, "n113": 86.64, "n114": 88.09, "d112": -4.07, "d113": -5.96, "d114": 1.47}, {"section": "自我評量", "question": "依照訓練計畫，接受訓練後，具備核心能力的訓練成效，自我評分為", "reworded": true, "h112": 86.87, "h113": 89.92, "h114": 95.52, "n112": 91.69, "n113": 93.4, "n114": 93.93, "d112": -4.82, "d113": -3.48, "d114": 1.59}, {"section": "訓練時間", "question": "工作與學習時段的安排", "reworded": false, "h112": 78.6, "h113": 80.87, "h114": 79.66, "n112": 84.18, "n113": 85.07, "n114": 85.93, "d112": -5.59, "d113": -4.2, "d114": -6.27}, {"section": "訓練時間", "question": "我認為平均每週臨床教師督導或協助的訓練時間", "reworded": true, "h112": 86.67, "h113": 88.93, "h114": 89.15, "n112": 88.81, "n113": 89.66, "n114": 90.54, "d112": -2.14, "d113": -0.74, "d114": -1.39}, {"section": "訓練時間", "question": "平均每週有臨床教師督導或協助的訓練時間(單位：小時)", "reworded": false, "h112": 13.0, "h113": 12.9, "h114": null, "n112": 10.75, "n113": 10.79, "n114": null, "d112": 2.25, "d113": 2.11, "d114": null}, {"section": "訓練時間", "question": "我平均每週上班總時數(單位：小時)", "reworded": false, "h112": 38.11, "h113": 37.8, "h114": null, "n112": 38.11, "n113": 38.16, "n114": null, "d112": 0.0, "d113": -0.36, "d114": null}, {"section": "訓練過程", "question": "訓練課程的執行情況", "reworded": false, "h112": 88.07, "h113": 91.95, "h114": 88.81, "n112": 92.01, "n113": 92.04, "n114": 92.48, "d112": -3.94, "d113": -0.09, "d114": -3.67}, {"section": "訓練過程", "question": "記載學習紀錄可以讓我掌握訓練進度", "reworded": false, "h112": 83.51, "h113": 86.91, "h114": 86.44, "n112": 86.93, "n113": 86.77, "n114": 87.65, "d112": -3.42, "d113": 0.14, "d114": -1.21}, {"section": "訓練過程", "question": "記載學習紀錄可以幫助我進行反思", "reworded": true, "h112": 77.89, "h113": 84.56, "h114": 86.44, "n112": 86.31, "n113": 86.59, "n114": 87.6, "d112": -8.42, "d113": -2.03, "d114": -1.16}, {"section": "訓練過程", "question": "跨領域團隊合作照護有助於了解各類別醫療專業，學習全人照護的理念與素養", "reworded": false, "h112": 86.67, "h113": 92.28, "h114": 91.53, "n112": 91.04, "n113": 92.05, "n114": 92.22, "d112": -4.37, "d113": 0.23, "d114": -0.7}, {"section": "訓練過程", "question": "參與跨領域團隊合作照護之機會", "reworded": false, "h112": 80.35, "h113": 91.95, "h114": 89.83, "n112": 88.36, "n113": 89.54, "n114": 90.2, "d112": -8.01, "d113": 2.41, "d114": -0.37}, {"section": "訓練過程", "question": "我曾經或預計規劃外派至其他醫院接受訓練(回答「是」之百分比)", "reworded": false, "h112": 8.07, "h113": null, "h114": null, "n112": 13.1, "n113": null, "n114": null, "d112": -5.03, "d113": null, "d114": null}, {"section": "醫院資源", "question": "醫院提供我學習相關權益反映的管道", "reworded": false, "h112": 83.51, "h113": 83.56, "h114": 80.0, "n112": 83.47, "n113": 84.11, "n114": 85.56, "d112": 0.04, "d113": -0.55, "d114": -5.56}, {"section": "醫院資源", "question": "醫院提供我的安全防護措施及教育訓練，足以因應各類疾病及病人療護", "reworded": true, "h112": 86.67, "h113": 88.26, "h114": 88.81, "n112": 87.69, "n113": 88.63, "n114": 89.78, "d112": -1.03, "d113": -0.38, "d114": -0.96}, {"section": "醫院資源", "question": "醫院提供教學訓練所需設施與環境(包含網路教學平台、圖書、期刊、訓練場所等空間及設備)", "reworded": true, "h112": 89.12, "h113": 86.58, "h114": 89.49, "n112": 87.34, "n113": 87.33, "n114": 88.45, "d112": 1.78, "d113": -0.75, "d114": 1.04}], "response_counts": {"teacher": {"hospital": [360, 375, 371], "national": [18432, 18306, 19044]}, "trainee": {"hospital": [285, 298, 295], "national": [12538, 12800, 13860]}}, "official_summary": {"teacher": {"112": [33, 23], "113": [33, 2], "114": [31, 17]}, "trainee": {"112": [36, 27], "113": [35, 25], "114": [33, 28]}}, "low_5_counts": {"teacher": {"112": null, "113": 0, "114": 2}, "trainee": {"112": 6, "113": 5, "114": 6}}, "years": [112, 113, 114]};
 
+// ============================================================================
+// REPORT CONFIG — 資料驅動設定區
+// 未來有新年度資料時,只需更新此區塊 + DATA json 物件,其他內容自動更新。
+// ============================================================================
+const CONFIG = {
+  hospitalName: '奇美醫療財團法人奇美醫院',
+  hospitalNameEn: 'CHI MEI MEDICAL CENTER',
+  reportTitle: '臨床醫事人員培訓計畫',
+  reportSubtitle: '年度趨勢分析',
+
+  // 分析年度 — 加新年度到這裡
+  years: [112, 113, 114],
+  yearsWithFlag: [112, 113, 114],  // 通常同上
+  latestYear: 114,
+  previousYear: 113,
+
+  // 填答人數(每年度) — 按照 years 順序
+  responseCounts: {
+    teacher: {
+      hospital: [360, 375, 371],
+      national: [18432, 18306, 19044],
+    },
+    trainee: {
+      hospital: [285, 298, 295],
+      national: [12538, 12800, 13860],
+    },
+  },
+
+  // 官方公告之各年度「低於全國題數 / 總題數」
+  officialStats: {
+    teacher: {112: {below: 23, total: 33}, 113: {below: 2, total: 33}, 114: {below: 17, total: 31}},
+    trainee: {112: {below: 27, total: 36}, 113: {below: 25, total: 35}, 114: {below: 28, total: 33}},
+  },
+
+  // 低於 ≥5 分題數(每年度)
+  below5Counts: {
+    teacher: {112: null, 113: 0, 114: 2},
+    trainee: {112: 6, 113: 5, 114: 6},
+  },
+
+  // 版本與更新日期
+  version: '1.0',
+  updateDate: '2026-04-14',
+  noteText: '內部參考用,未公開索引',
+
+  // Hero 大數字:單題亮點 (找出三年變化最劇烈的單題)
+  heroFeatured: {
+    // 用 DATA 中的題目,由 populateFromConfig 自動計算三年變化
+    biggestDropQuestion: {
+      role: 'trainee',
+      contains: '未來如果有機會',
+      shortLabel: '受訓人員「未來樂意擔任臨床教師」三年降幅',
+    },
+  },
+
+  // 洞察:Top 3 id 顯示為重點,其餘收進「更多洞察」
+  // 更新時可調整 featuredInsightIds 來改變哪幾項優先顯示
+  featuredInsightIds: [5, 2, 1],  // 依顯示順序排列
+
+  // 洞察:用 key 對應 DATA 中的題目,自動抓取數據計算三年變化
+  // question_contains 是用來精準定位該題的子字串
+  insights: [
+    {
+      id: 1, tone: 'neutral',
+      title: '113 年教師高點未能延續',
+      template: '113 年 33 項中僅 {{t113below}} 項低於全國;114 年回落至 {{t114below}} 項低於全國。需內部回溯 113 年有效作為為何未能延續。',
+    },
+    {
+      id: 2, tone: 'critical',
+      title: '受訓人員 114 年低於全國題數為三年最高',
+      template: '114 年 {{s114below}}/{{s114total}} 題低於全國,其中 {{s114lt5}} 題低於 ≥5 分;三年低於全國題數為 {{s112below}}→{{s113below}}→{{s114below}} 題。',
+    },
+    {
+      id: 3, tone: 'neutral',
+      title: '「獎勵/肯定」構面兩端皆持續低於全國',
+      template: '教師「教學津貼合理」差距 {{q_teacher_津貼_d112}}→{{q_teacher_津貼_d113}}→{{q_teacher_津貼_d114}};受訓「表現優良獲肯定」差距 {{q_trainee_肯定_d112}}→{{q_trainee_肯定_d113}}→{{q_trainee_肯定_d114}}(連三年擴大)。',
+      lookup: {
+        q_teacher_津貼: {role:'teacher', contains:'教學津貼或提供的獎勵措施'},
+        q_trainee_肯定: {role:'trainee', contains:'表現優良時，獲得的肯定或獎勵'},
+      },
+    },
+    {
+      id: 4, tone: 'critical',
+      title: '工作與教學負荷指標三年表現',
+      template: '受訓「工作時間負荷」差距 {{q_trainee_負荷_d112}}→{{q_trainee_負荷_d113}}→{{q_trainee_負荷_d114}};教師「被分派承擔的教學時間合理」差距 {{q_teacher_教時_d112}}→{{q_teacher_教時_d113}}→{{q_teacher_教時_d114}}。',
+      lookup: {
+        q_trainee_負荷: {role:'trainee', contains:'工作時間內的負荷'},
+        q_teacher_教時: {role:'teacher', contains:'被分派承擔的教學時間合理'},
+      },
+    },
+    {
+      id: 5, tone: 'critical',
+      title: '受訓人員「未來擔任臨床教師」三年降幅最大',
+      template: '本院滿意度 {{q_trainee_教職_h112}}→{{q_trainee_教職_h113}}→{{q_trainee_教職_h114}}(三年 {{q_trainee_教職_h114minus112}} 分);差距 {{q_trainee_教職_d112}}→{{q_trainee_教職_d113}}→{{q_trainee_教職_d114}},為所有題目中三年降幅最大者,與未來師資來源規劃相關。',
+      lookup: {
+        q_trainee_教職: {role:'trainee', contains:'未來如果有機會，我樂意擔任'},
+      },
+    },
+    {
+      id: 6, tone: 'neutral',
+      title: '師資培育相關題目 114 年較 113 年回落',
+      template: '教師「師資培育對教學有幫助」 {{q_teacher_師培_h112}}→{{q_teacher_師培_h113}}→{{q_teacher_師培_h114}}、「師培資源補助」 {{q_teacher_師資源_h112}}→{{q_teacher_師資源_h113}}→{{q_teacher_師資源_h114}}、「教學貢獻反映於升遷」 {{q_teacher_升遷_h112}}→{{q_teacher_升遷_h113}}→{{q_teacher_升遷_h114}}。',
+      lookup: {
+        q_teacher_師培: {role:'teacher', contains:'師資培育課程對我的教學有幫助'},
+        q_teacher_師資源: {role:'teacher', contains:'醫院能補助或提供我參與師資培育課程'},
+        q_teacher_升遷: {role:'teacher', contains:'教學貢獻與成效反映於升遷'},
+      },
+    },
+    {
+      id: 7, tone: 'good',
+      title: '受訓人員自我能力評量呈上升趨勢',
+      template: '「團隊溝通」「病人溝通」「臨床實務」「學校銜接臨床」四項自我評量三年上升(+2 至 +3 分),滿意度卻退步。訓練成效指標呈正向,但組織環境支持相關題目滿意度呈下降',
+    },
+  ],
+
+  // 建議行動 — 優先序分類
+  recommendations: [
+    {priority:'P1', title:'受訓人員留任與未來投入教職意願',
+     body:'深入訪談為何「未來樂意擔任臨床教師」三年降 {{q_trainee_教職_h114minus112}} 分、差距擴大至 {{q_trainee_教職_d114}};檢討導師制度與臨床教師職涯誘因規劃。',
+     lookup:{q_trainee_教職:{role:'trainee',contains:'未來如果有機會，我樂意擔任'}}},
+    {priority:'P1', title:'工作負荷與排班',
+     body:'受訓「工作時間負荷」差距惡化至 {{q_trainee_負荷_d114}}(全國改善、本院未同步);檢視科部排班、訓練時間安排,及交班/值班結構。',
+     lookup:{q_trainee_負荷:{role:'trainee',contains:'工作時間內的負荷'}}},
+    {priority:'P2', title:'教師獎勵與教學貢獻回饋',
+     body:'「教學津貼合理」113 年大幅改善 ({{q_teacher_津貼_d113_signed}}) 但 114 年回退 ({{q_teacher_津貼_d114_signed}});回溯 113 年有效作為,檢討為何未延續至 114。',
+     lookup:{q_teacher_津貼:{role:'teacher',contains:'教學津貼或提供的獎勵措施'}}},
+    {priority:'P2', title:'師資培育課程與資源',
+     body:'多項師培相關指標 114 年較 113 年回落 5-10 分;檢視課程品質、補助機制,以及教學貢獻於考核中的比重分配。'},
+    {priority:'P3', title:'學習紀錄系統',
+     body:'受訓「記載學習紀錄幫助反思」三年連續低於全國;檢視系統介面友善度、填寫時間負擔,以及教師引導配套。'},
+    {priority:'P3', title:'權益反映管道溝通',
+     body:'受訓「醫院提供權益反映管道」114 年差距驟降至 {{q_trainee_管道_d114}};強化管道曝光度、具體化申訴流程與回應時效。',
+     lookup:{q_trainee_管道:{role:'trainee',contains:'醫院提供我學習相關權益反映的管道'}}},
+  ],
+};
+
+// ============================================================================
+// CONFIG 輔助函數 — 從 DATA 自動計算值,無需硬編碼
+// ============================================================================
+function findQuestion(role, containsText){
+  return DATA[role].find(r => r.question.includes(containsText));
+}
+
+function fmt(v, opts = {}) {
+  if (v == null) return '—';
+  const n = Number(v);
+  const sign = opts.signed ? (n >= 0 ? '+' : '') : '';
+  return sign + n.toFixed(opts.decimals ?? 2);
+}
+
+// Resolve templated string using lookups + global stats
+function renderTemplate(tmpl, lookup){
+  return tmpl.replace(/\{\{([^}]+)\}\}/g, (_, key) => {
+    // Global stats first
+    const globals = {
+      t112below: CONFIG.officialStats.teacher[112]?.below,
+      t113below: CONFIG.officialStats.teacher[113]?.below,
+      t114below: CONFIG.officialStats.teacher[114]?.below,
+      t114total: CONFIG.officialStats.teacher[114]?.total,
+      s112below: CONFIG.officialStats.trainee[112]?.below,
+      s113below: CONFIG.officialStats.trainee[113]?.below,
+      s114below: CONFIG.officialStats.trainee[114]?.below,
+      s114total: CONFIG.officialStats.trainee[114]?.total,
+      s114lt5:   CONFIG.below5Counts.trainee[114],
+    };
+    if (key in globals) return globals[key] ?? '—';
+
+    // Then lookup-based question fields: q_name_field
+    // e.g. q_teacher_津貼_d114 → lookup[q_teacher_津貼] -> question row -> r.d114
+    if (lookup) {
+      const parts = key.split('_');
+      for (let i = parts.length - 1; i >= 2; i--) {
+        const base = parts.slice(0, i).join('_');
+        const field = parts.slice(i).join('_');
+        if (lookup[base]) {
+          const q = findQuestion(lookup[base].role, lookup[base].contains);
+          if (!q) return '—';
+          if (field === 'h114minus112') {
+            if (q.h112 == null || q.h114 == null) return '—';
+            return fmt(q.h114 - q.h112, {signed:true});
+          }
+          if (field.endsWith('_signed')) {
+            const plain = field.replace('_signed','');
+            return fmt(q[plain], {signed:true});
+          }
+          return fmt(q[field], {signed: field.startsWith('d')});
+        }
+      }
+    }
+    return '?';
+  });
+}
+
+// Populate all config-driven elements on page load
+function populateFromConfig(){
+  // Hero stats (from official stats)
+  const heroTeacher = document.getElementById('h-teacher-below');
+  const heroTrainee = document.getElementById('h-trainee-below');
+  const heroTeacherTotal = document.getElementById('h-teacher-total');
+  const heroTraineeTotal = document.getElementById('h-trainee-total');
+  if (heroTeacher) heroTeacher.textContent = CONFIG.officialStats.teacher[CONFIG.latestYear].below;
+  if (heroTrainee) heroTrainee.textContent = CONFIG.officialStats.trainee[CONFIG.latestYear].below;
+  if (heroTeacherTotal) heroTeacherTotal.textContent = '/' + CONFIG.officialStats.teacher[CONFIG.latestYear].total;
+  if (heroTraineeTotal) heroTraineeTotal.textContent = '/' + CONFIG.officialStats.trainee[CONFIG.latestYear].total;
+
+  // Hero hero-labels (e.g., "114 年 · 教師端低於全國題數")
+  const heroTLabel = document.getElementById('h-teacher-hero-label');
+  const heroTrLabel = document.getElementById('h-trainee-hero-label');
+  if (heroTLabel) heroTLabel.textContent = `${CONFIG.latestYear} 年 · 教師端低於全國題數`;
+  if (heroTrLabel) heroTrLabel.textContent = `${CONFIG.latestYear} 年 · 受訓人員端低於全國題數`;
+
+  // Hero 3rd stat (featured drop question - computed from DATA)
+  const dropVal = document.getElementById('h-drop-value');
+  const dropLabel = document.getElementById('h-drop-label');
+  if (dropVal && dropLabel && CONFIG.heroFeatured && CONFIG.heroFeatured.biggestDropQuestion) {
+    const bq = CONFIG.heroFeatured.biggestDropQuestion;
+    const q = findQuestion(bq.role, bq.contains);
+    if (q) {
+      const years = CONFIG.years;
+      const firstY = years[0];
+      const lastY = years[years.length-1];
+      const firstV = q['h'+firstY];
+      const lastV = q['h'+lastY];
+      if (firstV != null && lastV != null) {
+        const drop = lastV - firstV;
+        dropVal.textContent = (drop < 0 ? '−' : '+') + Math.abs(drop).toFixed(2);
+        dropLabel.textContent = bq.shortLabel;
+      }
+    }
+  }
+
+  // KPI cards — re-render all 6
+  const kpiGrid = document.getElementById('kpi-grid');
+  if (kpiGrid) {
+    const roles = [
+      {key:'trainee', label:'受訓人員', cls:'trainee'},
+      {key:'teacher', label:'教師', cls:'teacher'},
+    ];
+    let kpiHtml = '';
+    roles.forEach(role => {
+      CONFIG.years.forEach((yr, idx) => {
+        const stat = CONFIG.officialStats[role.key][yr];
+        if (!stat) return;
+        // Determine trend vs previous year
+        let trend = '';
+        if (idx > 0) {
+          const prev = CONFIG.officialStats[role.key][CONFIG.years[idx-1]];
+          if (prev) {
+            const diff = stat.below - prev.below;
+            if (diff < -3) trend = `<div class="k-trend good">▲ 減少 ${Math.abs(diff)} 題</div>`;
+            else if (diff > 3) trend = `<div class="k-trend bad">▼ 增加 ${diff} 題</div>`;
+          }
+          // Also detect "lowest/highest in 3 years"
+          const allYears = CONFIG.years.map(y => CONFIG.officialStats[role.key][y]?.below).filter(v=>v!=null);
+          if (stat.below === Math.min(...allYears) && idx === CONFIG.years.length-1) {
+            trend = `<div class="k-trend good">▲ 三年最低</div>`;
+          } else if (stat.below === Math.max(...allYears) && idx === CONFIG.years.length-1) {
+            trend = `<div class="k-trend bad">▼ 三年最高</div>`;
+          } else if (stat.below === Math.min(...allYears) && allYears.indexOf(stat.below) === idx) {
+            trend = `<div class="k-trend good">▲ 三年最低</div>`;
+          } else if (stat.below === Math.max(...allYears) && allYears.indexOf(stat.below) === idx) {
+            trend = `<div class="k-trend bad">▼ 三年最高</div>`;
+          }
+        }
+        // Color the number based on trend vs baseline
+        let numColor = '';
+        const allBelow = CONFIG.years.map(y=>CONFIG.officialStats[role.key][y]?.below).filter(v=>v!=null);
+        if (stat.below === Math.min(...allBelow)) numColor = 'color:var(--green)';
+        else if (stat.below === Math.max(...allBelow)) numColor = 'color:var(--red)';
+        kpiHtml += `
+          <div class="kpi ${role.cls}">
+            <div class="k-label">${role.label} · ${yr} 年</div>
+            <div class="k-num" style="${numColor}">${stat.below}<span class="small muted">/${stat.total}</span></div>
+            <div class="k-desc">低於全國題數</div>
+            ${trend}
+          </div>`;
+      });
+    });
+    kpiGrid.innerHTML = kpiHtml;
+  }
+
+  // Overview chart data
+  window.__OVERVIEW_DATA = {
+    teacherBelow: CONFIG.years.map(y => CONFIG.officialStats.teacher[y]?.below ?? null),
+    teacherTotal: CONFIG.years.map(y => CONFIG.officialStats.teacher[y]?.total ?? null),
+    traineeBelow: CONFIG.years.map(y => CONFIG.officialStats.trainee[y]?.below ?? null),
+    traineeTotal: CONFIG.years.map(y => CONFIG.officialStats.trainee[y]?.total ?? null),
+    labels: CONFIG.years.map(y => y + ' 年'),
+  };
+
+  // Insights — split into featured (Top 3) + rest (collapsible)
+  const insightsEl = document.getElementById('insights-container');
+  if (insightsEl) {
+    const featuredIds = CONFIG.featuredInsightIds || [];
+    const featured = featuredIds.map(id => CONFIG.insights.find(i => i.id === id)).filter(Boolean);
+    const rest = CONFIG.insights.filter(i => !featuredIds.includes(i.id));
+    const insightHtml = ins => {
+      const toneCls = ins.tone === 'critical' ? ' critical' : (ins.tone === 'good' ? ' good' : '');
+      const body = renderTemplate(ins.template, ins.lookup);
+      return `
+        <div class="insight${toneCls}">
+          <div class="num-big">${ins.id}</div>
+          <h3>${ins.title}</h3>
+          <p>${body}</p>
+        </div>`;
+    };
+    let html = '';
+    if (featured.length) {
+      html += '<div class="featured-label">';
+      html += '<span class="dot"></span><span>最關鍵 ' + featured.length + ' 項洞察</span>';
+      html += '<span class="featured-cta" onclick="document.querySelector(\'.rec-block\').scrollIntoView({behavior:\'smooth\',block:\'start\'})">看對應建議行動 ↓</span>';
+      html += '</div>';
+      html += '<div class="insights featured-insights">';
+      featured.forEach(ins => html += insightHtml(ins));
+      html += '</div>';
+    }
+    if (rest.length) {
+      html += `<details class="more-insights"><summary>看其他 ${rest.length} 項洞察 <span class="caret">▾</span></summary><div class="insights" style="margin-top:1rem">`;
+      rest.forEach(ins => html += insightHtml(ins));
+      html += '</div></details>';
+    }
+    insightsEl.innerHTML = html;
+  }
+
+  // Recommendations
+  const recEl = document.getElementById('rec-grid');
+  if (recEl) {
+    let html = '';
+    CONFIG.recommendations.forEach(r => {
+      const pcls = r.priority.toLowerCase();
+      const body = renderTemplate(r.body, r.lookup);
+      html += `
+        <div class="rec-card ${pcls}">
+          <div class="rec-badge">${r.priority}</div>
+          <h4>${r.title}</h4>
+          <p>${body}</p>
+        </div>`;
+    });
+    recEl.innerHTML = html;
+  }
+
+  // Update date + version in footer
+  const footerMeta = document.getElementById('footer-meta');
+  if (footerMeta) {
+    footerMeta.innerHTML = `
+      <span>資料更新:${CONFIG.updateDate}</span>
+      <span>·</span>
+      <span>${CONFIG.noteText}</span>
+      <span>·</span>
+      <span>Version ${CONFIG.version}</span>`;
+  }
+
+  // Response count datasets
+  window.__RC_DATA = {
+    teacherHospital: CONFIG.responseCounts.teacher.hospital,
+    teacherNational: CONFIG.responseCounts.teacher.national,
+    traineeHospital: CONFIG.responseCounts.trainee.hospital,
+    traineeNational: CONFIG.responseCounts.trainee.national,
+    labels: CONFIG.years.map(y=> y+''),
+  };
+}
+
+
+
 const SECTION_COLORS = {
   '醫院執行計畫':'#1a2b3c','師資培育':'#8b5e3c','教學時間':'#6b6b6b',
   '受訓人員訓練成效':'#2e6b4f','對本計畫看法':'#b03030',
@@ -1065,8 +1585,6 @@ const SECTION_COLORS = {
 };
 
 // Populate hero numbers
-document.getElementById('h-teacher-below').textContent = 17;
-document.getElementById('h-trainee-below').textContent = 28;
 
 // === Chart defaults ===
 Chart.defaults.font.family = "'Fraunces', 'Noto Sans TC', sans-serif";
@@ -1074,17 +1592,24 @@ Chart.defaults.color = '#3d4a57';
 Chart.defaults.borderColor = '#e5e1da';
 
 // === Overview chart ===
+// Populate all config-driven elements FIRST (before charts)
+populateFromConfig();
+
+// Overview chart — reads from CONFIG via __OVERVIEW_DATA
+const _OV = window.__OVERVIEW_DATA;
 new Chart(document.getElementById('chart-overview'), {
   type:'line',
   data:{
-    labels:['112 年','113 年','114 年'],
+    labels:_OV.labels,
     datasets:[
-      {label:'教師 · 低於全國題數 %',data:[23/33*100, 2/33*100, 17/31*100],
+      {label:'教師 · 低於全國題數',data:_OV.teacherBelow,
         borderColor:'#1a2b3c',backgroundColor:'rgba(26,43,60,.08)',
-        borderWidth:3,tension:.3,fill:true,pointRadius:6,pointBackgroundColor:'#1a2b3c'},
-      {label:'受訓人員 · 低於全國題數 %',data:[27/36*100, 25/35*100, 28/33*100],
+        borderWidth:3,tension:.3,fill:true,pointRadius:6,pointBackgroundColor:'#1a2b3c',
+        _totals:_OV.teacherTotal},
+      {label:'受訓人員 · 低於全國題數',data:_OV.traineeBelow,
         borderColor:'#b03030',backgroundColor:'rgba(176,48,48,.08)',
-        borderWidth:3,tension:.3,fill:true,pointRadius:6,pointBackgroundColor:'#b03030',borderDash:[]},
+        borderWidth:3,tension:.3,fill:true,pointRadius:6,pointBackgroundColor:'#b03030',borderDash:[],
+        _totals:_OV.traineeTotal},
     ]
   },
   options:{
@@ -1092,11 +1617,18 @@ new Chart(document.getElementById('chart-overview'), {
     plugins:{
       legend:{position:'bottom',labels:{font:{size:12},padding:15}},
       tooltip:{backgroundColor:'#1a2b3c',titleFont:{family:"'Fraunces','Noto Sans TC'",size:13},
-        callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`}}
+        callbacks:{
+          label:c=>{
+            const total = c.dataset._totals ? c.dataset._totals[c.dataIndex] : null;
+            return total
+              ? `${c.dataset.label}: ${c.parsed.y} / ${total} 題`
+              : `${c.dataset.label}: ${c.parsed.y} 題`;
+          }
+        }}
     },
     scales:{
-      y:{min:0,max:100,title:{display:true,text:'落後全國的題目佔比 (%)'},
-         ticks:{callback:v=>v+'%'}},
+      y:{min:0,max:40,title:{display:true,text:'低於全國的題目數(題)'},
+         ticks:{stepSize:5,callback:v=>v+' 題'}},
       x:{grid:{display:false}}
     }
   }
@@ -1189,10 +1721,13 @@ function buildSectionChart(canvasId, records, role){
       data: [avgs[s].h112, avgs[s].h113, avgs[s].h114],
       borderColor: color,
       backgroundColor: color+'15',
-      borderWidth: 3, tension: .3, pointRadius: 5, pointHoverRadius: 8,
+      borderWidth: 3, tension: .3,
+      pointRadius: 5, pointHoverRadius: 9,
+      pointHitRadius: 15,
       pointBackgroundColor: color, pointBorderColor: '#fff', pointBorderWidth: 2,
+      hoverBorderWidth: 4,
       fill: false, spanGaps: true,
-      _section: s,
+      _section: s, _count: avgs[s].count,
     };
   });
   // National avg across all questions
@@ -1204,28 +1739,64 @@ function buildSectionChart(canvasId, records, role){
     label:'全國平均(全題)',
     data:allNat,
     borderColor:'#1a2b3c',borderDash:[6,4],borderWidth:2,
-    pointRadius:0,tension:0,fill:false,
+    pointRadius:0,pointHoverRadius:0,pointHitRadius:0,
+    tension:0,fill:false,
     _isRef:true,
   });
-  return {type:'line',data:{labels:['112','113','114'],datasets},
+  return {type:'line',data:{labels:CONFIG.years.map(y=>y+' 年'),datasets},
     options:{
       responsive:true,maintainAspectRatio:false,
       plugins:{
-        legend:{position:'bottom',labels:{boxWidth:24,padding:14,font:{size:12}}},
+        legend:{
+          display:true,position:'bottom',
+          labels:{boxWidth:28,boxHeight:3,padding:14,font:{size:12},usePointStyle:false}
+        },
         tooltip:{
-          backgroundColor:'#1a2b3c',titleFont:{family:"'Fraunces','Noto Sans TC'",size:13},
-          bodyFont:{size:11},padding:12,
+          enabled:true,
+          backgroundColor:'#1a2b3c',
+          titleColor:'#fff',
+          bodyColor:'#faf7f2',
+          titleFont:{family:"'Fraunces','Noto Sans TC'",size:14,weight:'bold'},
+          bodyFont:{family:"'Fraunces','Noto Sans TC'",size:12},
+          footerFont:{family:"'Fraunces','Noto Sans TC'",size:11},
+          padding:{top:12,bottom:12,left:14,right:14},
+          boxPadding:6, caretPadding:10, cornerRadius:2,
+          displayColors:false, titleMarginBottom:8, footerMarginTop:8,
           callbacks:{
-            title:c=>c[0].dataset._section || c[0].dataset.label,
-            label:c=>'  '+c.label+' 年: '+(c.parsed.y==null?'—':c.parsed.y.toFixed(1)+'%')
+            title:(items)=>{
+              const ds = items[0].dataset;
+              if(ds._isRef) return '全國平均(全題)';
+              return '構面:' + (ds._section || '');
+            },
+            afterTitle:(items)=>{
+              const ds = items[0].dataset;
+              if(ds._isRef) return '';
+              return '本構面 ' + (ds._count || 0) + ' 題之平均';
+            },
+            label:(c)=>{
+              const label = c.label; // "113 年"
+              const y = c.parsed.y;
+              return '  ' + label + ': ' + (y==null?'—':y.toFixed(1)+'%');
+            },
+            beforeFooter:(items)=>{
+              const ds = items[0].dataset;
+              if(ds._isRef) return '';
+              const d = ds.data;
+              return ['','三年軌跡:' +
+                (d[0]==null?'—':d[0].toFixed(1)) + ' → ' +
+                (d[1]==null?'—':d[1].toFixed(1)) + ' → ' +
+                (d[2]==null?'—':d[2].toFixed(1))];
+            },
           }
         }
       },
       scales:{
-        y:{min:50,max:100,title:{display:true,text:'滿意度 (%)'},grid:{color:'#e5e1da'}},
+        y:{min:60,max:100,title:{display:true,text:'滿意度平均 (%)'},grid:{color:'#e5e1da'}},
         x:{grid:{display:false}}
       },
-      interaction:{mode:'nearest',intersect:false,axis:'x'}
+      // Key fix: show tooltip for ONE point under cursor, not all at same x
+      interaction:{mode:'nearest', intersect:true, axis:'xy'},
+      hover:{mode:'nearest', intersect:true}
     }
   };
 }
@@ -1317,7 +1888,7 @@ function buildDetailChart(canvasId, records, role){
         }
       },
       scales:{
-        y:{min:40,max:100,title:{display:true,text:'滿意度 (%)'},grid:{color:'#e5e1da'}},
+        y:{min:60,max:100,title:{display:true,text:'滿意度 (%)'},grid:{color:'#e5e1da'}},
         x:{grid:{display:false}}
       },
       interaction:{mode:'nearest', intersect:false, axis:'xy'},
@@ -1347,7 +1918,7 @@ function rebuildTrendChart(role){
     if(sf){
       subEl.textContent = `構面「${sf}」· ${records.length} 題個別走勢;點/滑鼠懸停可看單題詳細。虛線為全國平均。`;
     } else if(viewModes[role]==='section'){
-      subEl.textContent = '依構面平均呈現各面向走勢;虛線為該年度全國平均。可切換「每題明細」看個別題目。';
+      subEl.textContent = '每條彩色線=一個「構面」內所有題目的平均分數(例如「醫院執行計畫」構面下 13 題的平均);黑色虛線=全國所有題目平均。滑鼠停在點上可看該構面詳細。';
     } else {
       subEl.textContent = '每題皆為一條線(已降透明度);滑鼠懸停可聚焦單題。可用構面篩選縮小範圍。';
     }
@@ -1449,8 +2020,12 @@ function diffCell(v){
 function trendCell(h113, h114){
   if(h113==null || h114==null) return '<td class="trend fl">— 未問</td>';
   const d = h114 - h113;
-  if(d>=2) return `<td class="trend up">▲ 改善 ${d.toFixed(1)}</td>`;
-  if(d<=-2) return `<td class="trend dn">▼ 衰退 ${d.toFixed(1)}</td>`;
+  // Only show numeric value for notably large changes (>=5 in either direction)
+  if(d >= 5) return `<td class="trend up">▲ 改善 <span class="trend-num">${d.toFixed(1)}</span></td>`;
+  if(d <= -5) return `<td class="trend dn">▼ 衰退 <span class="trend-num">${d.toFixed(1)}</span></td>`;
+  // Modest changes: just arrow+label, no number
+  if(d >= 2) return `<td class="trend up">▲ 改善</td>`;
+  if(d <= -2) return `<td class="trend dn">▼ 衰退</td>`;
   return `<td class="trend fl">→ 持平</td>`;
 }
 function renderTable(tableId, records){
@@ -1468,6 +2043,42 @@ function renderTable(tableId, records){
   `).join('');
 }
 
+// Compact summary view: top N by diff114 (worst) + top N by change (biggest drops)
+function renderCompactTable(tableId, records, topN = 5){
+  const tbody = document.querySelector('#'+tableId+' tbody');
+  // Top N worst by 114 diff
+  const byDiff = [...records].filter(r=>r.d114!=null).sort((a,b)=>a.d114-b.d114).slice(0, topN);
+  // Top N biggest drops (113→114 change, negative)
+  const byChange = [...records].filter(r=>r.h113!=null && r.h114!=null)
+    .sort((a,b)=>(a.h114-a.h113)-(b.h114-b.h113)).slice(0, topN);
+  
+  // De-dup: keep order, prefer diff list first
+  const seen = new Set();
+  const rows = [];
+  byDiff.forEach(r => {
+    const key = r.question;
+    if (!seen.has(key)) { seen.add(key); rows.push({r, tag:'差距最大'}); }
+  });
+  byChange.forEach(r => {
+    const key = r.question;
+    if (!seen.has(key)) { seen.add(key); rows.push({r, tag:'降幅最大'}); }
+  });
+  
+  tbody.innerHTML = rows.map(({r, tag})=>`
+    <tr${r.reworded?' class="reworded"':''}>
+      <td style="font-size:.75rem"><span class="compact-tag compact-tag-${tag==='差距最大'?'diff':'drop'}">${tag}</span></td>
+      <td class="qtext"><small style="color:var(--muted);display:block;margin-bottom:.15rem">${r.section}</small>${r.question}</td>
+      <td class="num-cell">${fmtNum(r.h112)}</td>
+      <td class="num-cell">${fmtNum(r.h113)}</td>
+      <td class="num-cell">${fmtNum(r.h114)}</td>
+      ${diffCell(r.d112)}${diffCell(r.d113)}${diffCell(r.d114)}
+      ${trendCell(r.h113,r.h114)}
+    </tr>
+  `).join('');
+}
+
+const tableViewModes = {teacher:'compact', trainee:'compact'};
+
 function applyFilterSort(role){
   const sectionSel = document.getElementById(role+'-section-filter');
   const sortSel = document.getElementById(role+'-sort');
@@ -1475,8 +2086,22 @@ function applyFilterSort(role){
   const sortBy = sortSel.value;
   let records = DATA[role];
   if(sectionF) records = records.filter(r=>r.section===sectionF);
-  records = sortRecords(records, sortBy);
-  renderTable(role+'-table', records);
+  
+  // Compact mode ignores sort (always shows top 5 worst + top 5 drops)
+  if (tableViewModes[role] === 'compact' && !sectionF) {
+    renderCompactTable(role+'-table', records, 5);
+    const subEl = document.getElementById(role+'-table-subtitle');
+    if (subEl) subEl.textContent = '僅顯示:114 差距最大 5 題 + 113→114 降幅最大 5 題。切換「看完整 ' + records.length + ' 題」查看所有。';
+  } else {
+    records = sortRecords(records, sortBy);
+    renderTable(role+'-table', records);
+    const subEl = document.getElementById(role+'-table-subtitle');
+    if (subEl) {
+      subEl.textContent = sectionF 
+        ? `構面「${sectionF}」· ${records.length} 題;依${sortSel.options[sortSel.selectedIndex].textContent}排序。`
+        : `共 ${records.length} 題;依${sortSel.options[sortSel.selectedIndex].textContent}排序。`;
+    }
+  }
 }
 ['teacher','trainee'].forEach(role=>{
   document.getElementById(role+'-section-filter').addEventListener('change',(e)=>{
@@ -1489,6 +2114,18 @@ function applyFilterSort(role){
     rebuildDiffChart(role);
     applyFilterSort(role);
   });
+  // Table view toggle
+  const tableToggle = document.getElementById(role+'-table-toggle');
+  if (tableToggle) {
+    tableToggle.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        tableToggle.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        tableViewModes[role] = btn.dataset.mode;
+        applyFilterSort(role);
+      });
+    });
+  }
   applyFilterSort(role);
 });
 
@@ -1608,7 +2245,7 @@ function renderPersist(filter){
     // draw mini chart
     new Chart(document.getElementById(id),{
       type:'line',
-      data:{labels:['112','113','114'],datasets:[
+      data:{labels:window.__RC_DATA.labels,datasets:[
         {label:'本院',data:[x.h112,x.h113,x.h114],borderColor:'#b03030',backgroundColor:'rgba(176,48,48,.08)',
           fill:true,borderWidth:2,pointRadius:3,tension:.25},
         {label:'全國',data:[x.h112-x.d112,x.h113-x.d113,x.h114-x.d114],
@@ -1634,9 +2271,9 @@ document.querySelectorAll('#persist-toggle button').forEach(btn=>{
 // === Response count charts ===
 new Chart(document.getElementById('chart-rc-hospital'),{
   type:'bar',
-  data:{labels:['112','113','114'],datasets:[
-    {label:'教師',data:DATA.response_counts.teacher.hospital,backgroundColor:'#1a2b3c',borderRadius:2},
-    {label:'受訓人員',data:DATA.response_counts.trainee.hospital,backgroundColor:'#b03030',borderRadius:2},
+  data:{labels:window.__RC_DATA.labels,datasets:[
+    {label:'教師',data:window.__RC_DATA.teacherHospital,backgroundColor:'#1a2b3c',borderRadius:2},
+    {label:'受訓人員',data:window.__RC_DATA.traineeHospital,backgroundColor:'#b03030',borderRadius:2},
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'bottom'}},
@@ -1644,9 +2281,9 @@ new Chart(document.getElementById('chart-rc-hospital'),{
 });
 new Chart(document.getElementById('chart-rc-national'),{
   type:'bar',
-  data:{labels:['112','113','114'],datasets:[
-    {label:'教師',data:DATA.response_counts.teacher.national,backgroundColor:'#1a2b3c',borderRadius:2},
-    {label:'受訓人員',data:DATA.response_counts.trainee.national,backgroundColor:'#b03030',borderRadius:2},
+  data:{labels:window.__RC_DATA.labels,datasets:[
+    {label:'教師',data:window.__RC_DATA.teacherNational,backgroundColor:'#1a2b3c',borderRadius:2},
+    {label:'受訓人員',data:window.__RC_DATA.traineeNational,backgroundColor:'#b03030',borderRadius:2},
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'bottom'}},
@@ -1654,18 +2291,164 @@ new Chart(document.getElementById('chart-rc-national'),{
 });
 new Chart(document.getElementById('chart-rc-ratio'),{
   type:'line',
-  data:{labels:['112','113','114'],datasets:[
+  data:{labels:window.__RC_DATA.labels,datasets:[
     {label:'教師 · 本院/全國 (%)',
-      data:DATA.response_counts.teacher.hospital.map((h,i)=>h/DATA.response_counts.teacher.national[i]*100),
+      data:window.__RC_DATA.teacherHospital.map((h,i)=>h/window.__RC_DATA.teacherNational[i]*100),
       borderColor:'#1a2b3c',backgroundColor:'rgba(26,43,60,.05)',tension:.3,fill:true,borderWidth:2.5,pointRadius:5},
     {label:'受訓人員 · 本院/全國 (%)',
-      data:DATA.response_counts.trainee.hospital.map((h,i)=>h/DATA.response_counts.trainee.national[i]*100),
+      data:window.__RC_DATA.traineeHospital.map((h,i)=>h/window.__RC_DATA.traineeNational[i]*100),
       borderColor:'#b03030',backgroundColor:'rgba(176,48,48,.05)',tension:.3,fill:true,borderWidth:2.5,pointRadius:5},
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y.toFixed(2)+'%'}}},
     scales:{y:{title:{display:true,text:'占全國比例 (%)'},ticks:{callback:v=>v.toFixed(1)+'%'}}}}
 });
+
+// ============================================================================
+// One-page executive summary
+// ============================================================================
+function buildSummaryText(format = 'html'){
+  const years = CONFIG.years;
+  const latest = CONFIG.latestYear;
+  const prev = CONFIG.previousYear;
+  
+  // Generate text summary
+  const lines = [];
+  const row = (label, val) => format === 'html' 
+    ? `<div class="summary-row"><div class="label">${label}</div><div class="val">${val}</div></div>`
+    : `${label.padEnd(8)} ${val}`;
+  
+  if (format === 'html') {
+    lines.push(`<h1>${CONFIG.hospitalName} · ${CONFIG.reportTitle}</h1>`);
+    lines.push(`<div class="meta">${CONFIG.reportSubtitle} · 資料範圍 ${years[0]}–${years[years.length-1]} 年 · 更新 ${CONFIG.updateDate}</div>`);
+  } else {
+    lines.push(`${CONFIG.hospitalName} · ${CONFIG.reportTitle}`);
+    lines.push(`${CONFIG.reportSubtitle} · 資料範圍 ${years[0]}–${years[years.length-1]} 年`);
+    lines.push('='.repeat(50));
+  }
+  
+  // === Overview ===
+  lines.push(format==='html' ? '<h2>一、整體概覽</h2>' : '\n【一、整體概覽】');
+  years.forEach(y => {
+    const t = CONFIG.officialStats.teacher[y];
+    const s = CONFIG.officialStats.trainee[y];
+    if (t && s) {
+      lines.push(row(
+        `${y} 年`,
+        `教師 ${t.below}/${t.total} 題低於全國;受訓人員 ${s.below}/${s.total} 題低於全國`
+      ));
+    }
+  });
+  
+  // === Key Findings ===
+  lines.push(format==='html' ? '<h2>二、最關鍵洞察</h2>' : '\n【二、最關鍵洞察】');
+  if (format === 'html') lines.push('<ol>');
+  const featuredIds = CONFIG.featuredInsightIds || [];
+  featuredIds.forEach((id,i) => {
+    const ins = CONFIG.insights.find(x=>x.id===id);
+    if (!ins) return;
+    const body = renderTemplate(ins.template, ins.lookup);
+    // Strip HTML tags for plain text
+    const cleanBody = format === 'html' ? body : body.replace(/<[^>]+>/g,'');
+    if (format === 'html') {
+      lines.push(`<li><strong>${ins.title}</strong> — ${body}</li>`);
+    } else {
+      lines.push(`${i+1}. ${ins.title}`);
+      lines.push(`   ${cleanBody}`);
+    }
+  });
+  if (format === 'html') lines.push('</ol>');
+  
+  // === Recommendations ===
+  lines.push(format==='html' ? '<h2>三、建議行動</h2>' : '\n【三、建議行動】');
+  if (format === 'html') lines.push('<ul style="list-style:none;padding-left:0">');
+  CONFIG.recommendations.forEach((rec,i) => {
+    const body = renderTemplate(rec.body, rec.lookup);
+    const cleanBody = format === 'html' ? body : body.replace(/<[^>]+>/g,'');
+    if (format === 'html') {
+      lines.push(`<li><span class="p-tag ${rec.priority.toLowerCase()}">${rec.priority}</span><strong>${rec.title}</strong> — ${body}</li>`);
+    } else {
+      lines.push(`[${rec.priority}] ${rec.title}`);
+      lines.push(`   ${cleanBody}`);
+    }
+  });
+  if (format === 'html') lines.push('</ul>');
+  
+  // === Sample sizes ===
+  lines.push(format==='html' ? '<h2>四、樣本與資料來源</h2>' : '\n【四、樣本與資料來源】');
+  const rcT = CONFIG.responseCounts.teacher.hospital;
+  const rcS = CONFIG.responseCounts.trainee.hospital;
+  lines.push(row('填答人數', `教師 ${rcT.join(' → ')} 人;受訓人員 ${rcS.join(' → ')} 人`));
+  lines.push(row('資料來源', '衛生福利部臨床醫事人員培訓計畫問卷結果'));
+  lines.push(row('分析依據', '本院與全國滿意度差距(正值高於全國、負值低於全國)'));
+  
+  // Footer
+  if (format === 'html') {
+    lines.push(`<div class="footer-note">${CONFIG.hospitalName} · ${CONFIG.hospitalNameEn} | ${CONFIG.noteText} | Version ${CONFIG.version} · ${CONFIG.updateDate}</div>`);
+  } else {
+    lines.push('\n' + '='.repeat(50));
+    lines.push(`${CONFIG.hospitalName} · ${CONFIG.hospitalNameEn}`);
+    lines.push(`${CONFIG.noteText} · Version ${CONFIG.version} · ${CONFIG.updateDate}`);
+  }
+  
+  return lines.join(format === 'html' ? '\n' : '\n');
+}
+
+// Wire up FAB + modal
+const summaryFab = document.getElementById('summary-fab');
+const summaryModal = document.getElementById('summary-modal');
+const summaryContent = document.getElementById('summary-content');
+const summaryClose = document.getElementById('summary-close');
+const summaryBackdrop = document.getElementById('summary-modal-backdrop');
+const summaryCopy = document.getElementById('summary-copy');
+const summaryPrint = document.getElementById('summary-print');
+
+function openSummary(){
+  summaryContent.innerHTML = buildSummaryText('html');
+  summaryModal.classList.add('open');
+  summaryModal.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeSummary(){
+  summaryModal.classList.remove('open');
+  summaryModal.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+if (summaryFab) summaryFab.addEventListener('click', openSummary);
+if (summaryClose) summaryClose.addEventListener('click', closeSummary);
+if (summaryBackdrop) summaryBackdrop.addEventListener('click', closeSummary);
+
+if (summaryCopy) {
+  summaryCopy.addEventListener('click', async () => {
+    const plainText = buildSummaryText('plain');
+    try {
+      await navigator.clipboard.writeText(plainText);
+      const old = summaryCopy.textContent;
+      summaryCopy.textContent = '✓ 已複製';
+      setTimeout(()=>{ summaryCopy.textContent = old; }, 1500);
+    } catch(e){
+      // Fallback: selectable text in a textarea
+      const ta = document.createElement('textarea');
+      ta.value = plainText;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); summaryCopy.textContent = '✓ 已複製'; setTimeout(()=>{summaryCopy.textContent='📋 複製全文';},1500); } catch {}
+      document.body.removeChild(ta);
+    }
+  });
+}
+
+if (summaryPrint) {
+  summaryPrint.addEventListener('click', () => {
+    window.print();
+  });
+}
+
+// ESC to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && summaryModal.classList.contains('open')) closeSummary();
+});
+
 </script>
 </body>
 </html>
