@@ -188,11 +188,53 @@ details.more-insights[open] summary .caret{transform:rotate(180deg)}
 .select-group select{font-family:inherit;padding:.45rem .8rem;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:.9rem;cursor:pointer;}
 
 /* Table inline legend */
-.legend-item .col-label{display:inline-block;background:var(--bg);border:1px solid var(--line-strong);padding:.05rem .4rem;font-family:'Fraunces','Noto Sans TC',serif;font-size:.75rem;color:var(--ink);font-weight:500;margin-right:.3em;border-radius:2px;flex-shrink:0;}
-.table-legend{display:flex;flex-direction:column;gap:.4rem;background:var(--bg-alt);border-left:3px solid var(--amber);padding:.7rem 1rem;margin-bottom:1rem;font-size:.8rem;line-height:1.5;color:var(--ink-soft);}
-.legend-item{display:flex;gap:.6rem;align-items:baseline}
-.legend-item .flag-mark{color:var(--amber);font-weight:700;font-size:.95rem;flex-shrink:0;min-width:1em;text-align:center}
-.legend-item .na-mark{color:var(--line-strong);font-weight:500;flex-shrink:0;min-width:1em;text-align:center}
+.legend-item .col-label{display:none}  /* deprecated — kept for backward compatibility */
+/* Table legend — grid layout for clean icon/body alignment */
+.table-legend{
+  background:var(--bg-alt);
+  border-left:3px solid var(--amber);
+  padding:.85rem 1rem;
+  margin-bottom:1rem;
+  font-size:.8rem;
+  line-height:1.65;
+  color:var(--ink-soft);
+}
+.legend-item{
+  display:grid;
+  grid-template-columns:3.2em 1fr;
+  gap:.7rem;
+  align-items:start;
+  padding:.45rem 0;
+}
+.legend-item + .legend-item{
+  border-top:1px dashed var(--line);
+}
+.legend-icon{
+  text-align:center;
+  font-weight:700;
+  font-size:.78rem;
+  padding-top:.05em;
+  letter-spacing:.05em;
+  color:var(--ink-soft);
+}
+.legend-icon.flag-mark{color:var(--amber);font-size:1rem}
+.legend-icon.na-mark{color:var(--line-strong);font-weight:500;font-size:1rem}
+.legend-icon.cat-cols{
+  background:var(--paper);border:1px solid var(--line-strong);
+  border-radius:2px;padding:.15rem .35rem;font-size:.7rem;
+  color:var(--ink);font-family:'Fraunces','Noto Sans TC',serif;
+}
+.legend-icon.cat-special{
+  background:#fdf6e8;color:var(--amber);
+  border-radius:2px;padding:.15rem .35rem;font-size:.7rem;
+}
+.legend-body{line-height:1.7}
+.legend-body strong{color:var(--ink);font-weight:600}
+.legend-body .legend-warn{color:var(--red);font-weight:600}
+.legend-body .legend-mini-list{
+  margin:.3em 0 0 0;padding-left:1.3em;font-size:.95em;
+}
+.legend-body .legend-mini-list li{margin:.15em 0}
 
 .sort-bar{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px dashed var(--line);font-size:.9rem;}
 .sort-bar .select-group label{color:var(--ink-soft);font-weight:500}
@@ -223,6 +265,20 @@ details.more-insights[open] summary .caret{transform:rotate(180deg)}
 .q-table .diff-neg{color:var(--red);font-weight:600}
 .q-table .diff-pos{color:var(--green);font-weight:600}
 .q-table tr.reworded td:first-child::after{content:"⚑";color:var(--amber);font-size:.75rem;margin-left:.3em}
+
+/* Non-satisfaction question styling — time and ratio questions */
+.q-table tr.special-row td{background:#fdf6e8 !important}
+.q-table tr.special-row:hover td{background:#f9ecd0 !important}
+.q-table .unit-mini{font-size:.72em;color:var(--muted);font-weight:400;margin-left:.15em;font-family:'Noto Sans TC',sans-serif}
+.q-table .special-tag{
+  display:inline-block;padding:.1rem .45rem;font-size:.65rem;font-weight:700;
+  letter-spacing:.05em;border-radius:2px;background:var(--amber-bg);color:var(--amber);
+  margin-right:.35em;font-family:'Noto Sans TC',sans-serif;
+}
+.q-table th .unit-hint{
+  display:block;font-size:.7em;font-weight:400;color:var(--muted);margin-top:.15em;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:.02em;
+}
 
 .compact-tag{display:inline-block;padding:.15rem .5rem;font-size:.7rem;font-weight:700;letter-spacing:.05em;border-radius:2px;white-space:nowrap;}
 .compact-tag-diff{background:var(--red-bg);color:var(--red)}
@@ -430,9 +486,21 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
       <p class="hero-sub fade-in">112 / 113 / 114 年度<strong style="color:#d4a574;font-weight:600">指標 1 · 受訓人員計畫執行調查</strong>與<strong style="color:#d4a574;font-weight:600">指標 2 · 教師計畫執行調查</strong>三年趨勢解讀。教師端 113 年滿意度為三年最高,114 年回到較接近 112 年水準;受訓人員端與全國差距逐年擴大。本頁提供逐題對照、衰退紅單與結構性問題定位。</p>
     </div>
     <div class="hero-meta">
-      <div><div class="label">分析範圍</div><div class="val">112 – 114</div></div>
-      <div><div class="label">填答人數(三年)</div><div class="val">1,106 + 878</div></div>
-      <div><div class="label">題目涵蓋</div><div class="val">33 + 36 題</div></div>
+      <div><div class="label">分析範圍</div><div class="val">112 – 114 年度</div></div>
+      <div>
+        <div class="label">三年累計填答人次</div>
+        <div class="val" style="font-size:1rem;line-height:1.55">
+          教師 <strong style="color:#fff">1,106</strong> 人次<br>
+          受訓 <strong style="color:#fff">878</strong> 人次
+        </div>
+      </div>
+      <div>
+        <div class="label">114 年度題目數</div>
+        <div class="val" style="font-size:1rem;line-height:1.55">
+          教師 <strong style="color:#fff">31</strong> 題<br>
+          受訓 <strong style="color:#fff">33</strong> 題
+        </div>
+      </div>
     </div>
   </div>
   <div class="hero-stats">
@@ -474,7 +542,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     <div class="section-num">02</div>
     <div>
       <div class="section-kicker">指標 1 · 受訓人員計畫執行調查</div>
-      <h2 class="section-title">受訓人員端 · 逐題趨勢 <span class="em muted">— 36 題</span></h2>
+      <h2 class="section-title">受訓人員端 · 逐題趨勢 <span class="em muted">— 114 年度 33 題</span></h2>
     </div>
   </div>
   <div class="compare-notice">
@@ -524,17 +592,49 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     </div>
     <div class="sub" id="trainee-table-subtitle" style="margin-bottom:.5rem">—</div>
     <div class="table-legend">
-      <div class="legend-item"><span class="col-label">「112/113/114」</span>欄 = 本院該年度滿意度 (%);「本院−全國」欄 = 本院與全國之差距百分點(正值=高於全國、負值=低於全國)</div>
-      <div class="legend-item"><span class="flag-mark">⚑</span> 題目文字曾改版(如 112 年「在合理督導下」→ 113/114 年「在學習獨立工作過程」),已按題意合併為同一列,顯示最新年度題目文字</div>
-      <div class="legend-item"><span class="na-mark">—</span> 該年度問卷未列入此題(例:時數題 114 年起取消、外派訓練題僅 112 年有)</div>
+      <div class="legend-item">
+        <span class="legend-icon cat-cols">欄位</span>
+        <div class="legend-body">
+          <strong>「112 / 113 / 114」</strong>欄 = 本院當年度<strong>滿意度 (%)</strong>(0–100 分制);
+          <strong>「本院−全國」</strong>欄 = 本院與全國之<strong>差距 (p.p. 百分點)</strong>:正值 = 高於全國、負值 = 低於全國
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-icon cat-special">特殊</span>
+        <div class="legend-body">
+          <strong>橘色底色列 = 非滿意度題(共 5 題)</strong>,單位與滿意度題不同,<span class="legend-warn">不可與滿意度題直接比較</span>:
+          <ul class="legend-mini-list">
+            <li><strong>4 題時數題</strong>(<code style="background:var(--paper);padding:0 .25em;font-size:.92em">時數</code>標記):數值與差距單位為<strong>小時 / 週</strong></li>
+            <li><strong>1 題外派比率題</strong>(<code style="background:var(--paper);padding:0 .25em;font-size:.92em">比率</code>標記):數值為<strong>回答「是」之 %</strong>,差距單位為<strong>百分點</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-icon flag-mark">⚑</span>
+        <div class="legend-body">
+          題目文字曾改版,已按題意合併為同一列,顯示最新年度題目文字。
+          <span style="display:block;color:var(--muted);font-size:.92em;margin-top:.15em">例:112 年「在合理督導下」→ 113/114 年「在學習獨立工作過程」</span>
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-icon na-mark">—</span>
+        <div class="legend-body">
+          該年度問卷未列入此題。
+          <span style="display:block;color:var(--muted);font-size:.92em;margin-top:.15em">例:時數題 114 年起取消、外派訓練題僅 112 年問</span>
+        </div>
+      </div>
     </div>
     <div style="max-height:600px;overflow-y:auto">
       <table class="q-table" id="trainee-table">
         <thead><tr>
           <th style="width:8em">構面</th><th>題目</th>
-          <th class="num-cell">112</th><th class="num-cell">113</th><th class="num-cell">114</th>
-          <th class="num-cell">本院−全國<br>112</th><th class="num-cell">本院−全國<br>113</th><th class="num-cell">本院−全國<br>114</th>
-          <th>趨勢</th>
+          <th class="num-cell">112<span class="unit-hint">本院 (%)</span></th>
+          <th class="num-cell">113<span class="unit-hint">本院 (%)</span></th>
+          <th class="num-cell">114<span class="unit-hint">本院 (%)</span></th>
+          <th class="num-cell">本院−全國<br>112<span class="unit-hint">差距 (p.p.)</span></th>
+          <th class="num-cell">本院−全國<br>113<span class="unit-hint">差距 (p.p.)</span></th>
+          <th class="num-cell">本院−全國<br>114<span class="unit-hint">差距 (p.p.)</span></th>
+          <th>趨勢<span class="unit-hint">113→114</span></th>
         </tr></thead>
         <tbody></tbody>
       </table>
@@ -547,7 +647,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     <div class="section-num">03</div>
     <div>
       <div class="section-kicker">指標 2 · 教師計畫執行調查</div>
-      <h2 class="section-title">教師端 · 逐題趨勢 <span class="em muted">— 33 題</span></h2>
+      <h2 class="section-title">教師端 · 逐題趨勢 <span class="em muted">— 114 年度 31 題</span></h2>
     </div>
   </div>
   <div class="compare-notice">
@@ -597,17 +697,49 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
     </div>
     <div class="sub" id="teacher-table-subtitle" style="margin-bottom:.5rem">—</div>
     <div class="table-legend">
-      <div class="legend-item"><span class="col-label">「112/113/114」</span>欄 = 本院該年度滿意度 (%);「本院−全國」欄 = 本院與全國之差距百分點(正值=高於全國、負值=低於全國)</div>
-      <div class="legend-item"><span class="flag-mark">⚑</span> 題目文字曾改版(如 112 年「在合理督導下」→ 113/114 年「在學習獨立工作過程」),已按題意合併為同一列,顯示最新年度題目文字</div>
-      <div class="legend-item"><span class="na-mark">—</span> 該年度問卷未列入此題(例:時數題 114 年起取消、外派訓練題僅 112 年有)</div>
+      <div class="legend-item">
+        <span class="legend-icon cat-cols">欄位</span>
+        <div class="legend-body">
+          <strong>「112 / 113 / 114」</strong>欄 = 本院當年度<strong>滿意度 (%)</strong>(0–100 分制);
+          <strong>「本院−全國」</strong>欄 = 本院與全國之<strong>差距 (p.p. 百分點)</strong>:正值 = 高於全國、負值 = 低於全國
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-icon cat-special">特殊</span>
+        <div class="legend-body">
+          <strong>橘色底色列 = 非滿意度題(共 5 題)</strong>,單位與滿意度題不同,<span class="legend-warn">不可與滿意度題直接比較</span>:
+          <ul class="legend-mini-list">
+            <li><strong>4 題時數題</strong>(<code style="background:var(--paper);padding:0 .25em;font-size:.92em">時數</code>標記):數值與差距單位為<strong>小時 / 週</strong></li>
+            <li><strong>1 題外派比率題</strong>(<code style="background:var(--paper);padding:0 .25em;font-size:.92em">比率</code>標記):數值為<strong>回答「是」之 %</strong>,差距單位為<strong>百分點</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-icon flag-mark">⚑</span>
+        <div class="legend-body">
+          題目文字曾改版,已按題意合併為同一列,顯示最新年度題目文字。
+          <span style="display:block;color:var(--muted);font-size:.92em;margin-top:.15em">例:112 年「在合理督導下」→ 113/114 年「在學習獨立工作過程」</span>
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-icon na-mark">—</span>
+        <div class="legend-body">
+          該年度問卷未列入此題。
+          <span style="display:block;color:var(--muted);font-size:.92em;margin-top:.15em">例:時數題 114 年起取消、外派訓練題僅 112 年問</span>
+        </div>
+      </div>
     </div>
     <div style="max-height:600px;overflow-y:auto">
       <table class="q-table" id="teacher-table">
         <thead><tr>
           <th style="width:8em">構面</th><th>題目</th>
-          <th class="num-cell">112</th><th class="num-cell">113</th><th class="num-cell">114</th>
-          <th class="num-cell">本院−全國<br>112</th><th class="num-cell">本院−全國<br>113</th><th class="num-cell">本院−全國<br>114</th>
-          <th>趨勢</th>
+          <th class="num-cell">112<span class="unit-hint">本院 (%)</span></th>
+          <th class="num-cell">113<span class="unit-hint">本院 (%)</span></th>
+          <th class="num-cell">114<span class="unit-hint">本院 (%)</span></th>
+          <th class="num-cell">本院−全國<br>112<span class="unit-hint">差距 (p.p.)</span></th>
+          <th class="num-cell">本院−全國<br>113<span class="unit-hint">差距 (p.p.)</span></th>
+          <th class="num-cell">本院−全國<br>114<span class="unit-hint">差距 (p.p.)</span></th>
+          <th>趨勢<span class="unit-hint">113→114</span></th>
         </tr></thead>
         <tbody></tbody>
       </table>
@@ -681,7 +813,7 @@ footer .sig{font-family:'Fraunces','Noto Sans TC',serif;color:#faf7f2;font-size:
       <div class="method-card"><h3>滿意度定義</h3><p>滿意度 = 「<span class="mini-val">非常同意/滿意</span>」+「<span class="mini-val">同意/滿意</span>」之百分比加總(全國問卷分析一致採此標準)。</p></div>
       <div class="method-card"><h3>差距計算</h3><p>差距 = <span class="mini-val">本院滿意度 − 全國滿意度</span>。正值表示高於全國,負值表示低於全國。單位:百分點(p.p.)。</p></div>
       <div class="method-card"><h3>題目跨年合併</h3><p>題目年度間微幅改版者(如「在合理督導下」→「在學習獨立工作過程」)經 fuzzy match 合併為同一列,總計 <span class="mini-val">11 組合併</span>(教師 4 組、受訓人員 7 組),採用最新年度題目文字。</p></div>
-      <div class="method-card"><h3>資料校驗</h3><p>逐題個別數據與原始 Excel 檔案 <span class="mini-val">100%</span> 相符;總題數(教師 33 題、受訓人員 36 題)與各年度官方公告一致。</p></div>
+      <div class="method-card"><h3>資料校驗</h3><p>逐題個別數據與原始 Excel 檔案 <span class="mini-val">100%</span> 相符。<strong>114 年度題數:教師 31 題、受訓人員 33 題</strong>(本頁主要呈現基準);112-113 年另含時數題、外派題等共 33+36 題,均納入歷年比對。</p></div>
       <div class="method-card"><h3>時數題與一次性題目</h3><p>時數題(每週工作/督導時數)114 年起全國問卷取消;「外派訓練」題僅 112 年有。這類題目以「—」標示,不納入滿意度差距計算。</p></div>
       <div class="method-card"><h3>單一職類分析</h3><p>本階段聚焦全院層級趨勢。單一職類對比資料已有初步處理(112 僅全院彙整、113/114 部分職類採合併組),將於後續階段補齊 114 職類檔案後再納入。</p></div>
     </div>
@@ -776,7 +908,7 @@ document.querySelectorAll('.inline-link[data-scroll]').forEach(a=>{
   });
 });
 
-const DATA = {"teacher": [{"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，具備核心能力的訓練成效為", "reworded": true, "h112": 88.04, "h113": 93.15, "h114": 93.63, "n112": 95.68, "n113": 95.09, "n114": 96.33, "d112": -7.64, "d113": -1.95, "d114": -2.7}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，訓練課程的執行情況良好", "reworded": false, "h112": 81.94, "h113": 89.87, "h114": 87.87, "n112": 89.48, "n113": 89.35, "n114": 90.29, "d112": -7.54, "d113": 0.52, "d114": -2.42}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，記載學習紀錄成效良好(如學習檢核表、學習手冊、學習護照、學習歷程檔案等)", "reworded": false, "h112": 83.33, "h113": 90.13, "h114": 88.41, "n112": 89.75, "n113": 89.38, "n114": 90.29, "d112": -6.41, "d113": 0.75, "d114": -1.88}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，專業知識有提升", "reworded": false, "h112": 90.0, "h113": 93.6, "h114": 91.91, "n112": 92.94, "n113": 92.51, "n114": 93.34, "d112": -2.94, "d113": 1.09, "d114": -1.42}, {"section": "受訓人員訓練成效", "question": "如果我是病人，會樂意讓我所指導的受訓人員照護或服務", "reworded": false, "h112": 88.89, "h113": 92.53, "h114": 89.76, "n112": 90.92, "n113": 90.33, "n114": 91.08, "d112": -2.03, "d113": 2.2, "d114": -1.33}, {"section": "受訓人員訓練成效", "question": "我認為我所指導的受訓人員，接受2年期訓練計畫後，確實具備訓練計畫中相關之臨床業務的能力", "reworded": false, "h112": 88.7, "h113": 93.46, "h114": 90.45, "n112": 91.47, "n113": 91.21, "n114": 91.21, "d112": -2.77, "d113": 2.25, "d114": -0.77}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，臨床實務能力有提升", "reworded": false, "h112": 90.0, "h113": 93.07, "h114": 93.26, "n112": 93.16, "n113": 92.73, "n114": 93.63, "d112": -3.16, "d113": 0.34, "d114": -0.36}, {"section": "受訓人員訓練成效", "question": "承上，跨領域團隊合作照護訓練有助於了解各類別醫療專業，學習全人照護的理念及素養", "reworded": false, "h112": 90.28, "h113": 93.33, "h114": 91.91, "n112": 90.92, "n113": 91.53, "n114": 91.91, "d112": -0.64, "d113": 1.81, "d114": 0.0}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，有正確、良好的臨床專業態度", "reworded": false, "h112": 89.72, "h113": 93.6, "h114": 92.72, "n112": 92.12, "n113": 91.9, "n114": 92.45, "d112": -2.4, "d113": 1.7, "d114": 0.27}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，參與跨領域團隊合作照護訓練之機會足夠", "reworded": false, "h112": 89.72, "h113": 92.53, "h114": 92.18, "n112": 88.77, "n113": 88.78, "n114": 89.63, "d112": 0.95, "d113": 3.75, "d114": 2.55}, {"section": "對本計畫看法", "question": "我未來樂意繼續擔任教師", "reworded": true, "h112": 87.5, "h113": 88.8, "h114": 85.44, "n112": 89.26, "n113": 88.51, "n114": 88.75, "d112": -1.76, "d113": 0.29, "d114": -3.3}, {"section": "對本計畫看法", "question": "整體而言，我對醫院執行訓練計畫的評分(最好5分~最差1分)", "reworded": false, "h112": 84.17, "h113": 91.47, "h114": 87.6, "n112": 86.59, "n113": 86.75, "n114": 87.58, "d112": -2.42, "d113": 4.72, "d114": 0.02}, {"section": "對本計畫看法", "question": "整體而言，我支持衛生福利部未來能持續推廣與執行本計畫", "reworded": false, "h112": 84.72, "h113": 90.67, "h114": 87.6, "n112": 86.22, "n113": 86.05, "n114": 85.97, "d112": -1.5, "d113": 4.62, "d114": 1.63}, {"section": "師資培育", "question": "參與師資培育課程對我的教學有幫助", "reworded": false, "h112": 89.17, "h113": 93.07, "h114": 87.6, "n112": 91.01, "n113": 90.68, "n114": 90.54, "d112": -1.84, "d113": 2.39, "d114": -2.94}, {"section": "師資培育", "question": "我常有機會參與師資培育課程", "reworded": false, "h112": 86.67, "h113": 91.73, "h114": 88.41, "n112": 90.09, "n113": 90.01, "n114": 90.04, "d112": -3.43, "d113": 1.72, "d114": -1.63}, {"section": "師資培育", "question": "醫院能補助或提供我參與師資培育課程之資源(如公假、報名費、交通費等)", "reworded": false, "h112": 85.83, "h113": 90.67, "h114": 83.83, "n112": 82.55, "n113": 82.56, "n114": 82.86, "d112": 3.29, "d113": 8.1, "d114": 0.97}, {"section": "師資培育", "question": "醫院師資培育相關計畫完整、健全", "reworded": false, "h112": 90.56, "h113": 93.6, "h114": 91.11, "n112": 89.17, "n113": 89.31, "n114": 89.28, "d112": 1.38, "d113": 4.29, "d114": 1.82}, {"section": "教學時間", "question": "我被分派承擔的教學時間合理", "reworded": false, "h112": 80.56, "h113": 84.8, "h114": 77.9, "n112": 82.49, "n113": 82.56, "n114": 83.52, "d112": -1.93, "d113": 2.24, "d114": -5.62}, {"section": "教學時間", "question": "平均每週指導受訓人員的時間(單位：小時)", "reworded": false, "h112": 14.34, "h113": 14.78, "h114": null, "n112": 11.5, "n113": 11.38, "n114": null, "d112": 2.84, "d113": 3.4, "d114": null}, {"section": "教學時間", "question": "我平均每週上班總時數    (單位：小時)", "reworded": false, "h112": 40.27, "h113": 40.48, "h114": null, "n112": 40.52, "n113": 40.54, "n114": null, "d112": -0.25, "d113": -0.06, "d114": null}, {"section": "醫院執行計畫", "question": "醫院能將我的教學貢獻與成效反映於升遷或績效考核結果上", "reworded": false, "h112": 78.89, "h113": 86.13, "h114": 76.82, "n112": 81.41, "n113": 81.61, "n114": 82.07, "d112": -2.52, "d113": 4.53, "d114": -5.25}, {"section": "醫院執行計畫", "question": "我認為醫院支付予我的教學津貼或提供的獎勵措施是合理的", "reworded": false, "h112": 72.78, "h113": 78.93, "h114": 69.81, "n112": 74.86, "n113": 73.21, "n114": 73.45, "d112": -2.08, "d113": 5.73, "d114": -3.63}, {"section": "醫院執行計畫", "question": "我對於訓練課程的相關意見有適切的反映管道", "reworded": false, "h112": 89.72, "h113": 92.8, "h114": 88.14, "n112": 90.4, "n113": 90.29, "n114": 90.07, "d112": -0.67, "d113": 2.51, "d114": -1.93}, {"section": "醫院執行計畫", "question": "醫院制訂的教師教學評估機制適當", "reworded": false, "h112": 86.39, "h113": 93.87, "h114": 86.79, "n112": 87.92, "n113": 88.21, "n114": 88.04, "d112": -1.53, "d113": 5.66, "d114": -1.25}, {"section": "醫院執行計畫", "question": "我能在訓練過程適時回饋受訓人員", "reworded": false, "h112": 95.28, "h113": 96.8, "h114": 95.15, "n112": 95.82, "n113": 95.69, "n114": 95.5, "d112": -0.54, "d113": 1.11, "d114": -0.35}, {"section": "醫院執行計畫", "question": "醫院能充分協助本單位安排聯合訓練相關事宜(有必要時)", "reworded": true, "h112": 91.11, "h113": 93.33, "h114": 89.76, "n112": 89.41, "n113": 89.97, "n114": 89.93, "d112": 1.7, "d113": 3.37, "d114": -0.18}, {"section": "醫院執行計畫", "question": "我認為學習歷程檔案或學習護照利多於弊，可繼續使用", "reworded": false, "h112": 83.06, "h113": 87.47, "h114": 84.37, "n112": 84.38, "n113": 83.75, "n114": 83.71, "d112": -1.32, "d113": 3.72, "d114": 0.66}, {"section": "醫院執行計畫", "question": "我能運用適當的評估方法評量受訓人員", "reworded": false, "h112": 93.89, "h113": 95.2, "h114": 94.07, "n112": 93.15, "n113": 92.99, "n114": 93.13, "d112": 0.74, "d113": 2.21, "d114": 0.94}, {"section": "醫院執行計畫", "question": "我能依據受訓人員學前評估的結果，安排訓練課程", "reworded": false, "h112": 91.67, "h113": 94.13, "h114": 93.53, "n112": 92.58, "n113": 92.08, "n114": 92.18, "d112": -0.91, "d113": 2.05, "d114": 1.35}, {"section": "醫院執行計畫", "question": "醫院能充分整合或協助各醫事職類執行跨領域團隊合作照護訓練活動", "reworded": false, "h112": 93.89, "h113": 94.67, "h114": 91.91, "n112": 90.89, "n113": 90.77, "n114": 90.26, "d112": 3.0, "d113": 3.9, "d114": 1.65}, {"section": "醫院執行計畫", "question": "醫院具充分教學交流平台，提供各醫事職類易於經驗分享", "reworded": true, "h112": 93.06, "h113": 94.13, "h114": 91.91, "n112": 90.74, "n113": 90.21, "n114": 90.13, "d112": 2.32, "d113": 3.93, "d114": 1.78}, {"section": "醫院執行計畫", "question": "醫院提供的教學設備與資源(包括軟硬體)都能滿足我的教學所需", "reworded": false, "h112": 94.72, "h113": 95.2, "h114": 93.8, "n112": 91.89, "n113": 91.8, "n114": 91.65, "d112": 2.83, "d113": 3.4, "d114": 2.15}, {"section": "醫院執行計畫", "question": "我能得知自己的教學表現評估結果", "reworded": false, "h112": 91.67, "h113": 94.67, "h114": 94.34, "n112": 91.16, "n113": 90.99, "n114": 91.04, "d112": 0.51, "d113": 3.67, "d114": 3.3}], "trainee": [{"section": "對本計畫看法", "question": "未來如果有機會，我樂意擔任臨床教師指導學弟/妹", "reworded": false, "h112": 68.77, "h113": 63.42, "h114": 55.93, "n112": 72.51, "n113": 69.46, "n114": 68.4, "d112": -3.74, "d113": -6.04, "d114": -12.47}, {"section": "對本計畫看法", "question": "整體而言，我支持衛生福利部持續推廣與執行本計畫", "reworded": false, "h112": 72.63, "h113": 78.52, "h114": 76.95, "n112": 79.39, "n113": 81.13, "n114": 81.97, "d112": -6.76, "d113": -2.61, "d114": -5.02}, {"section": "對本計畫看法", "question": "整體而言，我對我的訓練醫院的評分(最好5分~最差1分)", "reworded": false, "h112": 84.56, "h113": 82.21, "h114": 80.0, "n112": 82.91, "n113": 83.15, "n114": 84.53, "d112": 1.65, "d113": -0.93, "d114": -4.53}, {"section": "對本計畫看法", "question": "我會推薦學弟/妹畢業後到教學醫院接受此訓練", "reworded": false, "h112": 92.28, "h113": 92.28, "h114": 87.46, "n112": 87.56, "n113": 88.53, "n114": 89.2, "d112": 4.72, "d113": 3.75, "d114": -1.74}, {"section": "工作滿意度", "question": "工作時間內的負荷", "reworded": false, "h112": 59.65, "h113": 61.74, "h114": 61.02, "n112": 64.83, "n113": 67.36, "n114": 70.44, "d112": -5.19, "d113": -5.61, "d114": -9.42}, {"section": "工作滿意度", "question": "當表現優良時，獲得的肯定或獎勵", "reworded": false, "h112": 79.65, "h113": 82.21, "h114": 82.37, "n112": 84.03, "n113": 87.09, "n114": 88.51, "d112": -4.38, "d113": -4.88, "d114": -6.14}, {"section": "工作滿意度", "question": "醫院提供的整體訓練規劃，讓我從中獲得成就感", "reworded": true, "h112": 78.95, "h113": 82.89, "h114": 84.07, "n112": 83.68, "n113": 86.65, "n114": 87.71, "d112": -4.73, "d113": -3.76, "d114": -3.65}, {"section": "工作滿意度", "question": "主管對待我的方式", "reworded": false, "h112": 87.02, "h113": 82.55, "h114": 87.46, "n112": 87.63, "n113": 88.93, "n114": 89.86, "d112": -0.61, "d113": -6.38, "d114": -2.4}, {"section": "工作滿意度", "question": "在學習獨立工作過程，獲得合宜的督導或協助", "reworded": true, "h112": 94.74, "h113": 91.95, "h114": 90.85, "n112": 94.55, "n113": 92.33, "n114": 92.92, "d112": 0.18, "d113": -0.38, "d114": -2.07}, {"section": "工作滿意度", "question": "部門同事間的相處、協助與支持", "reworded": false, "h112": 85.61, "h113": 88.26, "h114": 89.49, "n112": 90.33, "n113": 90.68, "n114": 91.27, "d112": -4.72, "d113": -2.42, "d114": -1.78}, {"section": "工作滿意度", "question": "工作所需的設施與環境條件", "reworded": false, "h112": 81.05, "h113": 83.56, "h114": 83.39, "n112": 80.2, "n113": 81.88, "n114": 83.28, "d112": 0.85, "d113": 1.68, "d114": 0.11}, {"section": "臨床教師", "question": "整體而言，我服務部門之教師對教學的投入程度", "reworded": false, "h112": 91.93, "h113": 92.62, "h114": 92.54, "n112": 93.6, "n113": 93.6, "n114": 94.19, "d112": -1.67, "d113": -0.98, "d114": -1.65}, {"section": "臨床教師", "question": "臨床教師依據我學前評估的結果安排訓練課程", "reworded": false, "h112": 91.23, "h113": 92.95, "h114": 91.86, "n112": 93.05, "n113": 92.73, "n114": 93.3, "d112": -1.82, "d113": 0.23, "d114": -1.44}, {"section": "臨床教師", "question": "臨床教師對我的關心與輔導", "reworded": false, "h112": 92.63, "h113": 92.28, "h114": 92.88, "n112": 93.69, "n113": 93.51, "n114": 94.05, "d112": -1.06, "d113": -1.23, "d114": -1.17}, {"section": "臨床教師", "question": "臨床教師教學技能", "reworded": false, "h112": 94.39, "h113": 95.64, "h114": 93.9, "n112": 95.08, "n113": 94.67, "n114": 95.02, "d112": -0.69, "d113": 0.97, "d114": -1.12}, {"section": "臨床教師", "question": "臨床教師對我評量結果的回饋", "reworded": false, "h112": 94.04, "h113": 92.95, "h114": 93.22, "n112": 94.1, "n113": 93.68, "n114": 94.32, "d112": -0.06, "d113": -0.73, "d114": -1.1}, {"section": "臨床教師", "question": "臨床教師對我評量的頻率", "reworded": false, "h112": 96.49, "h113": 100.0, "h114": 99.66, "n112": 96.08, "n113": 96.66, "n114": 96.13, "d112": 0.41, "d113": 3.34, "d114": 3.54}, {"section": "自我評量", "question": "整體訓練計畫銜接學校教育與臨床工作的成效", "reworded": false, "h112": 81.75, "h113": 80.2, "h114": 85.08, "n112": 86.69, "n113": 87.14, "n114": 88.48, "d112": -4.93, "d113": -6.94, "d114": -3.39}, {"section": "自我評量", "question": "我與團隊成員互動溝通的能力", "reworded": false, "h112": 85.61, "h113": 85.23, "h114": 87.8, "n112": 89.51, "n113": 88.91, "n114": 90.52, "d112": -3.9, "d113": -3.67, "d114": -2.72}, {"section": "自我評量", "question": "我與病人或病人家屬互動溝通的能力", "reworded": false, "h112": 84.21, "h113": 84.9, "h114": 87.12, "n112": 88.2, "n113": 88.29, "n114": 89.69, "d112": -3.99, "d113": -3.39, "d114": -2.57}, {"section": "自我評量", "question": "臨床實務能力提升", "reworded": false, "h112": 85.61, "h113": 85.91, "h114": 88.81, "n112": 89.48, "n113": 89.52, "n114": 91.11, "d112": -3.87, "d113": -3.61, "d114": -2.3}, {"section": "自我評量", "question": "接受2年期訓練計畫後，我認為我已具備訓練計畫中相關之臨床業務的能力", "reworded": false, "h112": 82.83, "h113": 80.67, "h114": 89.55, "n112": 86.9, "n113": 86.64, "n114": 88.09, "d112": -4.07, "d113": -5.96, "d114": 1.47}, {"section": "自我評量", "question": "依照訓練計畫，接受訓練後，具備核心能力的訓練成效，自我評分為", "reworded": true, "h112": 86.87, "h113": 89.92, "h114": 95.52, "n112": 91.69, "n113": 93.4, "n114": 93.93, "d112": -4.82, "d113": -3.48, "d114": 1.59}, {"section": "訓練時間", "question": "工作與學習時段的安排", "reworded": false, "h112": 78.6, "h113": 80.87, "h114": 79.66, "n112": 84.18, "n113": 85.07, "n114": 85.93, "d112": -5.59, "d113": -4.2, "d114": -6.27}, {"section": "訓練時間", "question": "我認為平均每週臨床教師督導或協助的訓練時間", "reworded": true, "h112": 86.67, "h113": 88.93, "h114": 89.15, "n112": 88.81, "n113": 89.66, "n114": 90.54, "d112": -2.14, "d113": -0.74, "d114": -1.39}, {"section": "訓練時間", "question": "平均每週有臨床教師督導或協助的訓練時間(單位：小時)", "reworded": false, "h112": 13.0, "h113": 12.9, "h114": null, "n112": 10.75, "n113": 10.79, "n114": null, "d112": 2.25, "d113": 2.11, "d114": null}, {"section": "訓練時間", "question": "我平均每週上班總時數(單位：小時)", "reworded": false, "h112": 38.11, "h113": 37.8, "h114": null, "n112": 38.11, "n113": 38.16, "n114": null, "d112": 0.0, "d113": -0.36, "d114": null}, {"section": "訓練過程", "question": "訓練課程的執行情況", "reworded": false, "h112": 88.07, "h113": 91.95, "h114": 88.81, "n112": 92.01, "n113": 92.04, "n114": 92.48, "d112": -3.94, "d113": -0.09, "d114": -3.67}, {"section": "訓練過程", "question": "記載學習紀錄可以讓我掌握訓練進度", "reworded": false, "h112": 83.51, "h113": 86.91, "h114": 86.44, "n112": 86.93, "n113": 86.77, "n114": 87.65, "d112": -3.42, "d113": 0.14, "d114": -1.21}, {"section": "訓練過程", "question": "記載學習紀錄可以幫助我進行反思", "reworded": true, "h112": 77.89, "h113": 84.56, "h114": 86.44, "n112": 86.31, "n113": 86.59, "n114": 87.6, "d112": -8.42, "d113": -2.03, "d114": -1.16}, {"section": "訓練過程", "question": "跨領域團隊合作照護有助於了解各類別醫療專業，學習全人照護的理念與素養", "reworded": false, "h112": 86.67, "h113": 92.28, "h114": 91.53, "n112": 91.04, "n113": 92.05, "n114": 92.22, "d112": -4.37, "d113": 0.23, "d114": -0.7}, {"section": "訓練過程", "question": "參與跨領域團隊合作照護之機會", "reworded": false, "h112": 80.35, "h113": 91.95, "h114": 89.83, "n112": 88.36, "n113": 89.54, "n114": 90.2, "d112": -8.01, "d113": 2.41, "d114": -0.37}, {"section": "訓練過程", "question": "我曾經或預計規劃外派至其他醫院接受訓練(回答「是」之百分比)", "reworded": false, "h112": 8.07, "h113": null, "h114": null, "n112": 13.1, "n113": null, "n114": null, "d112": -5.03, "d113": null, "d114": null}, {"section": "醫院資源", "question": "醫院提供我學習相關權益反映的管道", "reworded": false, "h112": 83.51, "h113": 83.56, "h114": 80.0, "n112": 83.47, "n113": 84.11, "n114": 85.56, "d112": 0.04, "d113": -0.55, "d114": -5.56}, {"section": "醫院資源", "question": "醫院提供我的安全防護措施及教育訓練，足以因應各類疾病及病人療護", "reworded": true, "h112": 86.67, "h113": 88.26, "h114": 88.81, "n112": 87.69, "n113": 88.63, "n114": 89.78, "d112": -1.03, "d113": -0.38, "d114": -0.96}, {"section": "醫院資源", "question": "醫院提供教學訓練所需設施與環境(包含網路教學平台、圖書、期刊、訓練場所等空間及設備)", "reworded": true, "h112": 89.12, "h113": 86.58, "h114": 89.49, "n112": 87.34, "n113": 87.33, "n114": 88.45, "d112": 1.78, "d113": -0.75, "d114": 1.04}], "response_counts": {"teacher": {"hospital": [360, 375, 371], "national": [18432, 18306, 19044]}, "trainee": {"hospital": [285, 298, 295], "national": [12538, 12800, 13860]}}, "official_summary": {"teacher": {"112": [33, 23], "113": [33, 2], "114": [31, 17]}, "trainee": {"112": [36, 27], "113": [35, 25], "114": [33, 28]}}, "low_5_counts": {"teacher": {"112": null, "113": 0, "114": 2}, "trainee": {"112": 6, "113": 5, "114": 6}}, "years": [112, 113, 114]};
+const DATA = {"teacher": [{"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，具備核心能力的訓練成效為", "reworded": true, "h112": 88.04, "h113": 93.15, "h114": 93.63, "n112": 95.68, "n113": 95.09, "n114": 96.33, "d112": -7.64, "d113": -1.95, "d114": -2.7}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，訓練課程的執行情況良好", "reworded": false, "h112": 81.94, "h113": 89.87, "h114": 87.87, "n112": 89.48, "n113": 89.35, "n114": 90.29, "d112": -7.54, "d113": 0.52, "d114": -2.42}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，記載學習紀錄成效良好(如學習檢核表、學習手冊、學習護照、學習歷程檔案等)", "reworded": false, "h112": 83.33, "h113": 90.13, "h114": 88.41, "n112": 89.75, "n113": 89.38, "n114": 90.29, "d112": -6.41, "d113": 0.75, "d114": -1.88}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，專業知識有提升", "reworded": false, "h112": 90.0, "h113": 93.6, "h114": 91.91, "n112": 92.94, "n113": 92.51, "n114": 93.34, "d112": -2.94, "d113": 1.09, "d114": -1.42}, {"section": "受訓人員訓練成效", "question": "如果我是病人，會樂意讓我所指導的受訓人員照護或服務", "reworded": false, "h112": 88.89, "h113": 92.53, "h114": 89.76, "n112": 90.92, "n113": 90.33, "n114": 91.08, "d112": -2.03, "d113": 2.2, "d114": -1.33}, {"section": "受訓人員訓練成效", "question": "我認為我所指導的受訓人員，接受2年期訓練計畫後，確實具備訓練計畫中相關之臨床業務的能力", "reworded": false, "h112": 88.7, "h113": 93.46, "h114": 90.45, "n112": 91.47, "n113": 91.21, "n114": 91.21, "d112": -2.77, "d113": 2.25, "d114": -0.77}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，臨床實務能力有提升", "reworded": false, "h112": 90.0, "h113": 93.07, "h114": 93.26, "n112": 93.16, "n113": 92.73, "n114": 93.63, "d112": -3.16, "d113": 0.34, "d114": -0.36}, {"section": "受訓人員訓練成效", "question": "承上，跨領域團隊合作照護訓練有助於了解各類別醫療專業，學習全人照護的理念及素養", "reworded": false, "h112": 90.28, "h113": 93.33, "h114": 91.91, "n112": 90.92, "n113": 91.53, "n114": 91.91, "d112": -0.64, "d113": 1.81, "d114": 0.0}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，有正確、良好的臨床專業態度", "reworded": false, "h112": 89.72, "h113": 93.6, "h114": 92.72, "n112": 92.12, "n113": 91.9, "n114": 92.45, "d112": -2.4, "d113": 1.7, "d114": 0.27}, {"section": "受訓人員訓練成效", "question": "我所指導的受訓人員，參與跨領域團隊合作照護訓練之機會足夠", "reworded": false, "h112": 89.72, "h113": 92.53, "h114": 92.18, "n112": 88.77, "n113": 88.78, "n114": 89.63, "d112": 0.95, "d113": 3.75, "d114": 2.55}, {"section": "對本計畫看法", "question": "我未來樂意繼續擔任教師", "reworded": true, "h112": 87.5, "h113": 88.8, "h114": 85.44, "n112": 89.26, "n113": 88.51, "n114": 88.75, "d112": -1.76, "d113": 0.29, "d114": -3.3}, {"section": "對本計畫看法", "question": "整體而言，我對醫院執行訓練計畫的評分(最好5分~最差1分)", "reworded": false, "h112": 84.17, "h113": 91.47, "h114": 87.6, "n112": 86.59, "n113": 86.75, "n114": 87.58, "d112": -2.42, "d113": 4.72, "d114": 0.02}, {"section": "對本計畫看法", "question": "整體而言，我支持衛生福利部未來能持續推廣與執行本計畫", "reworded": false, "h112": 84.72, "h113": 90.67, "h114": 87.6, "n112": 86.22, "n113": 86.05, "n114": 85.97, "d112": -1.5, "d113": 4.62, "d114": 1.63}, {"section": "師資培育", "question": "參與師資培育課程對我的教學有幫助", "reworded": false, "h112": 89.17, "h113": 93.07, "h114": 87.6, "n112": 91.01, "n113": 90.68, "n114": 90.54, "d112": -1.84, "d113": 2.39, "d114": -2.94}, {"section": "師資培育", "question": "我常有機會參與師資培育課程", "reworded": false, "h112": 86.67, "h113": 91.73, "h114": 88.41, "n112": 90.09, "n113": 90.01, "n114": 90.04, "d112": -3.43, "d113": 1.72, "d114": -1.63}, {"section": "師資培育", "question": "醫院能補助或提供我參與師資培育課程之資源(如公假、報名費、交通費等)", "reworded": false, "h112": 85.83, "h113": 90.67, "h114": 83.83, "n112": 82.55, "n113": 82.56, "n114": 82.86, "d112": 3.29, "d113": 8.1, "d114": 0.97}, {"section": "師資培育", "question": "醫院師資培育相關計畫完整、健全", "reworded": false, "h112": 90.56, "h113": 93.6, "h114": 91.11, "n112": 89.17, "n113": 89.31, "n114": 89.28, "d112": 1.38, "d113": 4.29, "d114": 1.82}, {"section": "教學時間", "question": "我被分派承擔的教學時間合理", "reworded": false, "h112": 80.56, "h113": 84.8, "h114": 77.9, "n112": 82.49, "n113": 82.56, "n114": 83.52, "d112": -1.93, "d113": 2.24, "d114": -5.62}, {"section": "教學時間", "question": "平均每週指導受訓人員的時間(單位：小時)", "reworded": false, "h112": 14.34, "h113": 14.78, "h114": null, "n112": 11.5, "n113": 11.38, "n114": null, "d112": 2.84, "d113": 3.4, "d114": null}, {"section": "教學時間", "question": "我平均每週上班總時數    (單位：小時)", "reworded": false, "h112": 40.27, "h113": 40.48, "h114": null, "n112": 40.52, "n113": 40.54, "n114": null, "d112": -0.25, "d113": -0.06, "d114": null}, {"section": "醫院執行計畫", "question": "醫院能將我的教學貢獻與成效反映於升遷或績效考核結果上", "reworded": false, "h112": 78.89, "h113": 86.13, "h114": 76.82, "n112": 81.41, "n113": 81.61, "n114": 82.07, "d112": -2.52, "d113": 4.53, "d114": -5.25}, {"section": "醫院執行計畫", "question": "我認為醫院支付予我的教學津貼或提供的獎勵措施是合理的", "reworded": false, "h112": 72.78, "h113": 78.93, "h114": 69.81, "n112": 74.86, "n113": 73.21, "n114": 73.45, "d112": -2.08, "d113": 5.73, "d114": -3.63}, {"section": "醫院執行計畫", "question": "我對於訓練課程的相關意見有適切的反映管道", "reworded": false, "h112": 89.72, "h113": 92.8, "h114": 88.14, "n112": 90.4, "n113": 90.29, "n114": 90.07, "d112": -0.67, "d113": 2.51, "d114": -1.93}, {"section": "醫院執行計畫", "question": "醫院制訂的教師教學評估機制適當", "reworded": false, "h112": 86.39, "h113": 93.87, "h114": 86.79, "n112": 87.92, "n113": 88.21, "n114": 88.04, "d112": -1.53, "d113": 5.66, "d114": -1.25}, {"section": "醫院執行計畫", "question": "我能在訓練過程適時回饋受訓人員", "reworded": false, "h112": 95.28, "h113": 96.8, "h114": 95.15, "n112": 95.82, "n113": 95.69, "n114": 95.5, "d112": -0.54, "d113": 1.11, "d114": -0.35}, {"section": "醫院執行計畫", "question": "醫院能充分協助本單位安排聯合訓練相關事宜(有必要時)", "reworded": true, "h112": 91.11, "h113": 93.33, "h114": 89.76, "n112": 89.41, "n113": 89.97, "n114": 89.93, "d112": 1.7, "d113": 3.37, "d114": -0.18}, {"section": "醫院執行計畫", "question": "我認為學習歷程檔案或學習護照利多於弊，可繼續使用", "reworded": false, "h112": 83.06, "h113": 87.47, "h114": 84.37, "n112": 84.38, "n113": 83.75, "n114": 83.71, "d112": -1.32, "d113": 3.72, "d114": 0.66}, {"section": "醫院執行計畫", "question": "我能運用適當的評估方法評量受訓人員", "reworded": false, "h112": 93.89, "h113": 95.2, "h114": 94.07, "n112": 93.15, "n113": 92.99, "n114": 93.13, "d112": 0.74, "d113": 2.21, "d114": 0.94}, {"section": "醫院執行計畫", "question": "我能依據受訓人員學前評估的結果，安排訓練課程", "reworded": false, "h112": 91.67, "h113": 94.13, "h114": 93.53, "n112": 92.58, "n113": 92.08, "n114": 92.18, "d112": -0.91, "d113": 2.05, "d114": 1.35}, {"section": "醫院執行計畫", "question": "醫院能充分整合或協助各醫事職類執行跨領域團隊合作照護訓練活動", "reworded": false, "h112": 93.89, "h113": 94.67, "h114": 91.91, "n112": 90.89, "n113": 90.77, "n114": 90.26, "d112": 3.0, "d113": 3.9, "d114": 1.65}, {"section": "醫院執行計畫", "question": "醫院具充分教學交流平台，提供各醫事職類易於經驗分享", "reworded": true, "h112": 93.06, "h113": 94.13, "h114": 91.91, "n112": 90.74, "n113": 90.21, "n114": 90.13, "d112": 2.32, "d113": 3.93, "d114": 1.78}, {"section": "醫院執行計畫", "question": "醫院提供的教學設備與資源(包括軟硬體)都能滿足我的教學所需", "reworded": false, "h112": 94.72, "h113": 95.2, "h114": 93.8, "n112": 91.89, "n113": 91.8, "n114": 91.65, "d112": 2.83, "d113": 3.4, "d114": 2.15}, {"section": "醫院執行計畫", "question": "我能得知自己的教學表現評估結果", "reworded": false, "h112": 91.67, "h113": 94.67, "h114": 94.34, "n112": 91.16, "n113": 90.99, "n114": 91.04, "d112": 0.51, "d113": 3.67, "d114": 3.3}], "trainee": [{"section": "對本計畫看法", "question": "未來如果有機會，我樂意擔任臨床教師指導學弟/妹", "reworded": false, "h112": 68.77, "h113": 63.42, "h114": 55.93, "n112": 72.51, "n113": 69.46, "n114": 68.4, "d112": -3.74, "d113": -6.04, "d114": -12.47}, {"section": "對本計畫看法", "question": "整體而言，我支持衛生福利部持續推廣與執行本計畫", "reworded": false, "h112": 72.63, "h113": 78.52, "h114": 76.95, "n112": 79.39, "n113": 81.13, "n114": 81.97, "d112": -6.76, "d113": -2.61, "d114": -5.02}, {"section": "對本計畫看法", "question": "整體而言，我對我的訓練醫院的評分(最好5分~最差1分)", "reworded": false, "h112": 84.56, "h113": 82.21, "h114": 80.0, "n112": 82.91, "n113": 83.15, "n114": 84.53, "d112": 1.65, "d113": -0.93, "d114": -4.53}, {"section": "對本計畫看法", "question": "我會推薦學弟/妹畢業後到教學醫院接受此訓練", "reworded": false, "h112": 92.28, "h113": 92.28, "h114": 87.46, "n112": 87.56, "n113": 88.53, "n114": 89.2, "d112": 4.72, "d113": 3.75, "d114": -1.74}, {"section": "工作滿意度", "question": "工作時間內的負荷(對工作量的滿意度)", "reworded": false, "h112": 59.65, "h113": 61.74, "h114": 61.02, "n112": 64.83, "n113": 67.36, "n114": 70.44, "d112": -5.19, "d113": -5.61, "d114": -9.42}, {"section": "工作滿意度", "question": "當表現優良時，獲得的肯定或獎勵", "reworded": false, "h112": 79.65, "h113": 82.21, "h114": 82.37, "n112": 84.03, "n113": 87.09, "n114": 88.51, "d112": -4.38, "d113": -4.88, "d114": -6.14}, {"section": "工作滿意度", "question": "醫院提供的整體訓練規劃，讓我從中獲得成就感", "reworded": true, "h112": 78.95, "h113": 82.89, "h114": 84.07, "n112": 83.68, "n113": 86.65, "n114": 87.71, "d112": -4.73, "d113": -3.76, "d114": -3.65}, {"section": "工作滿意度", "question": "主管對待我的方式", "reworded": false, "h112": 87.02, "h113": 82.55, "h114": 87.46, "n112": 87.63, "n113": 88.93, "n114": 89.86, "d112": -0.61, "d113": -6.38, "d114": -2.4}, {"section": "工作滿意度", "question": "在學習獨立工作過程，獲得合宜的督導或協助", "reworded": true, "h112": 94.74, "h113": 91.95, "h114": 90.85, "n112": 94.55, "n113": 92.33, "n114": 92.92, "d112": 0.18, "d113": -0.38, "d114": -2.07}, {"section": "工作滿意度", "question": "部門同事間的相處、協助與支持", "reworded": false, "h112": 85.61, "h113": 88.26, "h114": 89.49, "n112": 90.33, "n113": 90.68, "n114": 91.27, "d112": -4.72, "d113": -2.42, "d114": -1.78}, {"section": "工作滿意度", "question": "工作所需的設施與環境條件", "reworded": false, "h112": 81.05, "h113": 83.56, "h114": 83.39, "n112": 80.2, "n113": 81.88, "n114": 83.28, "d112": 0.85, "d113": 1.68, "d114": 0.11}, {"section": "臨床教師", "question": "整體而言，我服務部門之教師對教學的投入程度", "reworded": false, "h112": 91.93, "h113": 92.62, "h114": 92.54, "n112": 93.6, "n113": 93.6, "n114": 94.19, "d112": -1.67, "d113": -0.98, "d114": -1.65}, {"section": "臨床教師", "question": "臨床教師依據我學前評估的結果安排訓練課程", "reworded": false, "h112": 91.23, "h113": 92.95, "h114": 91.86, "n112": 93.05, "n113": 92.73, "n114": 93.3, "d112": -1.82, "d113": 0.23, "d114": -1.44}, {"section": "臨床教師", "question": "臨床教師對我的關心與輔導", "reworded": false, "h112": 92.63, "h113": 92.28, "h114": 92.88, "n112": 93.69, "n113": 93.51, "n114": 94.05, "d112": -1.06, "d113": -1.23, "d114": -1.17}, {"section": "臨床教師", "question": "臨床教師教學技能", "reworded": false, "h112": 94.39, "h113": 95.64, "h114": 93.9, "n112": 95.08, "n113": 94.67, "n114": 95.02, "d112": -0.69, "d113": 0.97, "d114": -1.12}, {"section": "臨床教師", "question": "臨床教師對我評量結果的回饋", "reworded": false, "h112": 94.04, "h113": 92.95, "h114": 93.22, "n112": 94.1, "n113": 93.68, "n114": 94.32, "d112": -0.06, "d113": -0.73, "d114": -1.1}, {"section": "臨床教師", "question": "臨床教師對我評量的頻率", "reworded": false, "h112": 96.49, "h113": 100.0, "h114": 99.66, "n112": 96.08, "n113": 96.66, "n114": 96.13, "d112": 0.41, "d113": 3.34, "d114": 3.54}, {"section": "自我評量", "question": "整體訓練計畫銜接學校教育與臨床工作的成效", "reworded": false, "h112": 81.75, "h113": 80.2, "h114": 85.08, "n112": 86.69, "n113": 87.14, "n114": 88.48, "d112": -4.93, "d113": -6.94, "d114": -3.39}, {"section": "自我評量", "question": "我與團隊成員互動溝通的能力", "reworded": false, "h112": 85.61, "h113": 85.23, "h114": 87.8, "n112": 89.51, "n113": 88.91, "n114": 90.52, "d112": -3.9, "d113": -3.67, "d114": -2.72}, {"section": "自我評量", "question": "我與病人或病人家屬互動溝通的能力", "reworded": false, "h112": 84.21, "h113": 84.9, "h114": 87.12, "n112": 88.2, "n113": 88.29, "n114": 89.69, "d112": -3.99, "d113": -3.39, "d114": -2.57}, {"section": "自我評量", "question": "臨床實務能力提升", "reworded": false, "h112": 85.61, "h113": 85.91, "h114": 88.81, "n112": 89.48, "n113": 89.52, "n114": 91.11, "d112": -3.87, "d113": -3.61, "d114": -2.3}, {"section": "自我評量", "question": "接受2年期訓練計畫後，我認為我已具備訓練計畫中相關之臨床業務的能力", "reworded": false, "h112": 82.83, "h113": 80.67, "h114": 89.55, "n112": 86.9, "n113": 86.64, "n114": 88.09, "d112": -4.07, "d113": -5.96, "d114": 1.47}, {"section": "自我評量", "question": "依照訓練計畫，接受訓練後，具備核心能力的訓練成效，自我評分為", "reworded": true, "h112": 86.87, "h113": 89.92, "h114": 95.52, "n112": 91.69, "n113": 93.4, "n114": 93.93, "d112": -4.82, "d113": -3.48, "d114": 1.59}, {"section": "訓練時間", "question": "工作與學習時段的安排", "reworded": false, "h112": 78.6, "h113": 80.87, "h114": 79.66, "n112": 84.18, "n113": 85.07, "n114": 85.93, "d112": -5.59, "d113": -4.2, "d114": -6.27}, {"section": "訓練時間", "question": "我認為平均每週臨床教師督導或協助的訓練時間", "reworded": true, "h112": 86.67, "h113": 88.93, "h114": 89.15, "n112": 88.81, "n113": 89.66, "n114": 90.54, "d112": -2.14, "d113": -0.74, "d114": -1.39}, {"section": "訓練時間", "question": "平均每週有臨床教師督導或協助的訓練時間(單位：小時)", "reworded": false, "h112": 13.0, "h113": 12.9, "h114": null, "n112": 10.75, "n113": 10.79, "n114": null, "d112": 2.25, "d113": 2.11, "d114": null}, {"section": "訓練時間", "question": "我平均每週上班總時數(單位：小時)", "reworded": false, "h112": 38.11, "h113": 37.8, "h114": null, "n112": 38.11, "n113": 38.16, "n114": null, "d112": 0.0, "d113": -0.36, "d114": null}, {"section": "訓練過程", "question": "訓練課程的執行情況", "reworded": false, "h112": 88.07, "h113": 91.95, "h114": 88.81, "n112": 92.01, "n113": 92.04, "n114": 92.48, "d112": -3.94, "d113": -0.09, "d114": -3.67}, {"section": "訓練過程", "question": "記載學習紀錄可以讓我掌握訓練進度", "reworded": false, "h112": 83.51, "h113": 86.91, "h114": 86.44, "n112": 86.93, "n113": 86.77, "n114": 87.65, "d112": -3.42, "d113": 0.14, "d114": -1.21}, {"section": "訓練過程", "question": "記載學習紀錄可以幫助我進行反思", "reworded": true, "h112": 77.89, "h113": 84.56, "h114": 86.44, "n112": 86.31, "n113": 86.59, "n114": 87.6, "d112": -8.42, "d113": -2.03, "d114": -1.16}, {"section": "訓練過程", "question": "跨領域團隊合作照護有助於了解各類別醫療專業，學習全人照護的理念與素養", "reworded": false, "h112": 86.67, "h113": 92.28, "h114": 91.53, "n112": 91.04, "n113": 92.05, "n114": 92.22, "d112": -4.37, "d113": 0.23, "d114": -0.7}, {"section": "訓練過程", "question": "參與跨領域團隊合作照護之機會", "reworded": false, "h112": 80.35, "h113": 91.95, "h114": 89.83, "n112": 88.36, "n113": 89.54, "n114": 90.2, "d112": -8.01, "d113": 2.41, "d114": -0.37}, {"section": "訓練過程", "question": "我曾經或預計規劃外派至其他醫院接受訓練(回答「是」之百分比)", "reworded": false, "h112": 8.07, "h113": null, "h114": null, "n112": 13.1, "n113": null, "n114": null, "d112": -5.03, "d113": null, "d114": null}, {"section": "醫院資源", "question": "醫院提供我學習相關權益反映的管道", "reworded": false, "h112": 83.51, "h113": 83.56, "h114": 80.0, "n112": 83.47, "n113": 84.11, "n114": 85.56, "d112": 0.04, "d113": -0.55, "d114": -5.56}, {"section": "醫院資源", "question": "醫院提供我的安全防護措施及教育訓練，足以因應各類疾病及病人療護", "reworded": true, "h112": 86.67, "h113": 88.26, "h114": 88.81, "n112": 87.69, "n113": 88.63, "n114": 89.78, "d112": -1.03, "d113": -0.38, "d114": -0.96}, {"section": "醫院資源", "question": "醫院提供教學訓練所需設施與環境(包含網路教學平台、圖書、期刊、訓練場所等空間及設備)", "reworded": true, "h112": 89.12, "h113": 86.58, "h114": 89.49, "n112": 87.34, "n113": 87.33, "n114": 88.45, "d112": 1.78, "d113": -0.75, "d114": 1.04}], "response_counts": {"teacher": {"hospital": [360, 375, 371], "national": [18432, 18306, 19044]}, "trainee": {"hospital": [285, 298, 295], "national": [12538, 12800, 13860]}}, "official_summary": {"teacher": {"112": [33, 23], "113": [33, 2], "114": [31, 17]}, "trainee": {"112": [36, 27], "113": [35, 25], "114": [33, 28]}}, "low_5_counts": {"teacher": {"112": null, "113": 0, "114": 2}, "trainee": {"112": 6, "113": 5, "114": 6}}, "years": [112, 113, 114]};
 
 const CONFIG = {
   hospitalName: '奇美醫療財團法人奇美醫院',
@@ -1163,7 +1295,9 @@ function computeSectionAverages(records){
   records.forEach(r=>{
     if(!byS[r.section]) byS[r.section]={h112:[],h113:[],h114:[],n112:[],n113:[],n114:[]};
     ['h112','h113','h114','n112','n113','n114'].forEach(k=>{
+      // Exclude non-satisfaction questions: time questions (different scale) AND ratio question (外派 % is not satisfaction)
       if(r.question.includes('小時')) return;
+      if(r.question.includes('回答「是」之百分比')) return;
       if(r[k]!=null) byS[r.section][k].push(r[k]);
     });
   });
@@ -1196,7 +1330,7 @@ function buildSectionChart(canvasId, records, role){
     };
   });
   const allNat = [112,113,114].map(y=>{
-    const k='n'+y; const vals = records.filter(r=>!r.question.includes('小時')).map(r=>r[k]).filter(v=>v!=null);
+    const k='n'+y; const vals = records.filter(r=>!r.question.includes('小時') && !r.question.includes('回答「是」之百分比')).map(r=>r[k]).filter(v=>v!=null);
     return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
   });
   datasets.push({
@@ -1242,7 +1376,7 @@ function buildSectionChart(canvasId, records, role){
 }
 
 function buildDetailChart(canvasId, records, role){
-  const filtered = records.filter(r=>!r.question.includes('小時'));
+  const filtered = records.filter(r=>!r.question.includes('小時') && !r.question.includes('回答「是」之百分比'));
   const datasets = filtered.map(r=>{
     const color = SECTION_COLORS[r.section] || '#6b6b6b';
     return {
@@ -1412,34 +1546,68 @@ function buildDiffChartInstance(canvasId, sorted){
 rebuildDiffChart('teacher');
 rebuildDiffChart('trainee');
 
-function fmtNum(v){return v==null?'<span class="na">—</span>':v.toFixed(2)}
-function diffCell(v){
+function isTimeQ(r){return r.question.includes('小時');}
+function isRatioQ(r){return r.question.includes('回答「是」之百分比');}
+function isSpecialQ(r){return isTimeQ(r) || isRatioQ(r);}
+
+function fmtCellSmart(r, k){
+  const v = r[k];
+  if(v==null) return '<span class="na">—</span>';
+  if(isTimeQ(r)) return v.toFixed(2) + '<span class="unit-mini">小時</span>';
+  if(isRatioQ(r)) return v.toFixed(2) + '<span class="unit-mini">%</span>';
+  return v.toFixed(2); // satisfaction is %, header marks it
+}
+function diffCellSmart(r, k){
+  const v = r[k];
   if(v==null) return '<td class="num-cell"><span class="na">—</span></td>';
+  if(isTimeQ(r)){
+    // For hours: no good/bad coloring; "more vs less hours" is contextual
+    return `<td class="num-cell muted">${v>=0?'+':''}${v.toFixed(2)}<span class="unit-mini">小時</span></td>`;
+  }
+  if(isRatioQ(r)){
+    return `<td class="num-cell muted">${v>=0?'+':''}${v.toFixed(2)}<span class="unit-mini">百分點</span></td>`;
+  }
+  // Satisfaction: keep red/green coloring
   const cls = v<0 ? 'diff-neg' : (v>0.5?'diff-pos':'');
   return `<td class="num-cell ${cls}">${v>=0?'+':''}${v.toFixed(2)}</td>`;
 }
-function trendCell(h113, h114){
+function trendCellSmart(r){
+  const h113 = r.h113, h114 = r.h114;
   if(h113==null || h114==null) return '<td class="trend fl">— 未問</td>';
   const d = h114 - h113;
+  if(isTimeQ(r)){
+    // Hours: no good/bad framing
+    if(Math.abs(d) < 0.3) return `<td class="trend fl">→ 持平</td>`;
+    return `<td class="trend fl">${d>=0?'+':''}${d.toFixed(1)}<span class="unit-mini">小時</span></td>`;
+  }
+  if(isRatioQ(r)){
+    if(Math.abs(d) < 0.5) return `<td class="trend fl">→ 持平</td>`;
+    return `<td class="trend fl">${d>=0?'+':''}${d.toFixed(1)}<span class="unit-mini">百分點</span></td>`;
+  }
+  // Satisfaction
   if(d >= 5) return `<td class="trend up">▲ 改善 <span class="trend-num">${d.toFixed(1)}</span></td>`;
   if(d <= -5) return `<td class="trend dn">▼ 衰退 <span class="trend-num">${d.toFixed(1)}</span></td>`;
   if(d >= 2) return `<td class="trend up">▲ 改善</td>`;
   if(d <= -2) return `<td class="trend dn">▼ 衰退</td>`;
   return `<td class="trend fl">→ 持平</td>`;
 }
+
 function renderTable(tableId, records){
   const tbody = document.querySelector('#'+tableId+' tbody');
-  tbody.innerHTML = records.map(r=>`
-    <tr${r.reworded?' class="reworded"':''}>
+  tbody.innerHTML = records.map(r=>{
+    const cls = [r.reworded ? 'reworded' : '', isSpecialQ(r) ? 'special-row' : ''].filter(Boolean).join(' ');
+    const tag = isTimeQ(r) ? '<span class="special-tag">時數</span>' : (isRatioQ(r) ? '<span class="special-tag">比率</span>' : '');
+    return `
+    <tr${cls?` class="${cls}"`:''}>
       <td style="font-size:.75rem"><strong>${r.section}</strong></td>
-      <td class="qtext">${r.question}</td>
-      <td class="num-cell">${fmtNum(r.h112)}</td>
-      <td class="num-cell">${fmtNum(r.h113)}</td>
-      <td class="num-cell">${fmtNum(r.h114)}</td>
-      ${diffCell(r.d112)}${diffCell(r.d113)}${diffCell(r.d114)}
-      ${trendCell(r.h113,r.h114)}
-    </tr>
-  `).join('');
+      <td class="qtext">${tag}${r.question}</td>
+      <td class="num-cell">${fmtCellSmart(r,'h112')}</td>
+      <td class="num-cell">${fmtCellSmart(r,'h113')}</td>
+      <td class="num-cell">${fmtCellSmart(r,'h114')}</td>
+      ${diffCellSmart(r,'d112')}${diffCellSmart(r,'d113')}${diffCellSmart(r,'d114')}
+      ${trendCellSmart(r)}
+    </tr>`;
+  }).join('');
 }
 
 function renderCompactTable(tableId, records, topN = 5){
@@ -1450,17 +1618,20 @@ function renderCompactTable(tableId, records, topN = 5){
   const rows = [];
   byDiff.forEach(r => {const key = r.question; if (!seen.has(key)) { seen.add(key); rows.push({r, tag:'差距最大'}); }});
   byChange.forEach(r => {const key = r.question; if (!seen.has(key)) { seen.add(key); rows.push({r, tag:'降幅最大'}); }});
-  tbody.innerHTML = rows.map(({r, tag})=>`
-    <tr${r.reworded?' class="reworded"':''}>
+  tbody.innerHTML = rows.map(({r, tag})=>{
+    const cls = [r.reworded ? 'reworded' : '', isSpecialQ(r) ? 'special-row' : ''].filter(Boolean).join(' ');
+    const specTag = isTimeQ(r) ? '<span class="special-tag">時數</span>' : (isRatioQ(r) ? '<span class="special-tag">比率</span>' : '');
+    return `
+    <tr${cls?` class="${cls}"`:''}>
       <td style="font-size:.75rem"><span class="compact-tag compact-tag-${tag==='差距最大'?'diff':'drop'}">${tag}</span></td>
-      <td class="qtext"><small style="color:var(--muted);display:block;margin-bottom:.15rem">${r.section}</small>${r.question}</td>
-      <td class="num-cell">${fmtNum(r.h112)}</td>
-      <td class="num-cell">${fmtNum(r.h113)}</td>
-      <td class="num-cell">${fmtNum(r.h114)}</td>
-      ${diffCell(r.d112)}${diffCell(r.d113)}${diffCell(r.d114)}
-      ${trendCell(r.h113,r.h114)}
-    </tr>
-  `).join('');
+      <td class="qtext"><small style="color:var(--muted);display:block;margin-bottom:.15rem">${r.section}</small>${specTag}${r.question}</td>
+      <td class="num-cell">${fmtCellSmart(r,'h112')}</td>
+      <td class="num-cell">${fmtCellSmart(r,'h113')}</td>
+      <td class="num-cell">${fmtCellSmart(r,'h114')}</td>
+      ${diffCellSmart(r,'d112')}${diffCellSmart(r,'d113')}${diffCellSmart(r,'d114')}
+      ${trendCellSmart(r)}
+    </tr>`;
+  }).join('');
 }
 
 const tableViewModes = {teacher:'compact', trainee:'compact'};
